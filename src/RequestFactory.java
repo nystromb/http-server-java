@@ -1,18 +1,15 @@
-
-
 public class RequestFactory {
+	static Request req;
+	
 	public static Request build(String requestMessage) {
-		String [] reqTokens = requestMessage.split(" ");
+		String [] requestLines = requestMessage.split("\r\n");
 		
-		if(reqTokens[0].equals("GET"))
-			return new Get(reqTokens[1]);
-		else if(reqTokens[0].equals("POST"))
-			return new Post(reqTokens[1]);
-		else if (reqTokens[0].equals("PUT"))
-			return new Put(reqTokens[1]);
-		else if (reqTokens[0].equals("OPTIONS"))
-			return new Option(reqTokens[1]);
+		String [] requestLine = requestLines[0].split(" ");
 		
-		return null;
+		String method = requestLine[0];
+		String path = requestLine[1];
+		String version = requestLine[2];
+		
+		return new Request(method, path, version);
 	} 
 }
