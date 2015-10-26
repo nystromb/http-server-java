@@ -18,8 +18,9 @@ public class RequestFactoryTest {
 		
 		Request req = RequestFactory.build(request);
 		
-		assertEquals("Get", req.getClass().getName());
+		assertEquals("GET", req.getRequestMethod());
 		assertEquals("/", req.getPath());
+		assertEquals("HTTP/1.1", req.getProtocolVersion());
 	}
 	
 	@Test
@@ -28,8 +29,9 @@ public class RequestFactoryTest {
 		
 		Request req = RequestFactory.build(request);
 		
-		assertEquals("Post", req.getClass().getName());
+		assertEquals("POST", req.getRequestMethod());
 		assertEquals("/form", req.getPath());
+		assertEquals("HTTP/1.1", req.getProtocolVersion());
 	}
 	
 	@Test
@@ -38,8 +40,9 @@ public class RequestFactoryTest {
 		
 		Request req = RequestFactory.build(request);
 		
-		assertEquals("Put", req.getClass().getName());
+		assertEquals("PUT", req.getRequestMethod());
 		assertEquals("/form", req.getPath());
+		assertEquals("HTTP/1.1", req.getProtocolVersion());
 	}
 	
 	@Test
@@ -48,7 +51,8 @@ public class RequestFactoryTest {
 		
 		Request req = RequestFactory.build(request);
 		
-		assertEquals("Option", req.getClass().getName());
+		assertEquals("OPTIONS", req.getRequestMethod());
 		assertEquals("/method_options", req.getPath());
+		assertEquals("HTTP/1.1", req.getProtocolVersion());
 	}
 }
