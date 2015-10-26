@@ -10,7 +10,7 @@ public class RequestFactory {
 			return new Post(reqTokens[1]);
 		else if (reqTokens[0].equals("PUT"))
 			return new Put(reqTokens[1]);
-		else if (reqTokens[0].equals("OPTION"))
+		else if (reqTokens[0].equals("OPTIONS"))
 			return new Option(reqTokens[1]);
 		
 		return null;
