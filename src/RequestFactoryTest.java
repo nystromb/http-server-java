@@ -44,7 +44,7 @@ public class RequestFactoryTest {
 	
 	@Test
 	public void testIfFactoryReturnsOptionRequest(){
-		String request = "OPTION /method_options HTTP/1.1";
+		String request = "OPTIONS /method_options HTTP/1.1";
 		
 		Request req = RequestFactory.build(request);
 		
