@@ -12,12 +12,27 @@ public class RequestTest {
 	}
 
 	@Test
-	public void test() {
+	public void testGetRequestLineComponents() {					
 		req = new Request("GET", "/", "HTTP/1.1");
 		
-		assertEquals("GET", req.getRequestMethod());
+		assertEquals("GET", req.getMethod());
 		assertEquals("/", req.getPath());
 		assertEquals("HTTP/1.1", req.getProtocolVersion());
 	}
-
+	
+	@Test
+	public void testHasBodyIsNull(){				
+		req = new Request("POST", "/example", "HTTP/1.1");
+		
+		assertNull(req.body);
+	}
+	
+	@Test
+	public void testContainsHeadersInRequest(){
+		req = new Request("GET", "/some_page", "HTTP/1.1");
+		
+		req.headers.put("User-Agent", "HTTPClient/1.1");
+		
+		assertTrue(req.headers.containsKey("User-Agent"));
+	}
 }
