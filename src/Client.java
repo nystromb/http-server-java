@@ -31,7 +31,7 @@ public class Client {
 	}
 
 	public void send(String response) {
-		this.output.println(response);
+		this.output.print(response);
 		this.output.close();
 	}
 }

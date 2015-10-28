@@ -83,6 +83,6 @@ public class ClientTest {
 	public void testSendClientOutput() throws IOException {
 		client.send("response string");
 		
-		assertEquals("response string\n", outputStream.toString());
+		assertEquals("response string", outputStream.toString());
 	}
 }
