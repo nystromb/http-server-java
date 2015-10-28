@@ -4,10 +4,10 @@ import org.junit.Before;
 
 
 public class RequestHandlerTest {
-	RequestHandler thread;
+	HttpServerThread thread;
 
 	@Before
 	public void setUp() throws Exception {
-		thread = new RequestHandler(new Socket());
+		thread = new HttpServerThread(new Socket());
 	}
 }
