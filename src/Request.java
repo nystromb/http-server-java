@@ -1,9 +1,11 @@
-
+import java.util.HashMap;
 
 public class Request {
 	String method;
 	String path;
 	String httpVersion;
+	String body = null;
+	HashMap<String, String> headers = new HashMap<String, String>();
 	
 	public Request(String method, String path, String httpVersion) {
 		this.method = method;
@@ -11,7 +13,7 @@ public class Request {
 		this.httpVersion = httpVersion;
 	}
 
-	public String getRequestMethod() {
+	public String getMethod() {
 		return method;
 	}
 
@@ -22,5 +24,4 @@ public class Request {
 	public String getProtocolVersion() {
 		return httpVersion;
 	}
-
 }
