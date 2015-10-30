@@ -4,35 +4,59 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class RequestTest {
-	Request req;
-	
 	@Before
 	public void setUp() throws Exception {
 		
 	}
+	@Test
+	public void testSetMethodTypeInRequest(){
+		Request request = new Request();
+		
+		request.setMethod("GET");
+		
+		assertEquals("GET", request.getMethod());
+	}
+	
+	@Test
+	public void testSetRequestPath(){
+		Request request = new Request();
+		
+		request.setPath("/file");
+		
+		assertEquals("/file", request.getPath());
+	}
+	
+	@Test
+	public void testAddHeader(){
+		Request request = new Request();
+		
+		request.addHeader("User-Agent", "HttpClient");
+		
+		assertEquals("HttpClient", request.getHeader("User-Agent"));
+	}
 
 	@Test
-	public void testGetRequestLineComponents() {					
-		req = new Request("GET", "/", "HTTP/1.1");
+	public void testAddHttpVersion(){
+		Request request = new Request();
+
+		request.setProtocolVersion("HTTP/1.1");
+
+		assertEquals("HTTP/1.1", request.getProtocolVersion());
+	}
+
+	@Test
+	public void testBodyDefaultValue(){
+		Request request = new Request();
 		
-		assertEquals("GET", req.getMethod());
-		assertEquals("/", req.getPath());
-		assertEquals("HTTP/1.1", req.getProtocolVersion());
+		assertNull(request.getBody());
 	}
 	
 	@Test
-	public void testHasBodyIsNull(){				
-		req = new Request("POST", "/example", "HTTP/1.1");
+	public void testSetBodyValue(){
+		Request request = new Request();
 		
-		assertNull(req.body);
-	}
-	
-	@Test
-	public void testContainsHeadersInRequest(){
-		req = new Request("GET", "/some_page", "HTTP/1.1");
+		request.setBody("some=data");
 		
-		req.headers.put("User-Agent", "HTTPClient/1.1");
-		
-		assertTrue(req.headers.containsKey("User-Agent"));
+		assertEquals("some=data", request.getBody());
 	}
 }
