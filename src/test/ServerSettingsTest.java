@@ -1,8 +1,9 @@
-
+package test;
 
 
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,11 +23,11 @@ public class ServerSettingsTest {
 
 	@Test
 	public void testIfSetsPort() {
-		assertEquals(5000, ServerSettings.getPort());
+		Assert.assertEquals(5000, ServerSettings.getPort());
 	}
 	
 	@Test
 	public void testIfSetsFileDirectory(){
-		assertEquals("/Users/nystrom/Documents/my-8thlight-apprenticeship/cob_spec/public/", ServerSettings.getDirectory());
+		Assert.assertEquals("/Users/nystrom/Documents/my-8thlight-apprenticeship/cob_spec/public/", ServerSettings.getDirectory());
 	}
 }

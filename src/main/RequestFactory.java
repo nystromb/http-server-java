@@ -1,3 +1,5 @@
+package main;
+
 public class RequestFactory {
 	public static Request build(String requestMessage) {
 		Request request = new Request();

@@ -1,5 +1,8 @@
+package test;
+
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,7 +17,7 @@ public class RequestTest {
 		
 		request.setMethod("GET");
 		
-		assertEquals("GET", request.getMethod());
+		Assert.assertEquals("GET", request.getMethod());
 	}
 	
 	@Test
@@ -23,7 +26,7 @@ public class RequestTest {
 		
 		request.setPath("/file");
 		
-		assertEquals("/file", request.getPath());
+		Assert.assertEquals("/file", request.getPath());
 	}
 	
 	@Test
@@ -32,7 +35,7 @@ public class RequestTest {
 		
 		request.addHeader("User-Agent", "HttpClient");
 		
-		assertEquals("HttpClient", request.getHeader("User-Agent"));
+		Assert.assertEquals("HttpClient", request.getHeader("User-Agent"));
 	}
 
 	@Test
@@ -41,7 +44,7 @@ public class RequestTest {
 
 		request.setProtocolVersion("HTTP/1.1");
 
-		assertEquals("HTTP/1.1", request.getProtocolVersion());
+		Assert.assertEquals("HTTP/1.1", request.getProtocolVersion());
 	}
 
 	@Test
@@ -57,6 +60,6 @@ public class RequestTest {
 		
 		request.setBody("some=data");
 		
-		assertEquals("some=data", request.getBody());
+		Assert.assertEquals("some=data", request.getBody());
 	}
 }

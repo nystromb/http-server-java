@@ -1,7 +1,8 @@
-
+package test;
 
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,9 +20,9 @@ public class RequestFactoryTest {
 		
 		Request req = RequestFactory.build(request);
 		
-		assertEquals("GET", req.getMethod());
-		assertEquals("/", req.getPath());
-		assertEquals("HTTP/1.1", req.getProtocolVersion());
+		Assert.assertEquals("GET", req.getMethod());
+		Assert.assertEquals("/", req.getPath());
+		Assert.assertEquals("HTTP/1.1", req.getProtocolVersion());
 	}
 
 	@Test
@@ -30,9 +31,9 @@ public class RequestFactoryTest {
 		
 		Request req = RequestFactory.build(request);
 		
-		assertEquals("POST", req.getMethod());
-		assertEquals("/form", req.getPath());
-		assertEquals("HTTP/1.1", req.getProtocolVersion());
+		Assert.assertEquals("POST", req.getMethod());
+		Assert.assertEquals("/form", req.getPath());
+		Assert.assertEquals("HTTP/1.1", req.getProtocolVersion());
 	}
 
 	@Test
@@ -41,9 +42,9 @@ public class RequestFactoryTest {
 		
 		Request req = RequestFactory.build(request);
 		
-		assertEquals("PUT", req.getMethod());
-		assertEquals("/form", req.getPath());
-		assertEquals("HTTP/1.1", req.getProtocolVersion());
+		Assert.assertEquals("PUT", req.getMethod());
+		Assert.assertEquals("/form", req.getPath());
+		Assert.assertEquals("HTTP/1.1", req.getProtocolVersion());
 	}
 
 	@Test
@@ -52,9 +53,9 @@ public class RequestFactoryTest {
 		
 		Request req = RequestFactory.build(request);
 		
-		assertEquals("OPTIONS", req.getMethod());
-		assertEquals("/method_options", req.getPath());
-		assertEquals("HTTP/1.1", req.getProtocolVersion());
+		Assert.assertEquals("OPTIONS", req.getMethod());
+		Assert.assertEquals("/method_options", req.getPath());
+		Assert.assertEquals("HTTP/1.1", req.getProtocolVersion());
 	}
 
 	@Test
@@ -63,7 +64,7 @@ public class RequestFactoryTest {
 		
 		Request req = RequestFactory.build(request);
 		
-		assertEquals("HTTPClient/1.1", req.headers.get("User-Agent"));
+		Assert.assertEquals("HTTPClient/1.1", req.headers.get("User-Agent"));
 		assertTrue(req.headers.containsKey("User-Agent"));
 	}
 
@@ -73,10 +74,10 @@ public class RequestFactoryTest {
 		
 		Request req = RequestFactory.build(request);
 		
-		assertEquals("HTTPClient/1.1", req.headers.get("User-Agent"));
+		Assert.assertEquals("HTTPClient/1.1", req.headers.get("User-Agent"));
 		assertTrue(req.headers.containsKey("User-Agent"));
 		
-		assertEquals("234", req.headers.get("Content-Length"));
+		Assert.assertEquals("234", req.headers.get("Content-Length"));
 		assertTrue(req.headers.containsKey("Content-Length"));
 	}
 
@@ -86,6 +87,6 @@ public class RequestFactoryTest {
 		
 		Request req = RequestFactory.build(request);
 		
-		assertEquals("Somebody=Data", req.body);
+		Assert.assertEquals("Somebody=Data", req.body);
 	}
 }

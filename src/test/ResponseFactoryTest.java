@@ -1,5 +1,8 @@
+package test;
+
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,7 +20,7 @@ public class ResponseFactoryTest {
 		request.setPath("/");
 		request.setProtocolVersion("HTTP/1.1");
 
-		assertEquals("HTTP/1.1 200 OK\r\n\r\n", ResponseFactory.getResponse(request));
+		Assert.assertEquals("HTTP/1.1 200 OK\r\n\r\n", ResponseFactory.getResponse(request));
 	}
 
 	@Test
@@ -27,7 +30,7 @@ public class ResponseFactoryTest {
 		request.setProtocolVersion("HTTP/1.1");
 		String expectedResponse = "HTTP/1.1 200 OK\r\nAllow: GET,HEAD,POST,OPTIONS,PUT\r\n\r\n";
 
-		assertEquals(expectedResponse, ResponseFactory.getResponse(request));
+		Assert.assertEquals(expectedResponse, ResponseFactory.getResponse(request));
 	}
 
 	@Test
