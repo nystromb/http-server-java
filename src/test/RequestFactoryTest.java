@@ -2,13 +2,14 @@ package test;
 
 import static org.junit.Assert.*;
 
+import main.Request;
+import main.RequestFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class RequestFactoryTest {
-	String request = "";
-	
+
 	@Before
 	public void setUp() throws Exception {
 
@@ -64,8 +65,8 @@ public class RequestFactoryTest {
 		
 		Request req = RequestFactory.build(request);
 		
-		Assert.assertEquals("HTTPClient/1.1", req.headers.get("User-Agent"));
-		assertTrue(req.headers.containsKey("User-Agent"));
+		Assert.assertEquals("HTTPClient/1.1", req.getHeader("User-Agent"));
+		assertTrue(req.hasHeader("User-Agent"));
 	}
 
 	@Test
@@ -74,11 +75,11 @@ public class RequestFactoryTest {
 		
 		Request req = RequestFactory.build(request);
 		
-		Assert.assertEquals("HTTPClient/1.1", req.headers.get("User-Agent"));
-		assertTrue(req.headers.containsKey("User-Agent"));
+		Assert.assertEquals("HTTPClient/1.1", req.getHeader("User-Agent"));
+		assertTrue(req.hasHeader("User-Agent"));
 		
-		Assert.assertEquals("234", req.headers.get("Content-Length"));
-		assertTrue(req.headers.containsKey("Content-Length"));
+		Assert.assertEquals("234", req.getHeader("Content-Length"));
+		assertTrue(req.hasHeader("Content-Length"));
 	}
 
 	@Test
@@ -87,6 +88,6 @@ public class RequestFactoryTest {
 		
 		Request req = RequestFactory.build(request);
 		
-		Assert.assertEquals("Somebody=Data", req.body);
+		Assert.assertEquals("Somebody=Data", req.getBody());
 	}
 }
