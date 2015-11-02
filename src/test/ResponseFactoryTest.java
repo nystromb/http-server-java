@@ -2,6 +2,8 @@ package test;
 
 import static org.junit.Assert.*;
 
+import main.Request;
+import main.ResponseFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
