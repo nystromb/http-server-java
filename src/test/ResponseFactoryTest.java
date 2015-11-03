@@ -22,7 +22,7 @@ public class ResponseFactoryTest {
 		request.setPath("/");
 		request.setProtocolVersion("HTTP/1.1");
 
-		Assert.assertEquals("HTTP/1.1 200 OK\r\n\r\n", ResponseFactory.getResponse(request));
+		assertEquals("HTTP/1.1 200 OK\r\n\r\n", ResponseFactory.getResponse(request));
 	}
 
 	@Test
@@ -30,9 +30,9 @@ public class ResponseFactoryTest {
 		request.setMethod("OPTIONS");
 		request.setPath("/");
 		request.setProtocolVersion("HTTP/1.1");
-		String expectedResponse = "HTTP/1.1 200 OK\r\nAllow: GET,HEAD,POST,OPTIONS,PUT\r\n\r\n";
 
-		Assert.assertEquals(expectedResponse, ResponseFactory.getResponse(request));
+		String expectedResponse = "HTTP/1.1 200 OK\r\nAllow: GET,HEAD,POST,OPTIONS,PUT\r\n\r\n";
+		assertEquals(expectedResponse, ResponseFactory.getResponse(request));
 	}
 
 	@Test
@@ -40,9 +40,8 @@ public class ResponseFactoryTest {
 		request.setMethod("POST");
 		request.setPath("/form");
 		request.setProtocolVersion("HTTP/1.1");
-
 		request.setBody("some=data");
 
-		assertTrue(ResponseFactory.getResponse(request).contains("some=data"));
+		assertEquals("HTTP/1.1 200 OK\r\n\r\nsome=data", ResponseFactory.getResponse(request));
 	}
 }
