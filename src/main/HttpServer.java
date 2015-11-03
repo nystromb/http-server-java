@@ -1,44 +1,31 @@
 package main;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 
 class HttpServer{
 	Socket client;
-	Request parsedRequest;
+    BufferedReader input;
+    PrintWriter output;
 
-	public HttpServer(Socket client) {
+    public HttpServer(Socket client) {
 		this.client = client;
 	}
 
-	public void run() {
+	public void run() throws IOException{
 
-		try(
-				PrintWriter out = new PrintWriter(client.getOutputStream(), true);
-				BufferedReader input = new BufferedReader(new InputStreamReader(client.getInputStream()));
-		) {
-
-			String line, rawRequest = "";
-			while((line = input.readLine()) != null){
-				rawRequest += line + "\r\n";
-
-				if(!input.ready()) {
-					parsedRequest = RequestFactory.build(rawRequest);
-					break;
-				}
-			}
-
-			String response = ResponseFactory.getResponse(parsedRequest);
-			out.print(response);
-			out.flush();
-
-			System.out.print(rawRequest);
-		}catch(IOException e){
-			e.printStackTrace();
-		}
-
+        String request = "";
+        BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+        PrintWriter out = new PrintWriter(client.getOutputStream());
+        while(in.ready()){
+            request += (char) in.read();
+        }
+        System.out.print(request);
+        Request req = RequestFactory.build(request);
+        String response = ResponseFactory.getResponse(req);
+        out.print(response);;
+        out.flush();
+        in.close();
+        out.close();
 	}
 }
