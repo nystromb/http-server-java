@@ -12,20 +12,25 @@ class HttpServer{
 		this.client = client;
 	}
 
-	public void run() throws IOException{
-
+	public void run() throws IOException {
         String request = "";
-        BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
-        PrintWriter out = new PrintWriter(client.getOutputStream());
-        while(in.ready()){
-            request += (char) in.read();
+
+        input = new BufferedReader(new InputStreamReader(client.getInputStream()));
+        output = new PrintWriter(client.getOutputStream());
+
+        request += input.readLine() + "\r\n";
+        while(input.ready()) {
+            request += (char) input.read();
         }
-        System.out.print(request);
+
+        System.out.println(request);
+
         Request req = RequestFactory.build(request);
         String response = ResponseFactory.getResponse(req);
-        out.print(response);;
-        out.flush();
-        in.close();
-        out.close();
+
+        output.print(response);;
+        output.flush();
+        input.close();
+        output.close();
 	}
 }
