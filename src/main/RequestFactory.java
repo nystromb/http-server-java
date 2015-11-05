@@ -7,15 +7,9 @@ public class RequestFactory {
 		String[] requestTokens = requestMessage.split("\r\n");
 
 		String [] requestLine = requestTokens[0].split(" ");
-
-		String method = requestLine[0];
-		request.setMethod(method);
-
-		String path = requestLine[1];
-		request.setPath(path);
-
-		String version = requestLine[2];
-		request.setProtocolVersion(version);
+		request.setMethod(requestLine[0]);
+        request.setPath(requestLine[1]);
+		request.setProtocolVersion(requestLine[2]);
 		
 		int line = 1;
 		if(requestTokens.length > 1){
