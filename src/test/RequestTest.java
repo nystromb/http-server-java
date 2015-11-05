@@ -52,7 +52,7 @@ public class RequestTest {
 	public void testBodyDefaultValue(){
 		Request request = new Request();
 		
-		assertNull(request.getBody());
+		assertTrue(request.getBody().isEmpty());
 	}
 	
 	@Test

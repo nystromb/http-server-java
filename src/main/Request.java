@@ -6,7 +6,7 @@ public class Request {
 	String method;
 	String path;
 	String version;
-	String body = null;
+	String body = "";
 	HashMap<String, String> headers = new HashMap<String, String>();
 
 	public Request() {
