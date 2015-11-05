@@ -13,24 +13,31 @@ class HttpServer{
 	}
 
 	public void run() throws IOException {
-        String request = "";
+        String line, request = "";
 
-        input = new BufferedReader(new InputStreamReader(client.getInputStream()));
-        output = new PrintWriter(client.getOutputStream());
+        try (
+                BufferedReader input = new BufferedReader(new InputStreamReader(client.getInputStream()));
+                PrintWriter output = new PrintWriter(client.getOutputStream());
+        ){
+            while((line = input.readLine()) != null){
+                request += line + "\r\n";
 
-        request += input.readLine() + "\r\n";
-        while(input.ready()) {
-            request += (char) input.read();
+                if(line.isEmpty()) {
+                    while(input.ready()){
+                        request += (char) input.read();
+                    }
+                    break;
+                }
+            }
+            System.out.print(request);
+            Request req = RequestFactory.build(request);
+            String response = ResponseFactory.getResponse(req);
+
+            output.print(response);
+            output.flush();
+        } catch (IOException e){
+            e.printStackTrace();
         }
 
-        System.out.println(request);
-
-        Request req = RequestFactory.build(request);
-        String response = ResponseFactory.getResponse(req);
-
-        output.print(response);;
-        output.flush();
-        input.close();
-        output.close();
 	}
 }
