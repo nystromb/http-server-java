@@ -71,20 +71,20 @@ public class RequestFactoryTest {
 
 	@Test
 	public void testIfAddsMultipleHeaders(){
-		String request = "GET /path HTTP/1.1\r\nUser-Agent: HTTPClient/1.1\r\nContent-Length: 234\r\n\r\n";
+		String request = "GET /path HTTP/1.1\r\nUser-Agent: HTTPClient/1.1\r\nContent-Length: 0\r\n\r\n";
 		
 		Request req = RequestFactory.build(request);
 		
 		Assert.assertEquals("HTTPClient/1.1", req.getHeader("User-Agent"));
 		assertTrue(req.hasHeader("User-Agent"));
 		
-		Assert.assertEquals("234", req.getHeader("Content-Length"));
+		Assert.assertEquals("0", req.getHeader("Content-Length"));
 		assertTrue(req.hasHeader("Content-Length"));
 	}
 
 	@Test
 	public void testIfAddsBodyToRequest(){
-		String request = "GET /path HTTP/1.1\r\nUser-Agent: HTTPClient/1.1\r\nContent-Length: 234\r\n\r\nSomebody=Data";
+		String request = "GET /path HTTP/1.1\r\nUser-Agent: HTTPClient/1.1\r\nContent-Length: 13\r\n\r\nSomebody=Data";
 		
 		Request req = RequestFactory.build(request);
 		
