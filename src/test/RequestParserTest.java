@@ -3,12 +3,12 @@ package test;
 import static org.junit.Assert.*;
 
 import main.Request;
-import main.RequestFactory;
+import main.RequestParser;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class RequestFactoryTest {
+public class RequestParserTest {
 
 	@Before
 	public void setUp() throws Exception {
@@ -19,7 +19,7 @@ public class RequestFactoryTest {
 	public void testIfRequestFactoryReturnsAGetRequest() {
 		String request = "GET / HTTP/1.1";
 		
-		Request req = RequestFactory.build(request);
+		Request req = RequestParser.build(request);
 		
 		Assert.assertEquals("GET", req.getMethod());
 		Assert.assertEquals("/", req.getPath());
@@ -30,7 +30,7 @@ public class RequestFactoryTest {
 	public void testIfRequestFactoryReturnsAPostRequest(){
 		String request = "POST /form HTTP/1.1";
 		
-		Request req = RequestFactory.build(request);
+		Request req = RequestParser.build(request);
 		
 		Assert.assertEquals("POST", req.getMethod());
 		Assert.assertEquals("/form", req.getPath());
@@ -41,7 +41,7 @@ public class RequestFactoryTest {
 	public void testIfFactoryReturnsAPutRequest(){
 		String request = "PUT /form HTTP/1.1";
 		
-		Request req = RequestFactory.build(request);
+		Request req = RequestParser.build(request);
 		
 		Assert.assertEquals("PUT", req.getMethod());
 		Assert.assertEquals("/form", req.getPath());
@@ -52,7 +52,7 @@ public class RequestFactoryTest {
 	public void testIfFactoryReturnsOptionRequest(){
 		String request = "OPTIONS /method_options HTTP/1.1";
 		
-		Request req = RequestFactory.build(request);
+		Request req = RequestParser.build(request);
 		
 		Assert.assertEquals("OPTIONS", req.getMethod());
 		Assert.assertEquals("/method_options", req.getPath());
@@ -63,7 +63,7 @@ public class RequestFactoryTest {
 	public void testIfAddsOneHeader(){
 		String request = "OPTIONS /path HTTP/1.1\r\nUser-Agent: HTTPClient/1.1\r\n\r\n";
 		
-		Request req = RequestFactory.build(request);
+		Request req = RequestParser.build(request);
 		
 		Assert.assertEquals("HTTPClient/1.1", req.getHeader("User-Agent"));
 		assertTrue(req.hasHeader("User-Agent"));
@@ -73,7 +73,7 @@ public class RequestFactoryTest {
 	public void testIfAddsMultipleHeaders(){
 		String request = "GET /path HTTP/1.1\r\nUser-Agent: HTTPClient/1.1\r\nContent-Length: 0\r\n\r\n";
 		
-		Request req = RequestFactory.build(request);
+		Request req = RequestParser.build(request);
 		
 		Assert.assertEquals("HTTPClient/1.1", req.getHeader("User-Agent"));
 		assertTrue(req.hasHeader("User-Agent"));
@@ -86,7 +86,7 @@ public class RequestFactoryTest {
 	public void testIfAddsBodyToRequest(){
 		String request = "GET /path HTTP/1.1\r\nUser-Agent: HTTPClient/1.1\r\nContent-Length: 13\r\n\r\nSomebody=Data";
 		
-		Request req = RequestFactory.build(request);
+		Request req = RequestParser.build(request);
 		
 		Assert.assertEquals("Somebody=Data", req.getBody());
 	}

@@ -1,6 +1,6 @@
 package main;
 
-public class RequestFactory {
+public class RequestParser {
 	public static Request build(String requestMessage) {
 		Request request = new Request();
 
