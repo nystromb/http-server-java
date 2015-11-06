@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import main.Request;
 import main.ResponseFactory;
+import main.Router;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +17,10 @@ public class ResponseFactoryTest {
 	@Before
 	public void setUp() throws Exception {
 		request = new Request();
-	}
+
+        Router.addResource("/");
+        Router.addResource("/form");
+    }
 
 	@Test
 	public void testGetResponse() {
@@ -105,4 +109,13 @@ public class ResponseFactoryTest {
 		String expectedResponse = "HTTP/1.1 200 OK\r\nAllow: GET,HEAD,POST,OPTIONS,PUT\r\n\r\n";
 		assertEquals(expectedResponse, ResponseFactory.getResponse(request));
 	}
+
+    @Test
+    public void test404NotFoundOnFoobar(){
+        request.setMethod("GET");
+        request.setPath("/foobar");
+        request.setProtocolVersion("HTTP/1.1");
+
+        assertEquals("HTTP/1.1 404 Not Found\r\nContent-Length: 0\r\n\r\n", ResponseFactory.getResponse(request));
+    }
 }
