@@ -1,12 +1,13 @@
 package main;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.Socket;
 
 class HttpServer{
 	Socket client;
-    BufferedReader input;
-    PrintWriter output;
 
     public HttpServer(Socket client) {
 		this.client = client;
@@ -29,8 +30,10 @@ class HttpServer{
                     break;
                 }
             }
+
             System.out.print(request);
-            Request req = RequestFactory.build(request);
+
+            Request req = RequestParser.build(request);
             String response = ResponseFactory.getResponse(req);
 
             output.print(response);
@@ -38,6 +41,5 @@ class HttpServer{
         } catch (IOException e){
             e.printStackTrace();
         }
-
 	}
 }
