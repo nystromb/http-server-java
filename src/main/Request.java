@@ -7,11 +7,11 @@ public class Request {
 	String path;
 	String version;
 	String body = "";
-	HashMap<String, String> headers = new HashMap<String, String>();
+	HashMap<String, String> headers = new HashMap<>();
 
 	public Request() {
 
-	}
+    }
 
 	public String getMethod() {
 		return method;
