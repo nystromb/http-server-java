@@ -6,14 +6,20 @@ public class ResponseFactory {
     private static HashMap<String, String> pathContent = new HashMap<>();
 
 	public static String getResponse(Request request) {
-		String response = request.getProtocolVersion();
+        StringBuffer response = new StringBuffer();
+        response.append(request.getProtocolVersion());
+		response.append(" ");
 
-		response += " 200 OK\r\n";
+        if(Router.hasPath(request.getPath())){
+            response.append("200 OK\r\n");
+        }else{
+            response.append("404 Not Found\r\n");
+        }
 
         switch(request.getMethod()){
             case "GET":
-                response += "Content-Length: " + getContent(request.getPath()).getBytes().length + "\r\n\r\n";
-                response += getContent(request.getPath());
+                response.append("Content-Length: " + getContent(request.getPath()).getBytes().length + "\r\n\r\n");
+                response.append(getContent(request.getPath()));
                 break;
             case "PUT":
                 pathContent.put(request.getPath(), request.getBody());
@@ -25,11 +31,11 @@ public class ResponseFactory {
                 pathContent.put(request.getPath(), null);
                 break;
             case "OPTIONS":
-                response += "Allow: GET,HEAD,POST,OPTIONS,PUT\r\n\r\n";
+                response.append("Allow: GET,HEAD,POST,OPTIONS,PUT\r\n\r\n");
                 break;
         }
 
-		return response;
+		return response.toString();
 	}
 
     public static String getContent(String path){
