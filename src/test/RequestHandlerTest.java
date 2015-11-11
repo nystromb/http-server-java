@@ -3,15 +3,12 @@ package test;
 import static org.junit.Assert.*;
 
 import main.Request;
-import main.ResponseFactory;
+import main.RequestHandler;
 import main.Router;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.xml.ws.Response;
-
-public class ResponseFactoryTest {
+public class RequestHandlerTest {
 	Request request;
 
 	@Before
@@ -28,7 +25,7 @@ public class ResponseFactoryTest {
 		request.setPath("/");
 		request.setProtocolVersion("HTTP/1.1");
 
-		assertEquals("HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n", ResponseFactory.getResponse(request));
+		assertTrue(RequestHandler.getResponse(request).contains("HTTP/1.1 200 OK"));
 	}
 
     @Test
@@ -38,16 +35,16 @@ public class ResponseFactoryTest {
         request.setProtocolVersion("HTTP/1.1");
         request.setBody("some=data");
 
-        String res = ResponseFactory.getResponse(request);
+        String res = RequestHandler.getResponse(request);
 
         assertTrue(res.contains("HTTP/1.1 200 OK\r\n"));
 
         request.setMethod("GET");
         request.setBody("");
 
-        res = ResponseFactory.getResponse(request);
+        res = RequestHandler.getResponse(request);
 
-        assertEquals("HTTP/1.1 200 OK\r\nContent-Length: 9\r\n\r\nsome=data", res);
+        assertTrue(res.contains("some=data"));
     }
 
     @Test
@@ -57,16 +54,16 @@ public class ResponseFactoryTest {
         request.setProtocolVersion("HTTP/1.1");
         request.setBody("different=data");
 
-        String res = ResponseFactory.getResponse(request);
+        String res = RequestHandler.getResponse(request);
 
         assertTrue(res.contains("HTTP/1.1 200 OK\r\n"));
 
         request.setMethod("GET");
         request.setBody("");
 
-        res = ResponseFactory.getResponse(request);
+        res = RequestHandler.getResponse(request);
 
-        assertEquals("HTTP/1.1 200 OK\r\nContent-Length: 14\r\n\r\ndifferent=data", res);
+        assertTrue(res.contains("different=data"));
     }
 
     @Test
@@ -76,27 +73,27 @@ public class ResponseFactoryTest {
         request.setProtocolVersion("HTTP/1.1");
         request.setBody("different=data");
 
-        String res = ResponseFactory.getResponse(request);
+        String res = RequestHandler.getResponse(request);
 
         assertTrue(res.contains("HTTP/1.1 200 OK\r\n"));
 
         request.setMethod("GET");
         request.setBody("");
 
-        res = ResponseFactory.getResponse(request);
+        res = RequestHandler.getResponse(request);
 
-        assertEquals("HTTP/1.1 200 OK\r\nContent-Length: 14\r\n\r\ndifferent=data", res);
+        assertTrue(res.contains("different=data"));
 
         request.setMethod("DELETE");
         request.setProtocolVersion("HTTP/1.1");
 
-        ResponseFactory.getResponse(request);
+        RequestHandler.getResponse(request);
 
         request.setMethod("GET");
 
-        res = ResponseFactory.getResponse(request);
+        res = RequestHandler.getResponse(request);
 
-        assertEquals("HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n", res);
+        assertFalse(res.contains("different=data"));
 
     }
 
@@ -107,7 +104,7 @@ public class ResponseFactoryTest {
 		request.setProtocolVersion("HTTP/1.1");
 
 		String expectedResponse = "HTTP/1.1 200 OK\r\nAllow: GET,HEAD,POST,OPTIONS,PUT\r\n\r\n";
-		assertEquals(expectedResponse, ResponseFactory.getResponse(request));
+		assertEquals(expectedResponse, RequestHandler.getResponse(request));
 	}
 
     @Test
@@ -116,6 +113,6 @@ public class ResponseFactoryTest {
         request.setPath("/foobar");
         request.setProtocolVersion("HTTP/1.1");
 
-        assertEquals("HTTP/1.1 404 Not Found\r\nContent-Length: 0\r\n\r\n", ResponseFactory.getResponse(request));
+        assertTrue(RequestHandler.getResponse(request).contains("HTTP/1.1 404 Not Found"));
     }
 }
