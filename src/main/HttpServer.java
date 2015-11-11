@@ -11,7 +11,10 @@ class HttpServer{
 
     public HttpServer(Socket client) {
 		this.client = client;
-	}
+        Router.addResource("/");
+        Router.addResource("/form");
+        Router.addResource("/method_options");
+    }
 
 	public void run() throws IOException {
         String line, request = "";
@@ -34,8 +37,8 @@ class HttpServer{
             System.out.print(request);
 
             Request req = RequestParser.build(request);
-            String response = ResponseFactory.getResponse(req);
-
+            String response = RequestHandler.getResponse(req);
+            System.out.println(response);
             output.print(response);
             output.flush();
         } catch (IOException e){
