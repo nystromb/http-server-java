@@ -1,29 +1,41 @@
 package main;
 
 public class RequestParser {
-	public static Request build(String requestMessage) {
-		Request request = new Request();
+    static Request request;
 
-		String[] requestTokens = requestMessage.split("\r\n");
+    public static Request process(String rawRequest) {
+        for(String line : parseRequestLines(rawRequest)){
+            if(lineIsStartOfRequest(line)){
+                request = new Request(parseStartLine(line));
+            }else if(lineIsAHeader(line)){
+                String [] heading = parseHeader(line);
+                request.addHeader(heading[0], heading[1]);
+            }else{
+                if(request.hasHeader("Content-Length")){
+                    request.setBody(line);
+                }
+            }
+        }
+        return request;
+    }
 
-		String [] requestLine = requestTokens[0].split(" ");
-		request.setMethod(requestLine[0]);
-        request.setPath(requestLine[1]);
-		request.setProtocolVersion(requestLine[2]);
-		
-		int line = 1;
-		if(requestTokens.length > 1){
-			while(line < requestTokens.length && !requestTokens[line].isEmpty()){
-				String[] headerLine = requestTokens[line].split(": ");
-				request.addHeader(headerLine[0], headerLine[1]);
-				line++;
-			}
-		}
+    private static String[] parseRequestLines(String rawRequest) {
+        return rawRequest.split("\r\n");
+    }
 
-		if(line < requestTokens.length){
-			request.body = requestTokens[++line];
-		}
-		
-		return request;
-	} 
+    private static boolean lineIsStartOfRequest(String line) {
+        return (line.split(" ").length == 3);
+    }
+
+    private static String[] parseStartLine(String line){
+        return line.split(" ");
+    }
+
+    private static boolean lineIsAHeader(String line) {
+        return (parseHeader(line).length == 2);
+    }
+
+    private static String[] parseHeader(String line) {
+        return line.split(": ");
+    }
 }
