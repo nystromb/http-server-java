@@ -1,36 +1,27 @@
 package main;
 
-import java.util.HashMap;
+import java.util.Hashtable;
 
 public class Request {
-	String method;
-	String path;
-	String version;
-	String body = "";
-	HashMap<String, String> headers = new HashMap<>();
+    String method, path, version, body = "";
+    Hashtable<String, String> headers = new Hashtable<>();
 
-	public Request() {
+    public Request(){
 
+    }
+
+	public Request(String [] startLine) {
+        this.method = startLine[0];
+        this.path = startLine[1];
+        this.version = startLine[2];
     }
 
 	public String getMethod() {
 		return method;
 	}
 
-	public void setMethod(String method) {
-        this.method = method;
-	}
-
-    public void setProtocolVersion(String version){
-        this.version = version;
-    }
-
-    public String getProtocolVersion(){
+    public String getVersion(){
         return version;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
     }
 
     public String getPath() {
@@ -45,13 +36,9 @@ public class Request {
 		return headers.get(key);
 	}
 
-	public String getBody() {
-		return body;
-	}
+	public String getBody() { return body; }
 
-	public void setBody(String body) {
-		this.body = body;
-	}
+	public void setBody(String body) { this.body = body; }
 
 	public boolean hasHeader(String headerTitle) {
 		return headers.containsKey(headerTitle);
