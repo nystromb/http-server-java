@@ -1,31 +1,41 @@
 package main;
 
-import java.util.Map.Entry;
+import java.io.IOException;
 import java.io.File;
 
 public class RequestHandler {
     static String data = "";
+    static File path;
+    public static String getResponse(Request request) throws IOException {
+        StringBuffer response = new StringBuffer();
+        response.append(request.getVersion());
+        response.append(" ");
 
-    public static String getResponse(Request request) {
-        Response response = new Response();
+        path = new File(ServerSettings.getDirectory(), request.getPath());
 
-        response.setProtocolVersion(request.getProtocolVersion());
-
-        if (Router.hasPath(request.getPath())) {
-            response.setStatusCode("200 OK");
+        if (Router.hasPath(request.getPath()) || path.exists()) {
+            response.append("200 OK");
+            response.append("\r\n");
         } else if(request.getPath().equals("/redirect")){
-            response.setStatusCode("302 Found");
-            response.addHeader("Location", "http://localhost:5000/");
+            response.append("302 Found");
+            response.append("\r\n");
+            response.append("Location: " + "http://" + request.getHeader("Host") + "/");
+            response.append("\r\n");
         } else {
-            response.setStatusCode("404 Not Found");
+            response.append("404 Not Found");
+            response.append("\r\n");
+            return response.toString();
         }
 
         switch (request.getMethod()) {
             case "GET":
-                File path = new File(ServerSettings.getDirectory() + request.getPath());
-                String fileContents = ServerReader.getContent(path);
-                response.setBody(data + "<!DOCTYPE html><html><head></head><body>" + fileContents + "</body></html>");
-                response.addHeader("Content-Length", String.valueOf(response.getBody().getBytes().length));
+                String fileContents = "";
+                if(path.isDirectory()) fileContents = ServerReader.readDirectoryContents(path);
+                if(path.isFile()) fileContents = ServerReader.readFileContents(path);
+                String responseBody = (data + fileContents);
+                response.append("Content-Length: " + responseBody.getBytes().length + "\r\n");
+                response.append("\r\n");
+                response.append(responseBody);
                 break;
             case "PUT":
                 data = request.getBody();
@@ -37,34 +47,13 @@ public class RequestHandler {
                 data = "";
                 break;
             case "OPTIONS":
-                response.addHeader("Allow", "GET,HEAD,POST,OPTIONS,PUT");
+                response.append("Allow: GET,HEAD,POST,OPTIONS,PUT");
+                response.append("\r\n\r\n");
                 break;
         }
 
         return response.toString();
     }
 
-    private static class Response extends Request{
 
-        private String statusCode;
-
-        public void setStatusCode(String statusCode) {
-            this.statusCode = statusCode;
-        }
-
-        public String toString(){
-            StringBuffer response = new StringBuffer();
-
-            response.append(version + " " + statusCode);
-
-            for(Entry<String, String> header : headers.entrySet()){
-                response.append("\r\n");
-                response.append(header.getKey() + ": " + header.getValue());
-            }
-            response.append("\r\n\r\n");
-            response.append(body);
-
-            return response.toString();
-        }
-    }
 }
