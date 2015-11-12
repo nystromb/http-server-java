@@ -4,62 +4,51 @@ import static org.junit.Assert.*;
 
 import main.Request;
 import main.RequestHandler;
+import main.RequestParser;
 import main.Router;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
+
 public class RequestHandlerTest {
 	Request request;
+    String response;
 
 	@Before
 	public void setUp() throws Exception {
-		request = new Request();
-
-        Router.addResource("/");
-        Router.addResource("/form");
+		request = new Request(new String [] {"GET", "/", "HTTP/1.1"});
     }
 
 	@Test
-	public void testGetResponse() {
-		request.setMethod("GET");
-		request.setPath("/");
-		request.setProtocolVersion("HTTP/1.1");
-
+	public void testGetResponseOnRoot() throws IOException{
 		assertTrue(RequestHandler.getResponse(request).contains("HTTP/1.1 200 OK"));
 	}
 
     @Test
-     public void testPostDataThenGetData(){
-        request.setMethod("POST");
-        request.setPath("/form");
-        request.setProtocolVersion("HTTP/1.1");
-        request.setBody("some=data");
+     public void testPostDataThenGetData() throws IOException{
+        request = RequestParser.process("POST /form HTTP/1.1\r\nContent-Length: 9\r\n\r\nsome=data");
 
-        String res = RequestHandler.getResponse(request);
+        response = RequestHandler.getResponse(request);
 
-        assertTrue(res.contains("HTTP/1.1 200 OK\r\n"));
+        assertTrue(response.contains("HTTP/1.1 200 OK"));
 
-        request.setMethod("GET");
-        request.setBody("");
+        request = RequestParser.process("GET /form HTTP/1.1\r\n");
 
-        res = RequestHandler.getResponse(request);
+        response = RequestHandler.getResponse(request);
 
-        assertTrue(res.contains("some=data"));
+        assertTrue(response.contains("some=data"));
     }
 
     @Test
-    public void testPutDataThenGetData(){
-        request.setMethod("PUT");
-        request.setPath("/form");
-        request.setProtocolVersion("HTTP/1.1");
-        request.setBody("different=data");
+    public void testPutDataThenGetData() throws IOException{
+        request = RequestParser.process("PUT /form HTTP/1.1\r\nContent-Length: 14\r\n\r\ndifferent=data");
 
         String res = RequestHandler.getResponse(request);
 
         assertTrue(res.contains("HTTP/1.1 200 OK\r\n"));
 
-        request.setMethod("GET");
-        request.setBody("");
+        request = RequestParser.process("GET /form HTTP/1.1\r\n\r\n");
 
         res = RequestHandler.getResponse(request);
 
@@ -67,51 +56,42 @@ public class RequestHandlerTest {
     }
 
     @Test
-    public void testDeleteDataThenGetData(){
-        request.setMethod("PUT");
-        request.setPath("/form");
-        request.setProtocolVersion("HTTP/1.1");
-        request.setBody("different=data");
+    public void testDeleteDataThenGetData() throws IOException{
+        request = RequestParser.process("PUT /form HTTP/1.1\r\nContent-Length: 14\r\n\r\ndifferent=data");
 
-        String res = RequestHandler.getResponse(request);
+        response = RequestHandler.getResponse(request);
 
-        assertTrue(res.contains("HTTP/1.1 200 OK\r\n"));
+        assertTrue(response.contains("HTTP/1.1 200 OK\r\n"));
 
-        request.setMethod("GET");
-        request.setBody("");
+        request = RequestParser.process("GET /form HTTP/1.1\r\n\r\n");
 
-        res = RequestHandler.getResponse(request);
+        response = RequestHandler.getResponse(request);
 
-        assertTrue(res.contains("different=data"));
+        assertTrue(response.contains("different=data"));
 
-        request.setMethod("DELETE");
-        request.setProtocolVersion("HTTP/1.1");
+        request = RequestParser.process("DELETE /form HTTP/1.1\r\n\r\n");
 
-        RequestHandler.getResponse(request);
+        response = RequestHandler.getResponse(request);
 
-        request.setMethod("GET");
+        request = RequestParser.process("GET /form HTTP/1.1\r\n\r\n");
 
-        res = RequestHandler.getResponse(request);
+        response = RequestHandler.getResponse(request);
 
-        assertFalse(res.contains("different=data"));
-
+        assertFalse(response.contains("different=data"));
     }
 
 	@Test
-	public void testOptionsRequestIncludesAllowHeaders() {
-		request.setMethod("OPTIONS");
-		request.setPath("/");
-		request.setProtocolVersion("HTTP/1.1");
+	public void testOptionsRequestIncludesAllowHeaders() throws IOException{
+		request = RequestParser.process("OPTIONS / HTTP/1.1\r\n");
 
-		String expectedResponse = "HTTP/1.1 200 OK\r\nAllow: GET,HEAD,POST,OPTIONS,PUT\r\n\r\n";
-		assertEquals(expectedResponse, RequestHandler.getResponse(request));
+        response = RequestHandler.getResponse(request);
+
+		assertEquals("HTTP/1.1 200 OK\r\nAllow: GET,HEAD,POST,OPTIONS,PUT\r\n\r\n", response);
 	}
 
     @Test
-    public void test404NotFoundOnFoobar(){
-        request.setMethod("GET");
-        request.setPath("/foobar");
-        request.setProtocolVersion("HTTP/1.1");
+    public void test404NotFoundOnFoobar() throws IOException{
+        request = RequestParser.process("GET /foobar HTTP/1.1\r\n\r\n");
 
         assertTrue(RequestHandler.getResponse(request).contains("HTTP/1.1 404 Not Found"));
     }
