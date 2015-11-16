@@ -14,38 +14,20 @@ public class RequestTest {
 	}
 	@Test
 	public void testSetMethodTypeInRequest(){
-		Request request = new Request();
+		Request request = new Request(new String[] {"GET", "/", "HTTP/1.1"});
 		
-		request.setMethod("GET");
-		
-		Assert.assertEquals("GET", request.getMethod());
+		assertEquals("GET", request.getMethod());
+        assertEquals("/", request.getPath());
+        assertEquals("HTTP/1.1", request.getVersion());
 	}
-	
-	@Test
-	public void testSetRequestPath(){
-		Request request = new Request();
-		
-		request.setPath("/file");
-		
-		Assert.assertEquals("/file", request.getPath());
-	}
-	
+
 	@Test
 	public void testAddHeader(){
-		Request request = new Request();
+		Request request = new Request(new String[] {"POST", "/file", "HTTP/1.1"});
 		
 		request.addHeader("User-Agent", "HttpClient");
 		
-		Assert.assertEquals("HttpClient", request.getHeader("User-Agent"));
-	}
-
-	@Test
-	public void testAddHttpVersion(){
-		Request request = new Request();
-
-		request.setProtocolVersion("HTTP/1.1");
-
-		Assert.assertEquals("HTTP/1.1", request.getProtocolVersion());
+		assertEquals("HttpClient", request.getHeader("User-Agent"));
 	}
 
 	@Test
@@ -57,7 +39,7 @@ public class RequestTest {
 	
 	@Test
 	public void testSetBodyValue(){
-		Request request = new Request();
+		Request request = new Request(new String[]{ "GET", "/some/path", "HTTP/1.1"});
 		
 		request.setBody("some=data");
 		
