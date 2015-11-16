@@ -32,7 +32,7 @@ public class RequestTest {
 
 	@Test
 	public void testBodyDefaultValue(){
-		Request request = new Request();
+		Request request = new Request(new String[]{ "GET", "/some/path/to/file", "HTTP/1.1" });
 		
 		assertTrue(request.getBody().isEmpty());
 	}

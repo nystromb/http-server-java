@@ -6,10 +6,6 @@ public class Request {
     String method, path, version, body = "";
     Hashtable<String, String> headers = new Hashtable<>();
 
-    public Request(){
-
-    }
-
 	public Request(String [] startLine) {
         this.method = startLine[0];
         this.path = startLine[1];
