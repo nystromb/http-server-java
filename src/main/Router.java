@@ -1,19 +1,28 @@
 package main;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Hashtable;
+import java.io.File;
 
 /**
  * Created by nystrom on 11/5/15.
  */
 public class Router {
-    static List<String> resources = new ArrayList();
+    static Hashtable<String, RequestHandler> routes = new Hashtable();
 
-    public static void addResource(String resource){
-        resources.add(resource);
+    public static void addRoute(String path, RequestHandler action){
+        routes.put(path, action);
     }
 
-    public static boolean hasPath(String resource){
-        return resources.contains(resource);
+    public static RequestHandler route(Request request) {
+        File path = new File(request.getPath());
+
+
+        if(routes.containsKey(request.getPath())){
+            return routes.get(request.getPath());
+        } else if(path.isDirectory()) {
+            return new DirectoryReader();
+        }else {
+            return new Error404();
+        }
     }
 }
