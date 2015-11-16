@@ -11,9 +11,6 @@ class HttpServer {
 
     public HttpServer(Socket client) {
 		this.client = client;
-        Router.addResource("/");
-        Router.addResource("/form");
-        Router.addResource("/method_options");
     }
 
 	public void run() throws IOException {
@@ -24,7 +21,7 @@ class HttpServer {
             String rawRequest = RequestReader.read(input);
             System.out.print(rawRequest);
             Request request = RequestParser.process(rawRequest);
-            String response = RequestHandler.getResponse(request);
+            RequestHandler response = Router.route(request);
             System.out.println(response);
             output.print(response);
             output.flush();
