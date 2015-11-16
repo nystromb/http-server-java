@@ -11,17 +11,20 @@ class HttpServer {
 
     public HttpServer(Socket client) {
 		this.client = client;
+        Router.addRoute("/form", new CustomRoute());
+        Router.addRoute("/method_options", new CustomRoute());
     }
 
 	public void run() throws IOException {
         try (
                 BufferedReader input = new BufferedReader(new InputStreamReader(client.getInputStream()));
-                PrintWriter output = new PrintWriter(client.getOutputStream());
+                PrintWriter output = new PrintWriter(client.getOutputStream())
         ){
             String rawRequest = RequestReader.read(input);
             System.out.print(rawRequest);
             Request request = RequestParser.process(rawRequest);
-            RequestHandler response = Router.route(request);
+            RequestHandler handler = Router.route(request);
+            String response = handler.handle(request);
             System.out.println(response);
             output.print(response);
             output.flush();
