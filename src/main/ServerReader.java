@@ -25,11 +25,11 @@ public class ServerReader {
 
     public static String readDirectoryContents(File path) throws IOException{
         StringBuffer contents = new StringBuffer();
-        if(path.isDirectory()){
-            String[] files = path.list();
-            for(String file : files)
-                contents.append(file + " ");
+
+        for(String file : path.list()) {
+            contents.append(file + " ");
         }
+
         return contents.toString();
     }
 }
