@@ -1,0 +1,83 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import main.*;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.io.IOException;
+
+public class CustomRouteTest {
+
+    @Before
+    public void setUp() throws Exception{
+        Router.addRoute("/form", new CustomRoute());
+    }
+
+    @Test
+    public void testGetFormController() throws IOException{
+        Request request = RequestParser.process("GET /form HTTP/1.1\r\n");
+
+        RequestHandler handler = Router.route(request);
+
+        assertTrue(handler.handle(request).contains("HTTP/1.1 200 OK"));
+    }
+
+    @Test
+    public void testPostThenGetFormController() throws IOException{
+        //POST /form
+        Request request = RequestParser.process("POST /form HTTP/1.1\r\nContent-Length: 9\r\n\r\nsome=data");
+
+        RequestHandler handler = Router.route(request);
+
+        handler.handle(request);
+
+        assertTrue(handler.handle(request).contains("HTTP/1.1 200 OK"));
+
+        //GET /form
+        request = RequestParser.process("GET /form HTTP/1.1\r\n\r\n");
+
+        handler = Router.route(request);
+
+        assertEquals("HTTP/1.1 200 OK\r\n\r\nsome=data",handler.handle(request));
+    }
+
+    @Test
+    public void testPutThenGetFormController() throws IOException{
+        //PUT /form
+        Request request = RequestParser.process("PUT /form HTTP/1.1\r\nContent-Length: 9\r\n\r\nsome=data");
+
+        RequestHandler handler = Router.route(request);
+
+        handler.handle(request);
+
+        assertTrue(handler.handle(request).contains("HTTP/1.1 200 OK"));
+
+        //GET /form
+        request = RequestParser.process("GET /form HTTP/1.1\r\n\r\n");
+
+        handler = Router.route(request);
+
+        assertEquals("HTTP/1.1 200 OK\r\n\r\nsome=data",handler.handle(request));
+    }
+
+    @Test
+    public void testDeleteThenGetFormController() throws IOException{
+        //DELETE /form
+        Request request = RequestParser.process("DELETE /form HTTP/1.1\r\n\r\n");
+
+        RequestHandler handler = Router.route(request);
+
+        handler.handle(request);
+
+        assertTrue(handler.handle(request).contains("HTTP/1.1 200 OK"));
+
+        //GET /form
+        request = RequestParser.process("GET /form HTTP/1.1\r\n\r\n");
+
+        handler = Router.route(request);
+
+        assertEquals("HTTP/1.1 200 OK\r\n\r\n",handler.handle(request));
+    }
+}

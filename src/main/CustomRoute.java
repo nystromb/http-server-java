@@ -37,21 +37,3 @@ public class CustomRoute implements RequestHandler {
         return response.toString();
     }
 }
-
-//
-//        path = new File(ServerSettings.getDirectory(), request.getPath());
-//
-//        if (Router.hasPath(request.getPath()) || path.exists()) {
-//            response.append("200 OK");
-//            response.append("\r\n");
-//        } else if(request.getPath().equals("/redirect")){
-//            response.append("302 Found");
-//            response.append("\r\n");
-//            response.append("Location: " + "http://" + request.getHeader("Host") + "/");
-//            response.append("\r\n");
-//        } else {
-//            response.append("404 Not Found");
-//            response.append("\r\n");
-//            return response.toString();
-//        }
-//
