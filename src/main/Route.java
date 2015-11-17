@@ -3,7 +3,7 @@ package main;
 /**
  * Created by nystrom on 11/16/15.
  */
-public class CustomRoute implements RequestHandler {
+public class Route implements RequestHandler {
     static String data = "";
 
     public String handle(Request request) {

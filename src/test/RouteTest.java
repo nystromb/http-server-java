@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-public class CustomRouteTest {
+public class RouteTest {
 
     @Before
     public void setUp() throws Exception{
