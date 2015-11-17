@@ -15,8 +15,10 @@ public class RouterTest {
     @Before
     public void setUp(){
         ServerSettings.parse(new String[]{"-d", "/Users/nystrom/my-8thlight-apprenticeship/cob_spec/public/"});
-        Router.addRoute("/form", new CustomRoute());
-        Router.addRoute("/method_options", new CustomRoute());
+        Router.addRoute("/", new DirectoryReader());
+        Router.addRoute("/file1", new FileContentReader());
+        Router.addRoute("/form", new Route());
+        Router.addRoute("/method_options", new Route());
     }
 
     @Test
@@ -25,7 +27,7 @@ public class RouterTest {
 
         RequestHandler handler = Router.route(request);
 
-        assertTrue(handler instanceof CustomRoute);
+        assertTrue(handler instanceof Route);
     }
 
     @Test
@@ -34,7 +36,7 @@ public class RouterTest {
 
         RequestHandler handler = Router.route(request);
 
-        assertTrue(handler instanceof CustomRoute);
+        assertTrue(handler instanceof Route);
     }
 
     @Test
@@ -55,8 +57,9 @@ public class RouterTest {
         assertTrue(handler instanceof Error404);
     }
 
+    @Test
     public void testReturnsAFileReaderIfPathIsAFile(){
-        Request request = RequestParser.process("GET /file HTTP/1.1");
+        Request request = RequestParser.process("GET /file1 HTTP/1.1");
 
         RequestHandler handler = Router.route(request);
 
