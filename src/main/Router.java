@@ -14,13 +14,8 @@ public class Router {
     }
 
     public static RequestHandler route(Request request) {
-        File path = new File(request.getPath());
-
-
         if(routes.containsKey(request.getPath())){
             return routes.get(request.getPath());
-        } else if(path.isDirectory()) {
-            return new DirectoryReader();
         }else {
             return new Error404();
         }
