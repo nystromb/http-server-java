@@ -17,6 +17,7 @@ public class RouterTest {
         ServerSettings.parse(new String[]{"-d", "/Users/nystrom/my-8thlight-apprenticeship/cob_spec/public/"});
         Router.addRoute("/", new DirectoryReader());
         Router.addRoute("/file1", new FileContentReader());
+        Router.addRoute("/redirect", new RedirectRoute());
         Router.addRoute("/form", new Route());
         Router.addRoute("/method_options", new Route());
     }
@@ -64,5 +65,14 @@ public class RouterTest {
         RequestHandler handler = Router.route(request);
 
         assertTrue(handler instanceof FileContentReader);
+    }
+
+    @Test
+    public void testReturnsARedirectHandler(){
+        Request request = RequestParser.process("GET /redirect HTTP/1.1");
+
+        RequestHandler handler = Router.route(request);
+
+        assertTrue(handler instanceof RedirectRoute);
     }
 }
