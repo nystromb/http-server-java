@@ -13,6 +13,7 @@ class HttpServer {
 		this.client = client;
         Router.addRoute("/", new DirectoryReader());
         Router.addRoute("/file1", new FileContentReader());
+        Router.addRoute("/redirect", new RedirectRoute());
         Router.addRoute("/form", new Route());
         Router.addRoute("/method_options", new Route());
     }
