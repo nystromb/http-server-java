@@ -11,8 +11,10 @@ class HttpServer {
 
     public HttpServer(Socket client) {
 		this.client = client;
-        Router.addRoute("/form", new CustomRoute());
-        Router.addRoute("/method_options", new CustomRoute());
+        Router.addRoute("/", new DirectoryReader());
+        Router.addRoute("/file1", new FileContentReader());
+        Router.addRoute("/form", new Route());
+        Router.addRoute("/method_options", new Route());
     }
 
 	public void run() throws IOException {
