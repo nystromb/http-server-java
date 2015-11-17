@@ -31,13 +31,6 @@ public class ServerReaderTest {
     public void testGetsContentsOfTextFile(){
         File path = new File(ServerSettings.getDirectory(), "/file1");
 
-        //assertEquals("file1 contents", ServerReader.getContent(path));
-    }
-
-
-    public void testGetsContentsOfFile(){
-        File path = new File(ServerSettings.getDirectory(), "/image.png");
-
-       // assertEquals("", ServerReader.getContent(path));
+        assertEquals("file1 contents", ServerReader.readFileContents(path));
     }
 }
