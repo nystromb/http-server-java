@@ -1,4 +1,8 @@
-package main;
+package main.Handlers;
+
+import main.Request;
+import main.ServerReader;
+import main.ServerSettings;
 
 import java.io.File;
 import java.io.IOException;

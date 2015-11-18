@@ -1,4 +1,6 @@
-package main;
+package main.Handlers;
+
+import main.Request;
 
 /**
  * Created by nystrom on 11/16/15.

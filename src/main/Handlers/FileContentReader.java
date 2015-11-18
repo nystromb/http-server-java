@@ -1,6 +1,8 @@
-package main;
+package main.Handlers;
 
-import com.sun.corba.se.spi.activation.Server;
+import main.Request;
+import main.ServerReader;
+import main.ServerSettings;
 
 import java.io.IOException;
 import java.io.File;
