@@ -15,9 +15,10 @@ import static org.junit.Assert.*;
 public class RouterTest {
     @Before
     public void setUp(){
-        ServerSettings.parse(new String[]{"-d", "/Users/nystrom/my-8thlight-apprenticeship/cob_spec/public/"});
+        ServerSettings.parse(new String[]{"-d", "/Users/nystrom/Documents/my-8thlight-apprenticeship/cob_spec/public/"});
         Router.addRoute("/", new DirectoryReader());
         Router.addRoute("/file1", new FileContentReader());
+        Router.addRoute("/image.jpeg", new ImageFileReader());
         Router.addRoute("/redirect", new RedirectRoute());
         Router.addRoute("/form", new Route());
         Router.addRoute("/method_options", new Route());
@@ -75,5 +76,14 @@ public class RouterTest {
         RequestHandler handler = Router.route(request);
 
         assertTrue(handler instanceof RedirectRoute);
+    }
+
+    @Test
+    public void testReturnsImageFileReaderForJPEG() throws IOException{
+        Request request = RequestParser.process("GET /image.jpeg HTTP/1.1");
+
+        RequestHandler handler = Router.route(request);
+
+        assertTrue(handler instanceof ImageFileReader);
     }
 }

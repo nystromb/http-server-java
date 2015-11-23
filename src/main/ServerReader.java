@@ -3,6 +3,7 @@ package main;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
 
 /**
  * Created by nystrom on 11/10/15.
@@ -31,5 +32,9 @@ public class ServerReader {
         }
 
         return contents.toString();
+    }
+
+    public static byte[] readImageContents(File path) throws IOException{
+        return Files.readAllBytes(path.toPath());
     }
 }
