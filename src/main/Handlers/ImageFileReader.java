@@ -20,7 +20,6 @@ public class ImageFileReader implements RequestHandler {
 
         response.write("HTTP/1.1 200 OK\r\n".getBytes());
 
-//        response.append("Content-Type: image/jpeg");
         response.write("\r\n".getBytes());
 
         response.write(ServerReader.readImageContents(new File(ServerSettings.getDirectory(), request.getPath())));
