@@ -1,6 +1,7 @@
 package test;
 
 import main.*;
+import main.Handlers.*;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -3,6 +3,8 @@ package test;
 import static org.junit.Assert.*;
 
 import main.*;
+import main.Handlers.RequestHandler;
+import main.Handlers.Route;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,7 +14,7 @@ public class RouteTest {
 
     @Before
     public void setUp() throws Exception{
-        Router.addRoute("/form", new CustomRoute());
+        Router.addRoute("/form", new Route());
     }
 
     @Test
