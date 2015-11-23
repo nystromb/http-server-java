@@ -13,7 +13,7 @@ import java.io.File;
 public class FileContentReader implements RequestHandler {
 
     @Override
-    public String handle(Request request) throws IOException {
+    public byte[] handle(Request request) throws IOException {
         StringBuffer response = new StringBuffer();
 
         response.append("HTTP/1.1");
@@ -23,6 +23,6 @@ public class FileContentReader implements RequestHandler {
 
         response.append(ServerReader.readFileContents(new File(ServerSettings.getDirectory(), request.getPath())));
 
-        return response.toString();
+        return response.toString().getBytes();
     }
 }

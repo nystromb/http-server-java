@@ -23,7 +23,7 @@ public class RouteTest {
 
         RequestHandler handler = Router.route(request);
 
-        assertTrue(handler.handle(request).contains("HTTP/1.1 200 OK"));
+        assertEquals("HTTP/1.1 200 OK".getBytes(), handler.handle(request));
     }
 
     @Test
@@ -35,14 +35,14 @@ public class RouteTest {
 
         handler.handle(request);
 
-        assertTrue(handler.handle(request).contains("HTTP/1.1 200 OK"));
+        assertEquals("HTTP/1.1 200 OK".getBytes(), handler.handle(request));
 
         //GET /form
         request = RequestParser.process("GET /form HTTP/1.1\r\n\r\n");
 
         handler = Router.route(request);
 
-        assertEquals("HTTP/1.1 200 OK\r\n\r\nsome=data",handler.handle(request));
+        assertEquals("HTTP/1.1 200 OK\r\n\r\nsome=data".getBytes(),handler.handle(request));
     }
 
     @Test
@@ -54,14 +54,14 @@ public class RouteTest {
 
         handler.handle(request);
 
-        assertTrue(handler.handle(request).contains("HTTP/1.1 200 OK"));
+        assertEquals("HTTP/1.1 200 OK".getBytes(), handler.handle(request));
 
         //GET /form
         request = RequestParser.process("GET /form HTTP/1.1\r\n\r\n");
 
         handler = Router.route(request);
 
-        assertEquals("HTTP/1.1 200 OK\r\n\r\nsome=data",handler.handle(request));
+        assertEquals("HTTP/1.1 200 OK\r\n\r\nsome=data".getBytes(),handler.handle(request));
     }
 
     @Test
@@ -73,13 +73,14 @@ public class RouteTest {
 
         handler.handle(request);
 
-        assertTrue(handler.handle(request).contains("HTTP/1.1 200 OK"));
+        assertEquals("HTTP/1.1 200 OK".getBytes(), handler.handle(request));
 
         //GET /form
         request = RequestParser.process("GET /form HTTP/1.1\r\n\r\n");
 
         handler = Router.route(request);
 
-        assertEquals("HTTP/1.1 200 OK\r\n\r\n",handler.handle(request));
+        assertEquals("HTTP/1.1 200 OK\r\n\r\n".getBytes(),handler.handle(request));
     }
+
 }

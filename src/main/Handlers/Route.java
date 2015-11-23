@@ -8,7 +8,7 @@ import main.Request;
 public class Route implements RequestHandler {
     static String data = "";
 
-    public String handle(Request request) {
+    public byte[] handle(Request request) {
         StringBuffer response = new StringBuffer();
 
         response.append(request.getVersion());
@@ -36,6 +36,6 @@ public class Route implements RequestHandler {
               break;
         }
 
-        return response.toString();
+        return response.toString().getBytes();
     }
 }

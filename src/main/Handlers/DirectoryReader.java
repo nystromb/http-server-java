@@ -12,7 +12,7 @@ import java.io.IOException;
  */
 public class DirectoryReader implements RequestHandler {
     @Override
-    public String handle(Request request) throws IOException {
+    public byte[] handle(Request request) throws IOException {
         StringBuffer response = new StringBuffer();
         response.append("HTTP/1.1 200 OK\r\n");
         response.append("\r\n");
@@ -28,6 +28,6 @@ public class DirectoryReader implements RequestHandler {
         }
         response.append("</body>");
         response.append("</html>");
-        return response.toString();
+        return response.toString().getBytes();
     }
 }
