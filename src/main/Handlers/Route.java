@@ -18,22 +18,25 @@ public class Route implements RequestHandler {
 
         switch (request.getMethod()) {
             case "GET":
-              response.append("\r\n");
-              response.append(data);
-              break;
+                response.append("\r\n");
+                response.append(data);
+                break;
             case "PUT":
-              data = request.getBody();
-              break;
+                data = request.getBody();
+                response.append("\r\n");
+                break;
             case "POST":
-              data = request.getBody();
-              break;
+                data = request.getBody();
+                response.append("\r\n");
+                break;
             case "DELETE":
-              data = "";
-              break;
+                data = "";
+                response.append("\r\n");
+                break;
             case "OPTIONS":
-              response.append("Allow: GET,HEAD,POST,OPTIONS,PUT");
-              response.append("\r\n\r\n");
-              break;
+                response.append("Allow: GET,HEAD,POST,OPTIONS,PUT");
+                response.append("\r\n\r\n");
+                break;
         }
 
         return response.toString().getBytes();
