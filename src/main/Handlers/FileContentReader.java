@@ -18,7 +18,11 @@ public class FileContentReader implements RequestHandler {
 
         response.append("HTTP/1.1");
         response.append(" ");
-        response.append("200 OK\r\n");
+        if (request.getMethod().equals("POST") || request.getMethod().equals("PUT")) {
+            response.append("405 Method Not Allowed\r\n");
+        }else {
+            response.append("200 OK\r\n");
+        }
         response.append("\r\n");
 
         response.append(ServerReader.readFileContents(new File(ServerSettings.getDirectory(), request.getPath())));
