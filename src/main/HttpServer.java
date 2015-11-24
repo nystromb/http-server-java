@@ -5,6 +5,7 @@ import main.Handlers.*;
 import java.io.*;
 import java.net.Socket;
 import java.net.URISyntaxException;
+import java.util.Arrays;
 
 class HttpServer {
 	Socket client;
@@ -20,6 +21,7 @@ class HttpServer {
         Router.addRoute("/image.jpeg", new ImageFileReader());
         Router.addRoute("/image.png", new ImageFileReader());
         Router.addRoute("/image.gif", new ImageFileReader());
+        Router.addRoute("/partial_content.txt", new FileRangeReader());
         Router.addRoute("/text-file.txt", new FileContentReader());
         Router.addRoute("/method_options", new Route());
     }

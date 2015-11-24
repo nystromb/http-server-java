@@ -23,6 +23,7 @@ public class RouterTest {
         Router.addRoute("/redirect", new RedirectRoute());
         Router.addRoute("/parameters", new ParameterDecoder());
         Router.addRoute("/form", new Route());
+        Router.addRoute("/partial_content.txt", new FileRangeReader());
         Router.addRoute("/method_options", new Route());
     }
 
@@ -96,5 +97,14 @@ public class RouterTest {
         RequestHandler handler = Router.route(request);
 
         assertTrue(handler instanceof ParameterDecoder);
+    }
+
+    @Test
+    public void testReturnsARangeRequest() throws URISyntaxException{
+        Request request = RequestParser.process("GET /partial_content.txt HTTP/1.1\r\nRange: bytes=-4\r\n\r\n");
+
+        RequestHandler handler = Router.route(request);
+
+        assertTrue(handler instanceof FileRangeReader);
     }
 }
