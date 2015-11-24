@@ -4,6 +4,7 @@ import main.Handlers.*;
 
 import java.io.*;
 import java.net.Socket;
+import java.net.URISyntaxException;
 
 class HttpServer {
 	Socket client;
@@ -22,7 +23,7 @@ class HttpServer {
         Router.addRoute("/method_options", new Route());
     }
 
-	public void run() throws IOException {
+	public void run() throws IOException, URISyntaxException {
         try (
                 BufferedReader input = new BufferedReader(new InputStreamReader(client.getInputStream()));
                 OutputStream output = client.getOutputStream()

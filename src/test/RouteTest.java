@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class RouteTest {
 
@@ -18,7 +19,7 @@ public class RouteTest {
     }
 
     @Test
-    public void testGetFormController() throws IOException{
+    public void testGetFormController() throws IOException, URISyntaxException{
         Request request = RequestParser.process("GET /form HTTP/1.1\r\n");
 
         RequestHandler handler = Router.route(request);
@@ -27,7 +28,7 @@ public class RouteTest {
     }
 
     @Test
-    public void testPostThenGetFormController() throws IOException{
+    public void testPostThenGetFormController() throws IOException, URISyntaxException{
         //POST /form
         Request request = RequestParser.process("POST /form HTTP/1.1\r\nContent-Length: 9\r\n\r\nsome=data");
 
@@ -46,7 +47,7 @@ public class RouteTest {
     }
 
     @Test
-    public void testPutThenGetFormController() throws IOException{
+    public void testPutThenGetFormController() throws IOException, URISyntaxException{
         //PUT /form
         Request request = RequestParser.process("PUT /form HTTP/1.1\r\nContent-Length: 9\r\n\r\nsome=data");
 
@@ -65,7 +66,7 @@ public class RouteTest {
     }
 
     @Test
-    public void testDeleteThenGetFormController() throws IOException{
+    public void testDeleteThenGetFormController() throws IOException, URISyntaxException{
         //DELETE /form
         Request request = RequestParser.process("DELETE /form HTTP/1.1\r\n\r\n");
 

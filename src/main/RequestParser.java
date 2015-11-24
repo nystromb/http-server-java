@@ -1,12 +1,16 @@
 package main;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 public class RequestParser {
     static Request request;
 
-    public static Request process(String rawRequest) {
+    public static Request process(String rawRequest) throws URISyntaxException {
         for(String line : parseRequestLines(rawRequest)){
             if(lineIsStartOfRequest(line)){
-                request = new Request(parseStartLine(line));
+                String[] startLine = parseStartLine(line);
+                request = new Request(startLine[0], new URI(startLine[1]), startLine[2]);
             }else if(lineIsAHeader(line)){
                 String [] heading = parseHeader(line);
                 request.addHeader(heading[0], heading[1]);

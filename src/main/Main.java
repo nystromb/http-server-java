@@ -2,9 +2,10 @@ package main;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.net.URISyntaxException;
 
 public class Main {
-	 public static void main(String[] args) {
+	 public static void main(String[] args) throws URISyntaxException {
 		ServerSettings.parse(args);
          try (ServerSocket serverSocket = new ServerSocket(ServerSettings.getPort())) {
              while(true) {

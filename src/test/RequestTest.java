@@ -7,23 +7,27 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 public class RequestTest {
 	@Before
 	public void setUp() throws Exception {
 		
 	}
 	@Test
-	public void testSetMethodTypeInRequest(){
-		Request request = new Request(new String[] {"GET", "/", "HTTP/1.1"});
+	public void testSetMethodTypeInRequest() throws URISyntaxException {
+		Request request = new Request("GET", new URI("/?some=query"), "HTTP/1.1");
 		
 		assertEquals("GET", request.getMethod());
         assertEquals("/", request.getPath());
+        assertEquals("some=query", request.getQuery());
         assertEquals("HTTP/1.1", request.getVersion());
 	}
 
 	@Test
-	public void testAddHeader(){
-		Request request = new Request(new String[] {"POST", "/file", "HTTP/1.1"});
+	public void testAddHeader() throws URISyntaxException {
+		Request request = new Request("POST", new URI("/file"), "HTTP/1.1");
 		
 		request.addHeader("User-Agent", "HttpClient");
 		
@@ -31,15 +35,15 @@ public class RequestTest {
 	}
 
 	@Test
-	public void testBodyDefaultValue(){
-		Request request = new Request(new String[]{ "GET", "/some/path/to/file", "HTTP/1.1" });
+	public void testBodyDefaultValue() throws URISyntaxException{
+		Request request = new Request("GET", new URI("/some/path/to/file"), "HTTP/1.1");
 		
 		assertTrue(request.getBody().isEmpty());
 	}
 	
 	@Test
-	public void testSetBodyValue(){
-		Request request = new Request(new String[]{ "GET", "/some/path", "HTTP/1.1"});
+	public void testSetBodyValue() throws URISyntaxException{
+		Request request = new Request("GET", new URI("/some/path"), "HTTP/1.1");
 		
 		request.setBody("some=data");
 		
