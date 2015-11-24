@@ -16,6 +16,7 @@ class HttpServer {
         Router.addRoute("/file2", new FileContentReader());
         Router.addRoute("/redirect", new RedirectRoute());
         Router.addRoute("/form", new Route());
+        Router.addRoute("/parameters", new ParameterDecoder());
         Router.addRoute("/image.jpeg", new ImageFileReader());
         Router.addRoute("/image.png", new ImageFileReader());
         Router.addRoute("/image.gif", new ImageFileReader());

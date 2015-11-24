@@ -47,6 +47,6 @@ public class Request {
 	}
 
     public String getQuery() {
-        return uri.getQuery();
+        return uri.getQuery().replaceAll("(?<![\\s><!+-,])[=]", " = ").replaceAll("(?<![\\s><!+-,])[&]", " ");
     }
 }
