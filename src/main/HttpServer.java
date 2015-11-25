@@ -6,24 +6,15 @@ import java.io.*;
 import java.net.Socket;
 import java.net.URISyntaxException;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 class HttpServer {
 	Socket client;
-
-    public HttpServer(Socket client) {
+    Logger logger;
+    public HttpServer(Socket client, Logger logger) {
 		this.client = client;
-        Router.addRoute("/", new DirectoryReader());
-        Router.addRoute("/file1", new FileContentReader());
-        Router.addRoute("/file2", new FileContentReader());
-        Router.addRoute("/redirect", new RedirectRoute());
-        Router.addRoute("/form", new Route());
-        Router.addRoute("/parameters", new ParameterDecoder());
-        Router.addRoute("/image.jpeg", new ImageFileReader());
-        Router.addRoute("/image.png", new ImageFileReader());
-        Router.addRoute("/image.gif", new ImageFileReader());
-        Router.addRoute("/partial_content.txt", new FileRangeReader());
-        Router.addRoute("/text-file.txt", new FileContentReader());
-        Router.addRoute("/method_options", new Route());
+        this.logger = logger;
     }
 
 	public void run() throws IOException, URISyntaxException {
@@ -32,11 +23,11 @@ class HttpServer {
                 OutputStream output = client.getOutputStream()
         ){
             String rawRequest = RequestReader.read(input);
-            System.out.print(rawRequest);
+            logger.log(Level.INFO, rawRequest);
             Request request = RequestParser.process(rawRequest);
             RequestHandler handler = Router.route(request);
             byte[] response = handler.handle(request);
-            System.out.println(response);
+            System.out.println(new String(response, "UTF-8"));
             output.write(response);
             output.flush();
         } catch (IOException e){
