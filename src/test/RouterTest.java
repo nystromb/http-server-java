@@ -26,6 +26,7 @@ public class RouterTest {
         Router.addRoute("/partial_content.txt", new FileRangeReader());
         Router.addRoute("/method_options", new Route());
         Router.addRoute("/logs", new LogsHandler(""));
+        Router.addRoute("/patch-content.txt", new FileContentReader());
     }
 
     @Test
@@ -116,5 +117,14 @@ public class RouterTest {
         RequestHandler handler = Router.route(request);
 
         assertTrue(handler instanceof LogsHandler);
+    }
+
+    @Test
+    public void test() throws URISyntaxException{
+        Request request = RequestParser.process("GET /patch-content.txt HTTP/1.1\r\n\r\n");
+
+        RequestHandler handler = Router.route(request);
+
+        assertTrue(handler instanceof FileContentReader);
     }
 }

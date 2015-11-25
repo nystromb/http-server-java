@@ -51,6 +51,7 @@ public class ServerSettings {
         Router.addRoute("/text-file.txt", new FileContentReader());
         Router.addRoute("/method_options", new Route());
         Router.addRoute("/logs", new LogsHandler("admin:hunter2"));
+        Router.addRoute("/patch-content.txt", new FileContentReader());
     }
 
     public static Logger getLogger() throws IOException{
