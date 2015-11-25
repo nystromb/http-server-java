@@ -53,4 +53,11 @@ public class RequestParserTest {
 
         assertEquals("", request.getBody());
     }
+
+    @Test
+    public void testWithHeaderWith3Components() throws URISyntaxException{
+        request = RequestParser.process("GET /logs HTTP/1.1\r\nExample-Header: someValue\r\nUser-Agent: HttpClient\r\nAuthorization: Basic AKSFDLSDFlskdfj\r\nsome=data");
+
+        assertEquals("/logs", request.getPath());
+    }
 }

@@ -28,7 +28,7 @@ public class RequestParser {
     }
 
     private static boolean lineIsStartOfRequest(String line) {
-        return (line.split(" ").length == 3);
+        return (line.split(" ").length == 3 && line.contains("HTTP/1.1"));
     }
 
     private static String[] parseStartLine(String line){
