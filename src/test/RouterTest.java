@@ -25,6 +25,7 @@ public class RouterTest {
         Router.addRoute("/form", new Route());
         Router.addRoute("/partial_content.txt", new FileRangeReader());
         Router.addRoute("/method_options", new Route());
+        Router.addRoute("/logs", new LogsHandler(""));
     }
 
     @Test
@@ -56,7 +57,7 @@ public class RouterTest {
 
     @Test
     public void testReturnsA404HandlerIfRouteNotDefined() throws URISyntaxException{
-        Request request = RequestParser.process("GET /foobar HTTP/1.1");
+        Request request = RequestParser.process("GET /foobar HTTP/1.1\r\n\r\n");
 
         RequestHandler handler = Router.route(request);
 
@@ -106,5 +107,14 @@ public class RouterTest {
         RequestHandler handler = Router.route(request);
 
         assertTrue(handler instanceof FileRangeReader);
+    }
+
+    @Test
+    public void testReturnsAAuthHandler() throws URISyntaxException{
+        Request request = RequestParser.process("GET /logs HTTP/1.1\r\n\r\n");
+
+        RequestHandler handler = Router.route(request);
+
+        assertTrue(handler instanceof LogsHandler);
     }
 }
