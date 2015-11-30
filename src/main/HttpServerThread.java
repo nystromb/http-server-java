@@ -7,10 +7,10 @@ import java.net.Socket;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
 
-class HttpServer implements Runnable {
+class HttpServerThread implements Runnable {
 	Socket client;
 
-    public HttpServer(Socket client) {
+    public HttpServerThread(Socket client) {
 		this.client = client;
     }
 
