@@ -1,6 +1,7 @@
 package test.Handlers;
 
 import main.Request;
+import main.ServerSettings;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -18,7 +19,7 @@ public class LogsHandlerTest {
 
     @Before
     public void setUp(){
-
+        ServerSettings.parse(new String[] {"-d", "/Users/nystrom/Documents/my-8thlight-apprenticeship/cob_spec/public/"});
     }
 
     @Test

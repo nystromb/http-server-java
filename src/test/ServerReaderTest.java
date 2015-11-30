@@ -24,7 +24,7 @@ public class ServerReaderTest {
     public void testGetsListOfFilesInDirectory() throws IOException{
         File path = new File(ServerSettings.getDirectory(), "/");
 
-        assertEquals("file1 file2 image.gif image.jpeg image.png partial_content.txt patch-content.txt text-file.txt ", ServerReader.readDirectoryContents(path));
+        assertEquals("file1 file2 image.gif image.jpeg image.png logs partial_content.txt patch-content.txt text-file.txt ", ServerReader.readDirectoryContents(path));
     }
 
     @Test

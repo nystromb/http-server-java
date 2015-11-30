@@ -3,7 +3,9 @@ package main;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
+import java.nio.file.Path;
 
 /**
  * Created by nystrom on 11/10/15.
@@ -27,8 +29,10 @@ public class ServerReader {
     public static String readDirectoryContents(File path) throws IOException{
         StringBuffer contents = new StringBuffer();
 
-        for(String file : path.list()) {
-            contents.append(file + " ");
+        try(DirectoryStream<Path> stream = Files.newDirectoryStream(path.toPath(), "[aA-zZ]*")){
+            for(Path file : stream) {
+                contents.append(file.getFileName() + " ");
+            }
         }
 
         return contents.toString();

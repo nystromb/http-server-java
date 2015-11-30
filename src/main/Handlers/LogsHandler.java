@@ -29,7 +29,7 @@ public class LogsHandler implements RequestHandler {
 
         if (request.hasHeader("Authorization") && authHeader.equals(request.getHeader("Authorization"))) {
             response.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
-            byte[] body = ServerReader.readImageContents(new File(ServerSettings.getDirectory() + "log/logs.txt"));
+            byte[] body = ServerReader.readImageContents(new File(ServerSettings.getDirectory() + "logs/logs.txt"));
             response.write(body);
         } else {
             response.write("HTTP/1.1 401 Authorization Required\r\n\r\nAuthentication required".getBytes());

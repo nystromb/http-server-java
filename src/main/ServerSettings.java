@@ -56,7 +56,7 @@ public class ServerSettings {
 
     public static Logger getLogger() throws IOException{
         Logger logger = Logger.getLogger("ServerLogger");
-        FileHandler fileHandler = new FileHandler(ServerSettings.getDirectory() + "/log/logs.txt", true);
+        FileHandler fileHandler = new FileHandler(ServerSettings.getDirectory() + "/logs/logs.txt", true);
         logger.addHandler(fileHandler);
         return logger;
     }
