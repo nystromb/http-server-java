@@ -5,12 +5,12 @@ import main.Handlers.*;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;
-import java.util.logging.Logger;
+import java.util.logging.Level;
 
 public class ServerSettings {
 	private static int port = 5000;
 	private static String dir;
-	
+
 	public static void parse(String[] args) {
 		for(int option = 0; option < args.length; option++){
 			if(args[option].equals("-p")){
@@ -54,10 +54,12 @@ public class ServerSettings {
         Router.addRoute("/patch-content.txt", new FileContentReader());
     }
 
-    public static Logger getLogger() throws IOException{
-        Logger logger = Logger.getLogger("ServerLogger");
-        FileHandler fileHandler = new FileHandler(ServerSettings.getDirectory() + "/logs/logs.txt", true);
-        logger.addHandler(fileHandler);
-        return logger;
+    public static void setUpLogger(){
+        try {
+            FileHandler fileHandler = new FileHandler(ServerSettings.getDirectory() + "/logs/logs.txt", true);
+            Main.logger.addHandler(fileHandler);
+        }catch(IOException e){
+            Main.logger.log(Level.SEVERE, "Couldn't set up logging");
+        }
     }
 }

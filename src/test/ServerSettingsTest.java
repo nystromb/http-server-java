@@ -3,12 +3,9 @@ package test;
 
 import static org.junit.Assert.*;
 
+import main.*;
 import main.Handlers.LogsHandler;
 import main.Handlers.RequestHandler;
-import main.Request;
-import main.RequestParser;
-import main.Router;
-import main.ServerSettings;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -52,10 +49,10 @@ public class ServerSettingsTest {
 
     @Test
     public void testSetUpLogger() throws IOException{
-        Logger logger = ServerSettings.getLogger();
+        ServerSettings.setUpLogger();
 
-        assertTrue(logger instanceof Logger);
-        assertTrue(logger.getHandlers()[0] instanceof FileHandler);
+        assertTrue(Main.logger instanceof Logger);
+        assertTrue(Main.logger.getHandlers()[0] instanceof FileHandler);
     }
 
 }
