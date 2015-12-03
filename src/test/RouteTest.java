@@ -3,12 +3,14 @@ package test;
 import static org.junit.Assert.*;
 
 import main.*;
+
 import main.Handlers.RequestHandler;
 import main.Handlers.Route;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
 
 public class RouteTest {
@@ -19,69 +21,73 @@ public class RouteTest {
     }
 
     @Test
-    public void testGetFormController() throws IOException, URISyntaxException{
-        Request request = RequestParser.process("GET /form HTTP/1.1\r\n");
-
-        RequestHandler handler = Router.route(request);
-
-        assertArrayEquals("HTTP/1.1 200 OK\r\n\r\n".getBytes(), handler.handle(request));
-    }
-
-    @Test
-    public void testPostThenGetFormController() throws IOException, URISyntaxException{
+    public void testPostThenGetFormData() throws IOException, URISyntaxException{
         //POST /form
-        Request request = RequestParser.process("POST /form HTTP/1.1\r\nContent-Length: 9\r\n\r\nsome=data");
+        Request request = new Request("POST", new URI("/form"), "HTTP/1.1");
+        request.addHeader("Content-Length", "9");
+        request.setBody("some=data");
 
-        RequestHandler handler = Router.route(request);
+        RequestHandler handler = Router.getHandler(request);
 
-        handler.handle(request);
+        Response response = handler.handle(request);
 
-        assertArrayEquals("HTTP/1.1 200 OK\r\n\r\n".getBytes(), handler.handle(request));
+        assertTrue(new String(response.toByteArray()).contains("200 OK"));
+        assertFalse(new String(response.toByteArray()).contains("some=data"));
 
         //GET /form
-        request = RequestParser.process("GET /form HTTP/1.1\r\n\r\n");
+        request = new Request("GET", new URI("/form"), "HTTP/1.1");
 
-        handler = Router.route(request);
+        handler = Router.getHandler(request);
 
-        assertArrayEquals("HTTP/1.1 200 OK\r\n\r\nsome=data".getBytes(), handler.handle(request));
+        response = handler.handle(request);
+
+        assertTrue(new String(response.toByteArray()).contains("200 OK"));
+        assertTrue(new String(response.toByteArray()).contains("some=data"));
     }
 
     @Test
     public void testPutThenGetFormController() throws IOException, URISyntaxException{
         //PUT /form
-        Request request = RequestParser.process("PUT /form HTTP/1.1\r\nContent-Length: 9\r\n\r\nsome=data");
+        Request request = new Request("PUT", new URI("/form"), "HTTP/1.1");
+        request.addHeader("Content-Length", "14");
+        request.setBody("some=otherdata");
 
-        RequestHandler handler = Router.route(request);
+        RequestHandler handler = Router.getHandler(request);
 
-        handler.handle(request);
+        Response response = handler.handle(request);
 
-        assertArrayEquals("HTTP/1.1 200 OK\r\n\r\n".getBytes(), handler.handle(request));
+        assertTrue(new String(response.toByteArray()).contains("200 OK"));
 
         //GET /form
-        request = RequestParser.process("GET /form HTTP/1.1\r\n\r\n");
+        request = new Request("GET", new URI("/form"), "HTTP/1.1");
 
-        handler = Router.route(request);
+        handler = Router.getHandler(request);
 
-        assertArrayEquals("HTTP/1.1 200 OK\r\n\r\nsome=data".getBytes(), handler.handle(request));
+        response = handler.handle(request);
+
+        assertTrue(new String(response.toByteArray()).contains("200 OK"));
+        assertTrue(new String(response.toByteArray()).contains("some=otherdata"));
     }
 
     @Test
     public void testDeleteThenGetFormController() throws IOException, URISyntaxException{
         //DELETE /form
-        Request request = RequestParser.process("DELETE /form HTTP/1.1\r\n\r\n");
+        Request request = new Request("DELETE", new URI("/form"), "HTTP/1.1");
+        RequestHandler handler = Router.getHandler(request);
 
-        RequestHandler handler = Router.route(request);
+        Response response = handler.handle(request);
 
-        handler.handle(request);
-
-        assertArrayEquals("HTTP/1.1 200 OK\r\n\r\n".getBytes(), handler.handle(request));
+        assertTrue(new String(response.toByteArray()).contains("200 OK"));
 
         //GET /form
-        request = RequestParser.process("GET /form HTTP/1.1\r\n\r\n");
+        request = new Request("GET", new URI("/form"), "HTTP/1.1");
 
-        handler = Router.route(request);
+        handler = Router.getHandler(request);
 
-        assertArrayEquals("HTTP/1.1 200 OK\r\n\r\n".getBytes(),handler.handle(request));
+        response = handler.handle(request);
+
+        assertTrue(new String(response.toByteArray()).contains("200 OK"));
+        assertTrue(new String(response.getBody()).isEmpty());
     }
 
 }
