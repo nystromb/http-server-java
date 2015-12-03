@@ -26,6 +26,7 @@ public class Response {
             buffer.write((header.getKey() + ": " + header.getValue() + "\r\n").getBytes());
         }
 
+        buffer.write("\r\n".getBytes());
         buffer.write(this.body);
 
         return buffer.toByteArray();
@@ -33,54 +34,18 @@ public class Response {
 
     public void setBody(byte[] body) {
         this.body = body;
-        setHeader("Content-Length", String.valueOf(body.length));
+        addHeader("Content-Length", String.valueOf(body.length));
+    }
+
+    public byte[] getBody() {
+        return body;
     }
 
     public String getHeader(String header) {
         return headers.get(header);
     }
 
-    public void setHeader(String header, String value) {
+    public void addHeader(String header, String value) {
         headers.put(header, value);
     }
-
-    public byte[] getBody() {
-        return body;
-    }
-//
-//    public String version = "HTTP/1.1";
-//    public String status = "";
-//    public HashMap<String, String> headers = new HashMap<>();
-//    public String body = "";
-//
-//    public void setStatus(String status) {
-//        this.status = status;
-//    }
-//
-//    public void addHeader(String header, String value) {
-//        headers.put(header, value);
-//    }
-//
-//    public void setBody(String body){
-//        this.body = body;
-//    }
-//
-//    public byte[] getBytes() throws IOException{
-//        ByteArrayOutputStream output = new ByteArrayOutputStream();
-//
-//        output.write("HTTP/1.1 ".getBytes());
-//        output.write(status.getBytes());
-//        output.write("\r\n".getBytes());
-//        for(Map.Entry<String, String> header : headers.entrySet()){
-//            output.write((header.getKey() + ": " + header.getValue() + "\r\n").getBytes());
-//        }
-//        output.write("\r\n".getBytes());
-//        output.write(body.getBytes());
-//
-//        return output.toByteArray();
-//    }
-//
-//    public String getBodyLength() {
-//        return String.valueOf(body.getBytes().length);
-//    }
 }
