@@ -1,44 +1,35 @@
 package main.Handlers;
 
 import main.Request;
+import main.Response;
 
 /**
  * Created by nystrom on 11/16/15.
  */
 public class Route implements RequestHandler {
     static String data = "";
-
-    public byte[] handle(Request request) {
-        StringBuffer response = new StringBuffer();
-
-        response.append(request.getVersion());
-        response.append(" ");
-        response.append("200 OK");
-        response.append("\r\n");
+    Response response = new Response();
+    public Response handle(Request request) {
+        response.setStatus("200 OK");
 
         switch (request.getMethod()) {
             case "GET":
-                response.append("\r\n");
-                response.append(data);
+                response.setBody(data.getBytes());
                 break;
             case "PUT":
                 data = request.getBody();
-                response.append("\r\n");
                 break;
             case "POST":
                 data = request.getBody();
-                response.append("\r\n");
                 break;
             case "DELETE":
                 data = "";
-                response.append("\r\n");
                 break;
             case "OPTIONS":
-                response.append("Allow: GET,HEAD,POST,OPTIONS,PUT");
-                response.append("\r\n\r\n");
+//                response.addHeader("Allow:", "GET,HEAD,POST,OPTIONS,PUT");
                 break;
         }
 
-        return response.toString().getBytes();
+        return response;
     }
 }

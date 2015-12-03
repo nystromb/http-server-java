@@ -1,9 +1,10 @@
 package main.Handlers;
 
 import main.Request;
+import main.Response;
 
 import java.io.IOException;
 
 public interface RequestHandler {
-    byte[] handle(Request request) throws IOException;
+    Response handle(Request request) throws IOException;
 }
