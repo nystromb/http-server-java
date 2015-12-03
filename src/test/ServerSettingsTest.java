@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
@@ -36,21 +37,20 @@ public class ServerSettingsTest {
 	
 	@Test
 	public void testIfSetsFileDirectory(){
-		Assert.assertEquals("/Users/nystrom/Documents/my-8thlight-apprenticeship/cob_spec/public/", ServerSettings.getDirectory());
+		Assert.assertEquals("/Users/nystrom/Documents/my-8thlight-apprenticeship/cob_spec/public/", ServerSettings.getRootDirectory());
 	}
 
     @Test
-    public void testIfBuildRoutes() throws URISyntaxException{
-        ServerSettings.buildRoutes();
-        Request request = RequestParser.process("GET /logs HTTP/1.1\r\n");
-        RequestHandler handler = Router.route(request);
+    public void testIfBuildRoutes() throws URISyntaxException, IOException {
+        Main.buildRoutes();
+        Request request = new Request("GET", new URI("/logs"), "HTTP/1.1");
+        RequestHandler handler = Router.getHandler(request);
         assertTrue(handler instanceof LogsHandler);
     }
 
     @Test
     public void testSetUpLogger() throws IOException{
-        ServerSettings.setUpLogger();
-
+        Main.setUpLogger();
         assertTrue(Main.logger instanceof Logger);
         assertTrue(Main.logger.getHandlers()[0] instanceof FileHandler);
     }

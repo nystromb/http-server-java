@@ -1,15 +1,8 @@
 package main;
 
-
-import main.Handlers.*;
-
-import java.io.IOException;
-import java.util.logging.FileHandler;
-import java.util.logging.Level;
-
 public class ServerSettings {
 	private static int port = 5000;
-	private static String dir;
+	private static String directory;
 
 	public static void parse(String[] args) {
 		for(int option = 0; option < args.length; option++){
@@ -22,7 +15,7 @@ public class ServerSettings {
 	}
 
 	private static void setDirectory(String directory) {
-		dir = directory;
+		ServerSettings.directory = directory;
 	}
 
 	private static void setPort(String arg) {
@@ -33,33 +26,7 @@ public class ServerSettings {
 		return port;
 	}
 
-	public static String getDirectory() {
-		return dir;
+	public static String getRootDirectory() {
+		return directory;
 	}
-
-    public static void buildRoutes() {
-        Router.addRoute("/", new DirectoryReader());
-        Router.addRoute("/file1", new FileContentReader());
-        Router.addRoute("/file2", new FileContentReader());
-        Router.addRoute("/redirect", new RedirectRoute());
-        Router.addRoute("/form", new Route());
-        Router.addRoute("/parameters", new ParameterDecoder());
-        Router.addRoute("/image.jpeg", new ImageFileReader());
-        Router.addRoute("/image.png", new ImageFileReader());
-        Router.addRoute("/image.gif", new ImageFileReader());
-        Router.addRoute("/partial_content.txt", new FileRangeReader());
-        Router.addRoute("/text-file.txt", new FileContentReader());
-        Router.addRoute("/method_options", new Route());
-        Router.addRoute("/logs", new LogsHandler("admin:hunter2"));
-        Router.addRoute("/patch-content.txt", new FileContentReader());
-    }
-
-    public static void setUpLogger(){
-        try {
-            FileHandler fileHandler = new FileHandler(ServerSettings.getDirectory() + "/logs/logs.txt", true);
-            Main.logger.addHandler(fileHandler);
-        }catch(IOException e){
-            Main.logger.log(Level.SEVERE, "Couldn't set up logging");
-        }
-    }
 }
