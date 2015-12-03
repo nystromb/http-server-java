@@ -2,10 +2,11 @@ package test;
 
 import main.*;
 import main.Handlers.*;
+import main.Handlers.FileHandler;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
 
 import static org.junit.Assert.*;
@@ -17,114 +18,70 @@ public class RouterTest {
     @Before
     public void setUp(){
         ServerSettings.parse(new String[]{"-d", "/Users/nystrom/Documents/my-8thlight-apprenticeship/cob_spec/public/"});
-        Router.addRoute("/", new DirectoryReader());
-        Router.addRoute("/file1", new FileContentReader());
-        Router.addRoute("/image.jpeg", new ImageFileReader());
-        Router.addRoute("/redirect", new RedirectRoute());
-        Router.addRoute("/parameters", new ParameterDecoder());
-        Router.addRoute("/form", new Route());
-        Router.addRoute("/partial_content.txt", new FileRangeReader());
-        Router.addRoute("/method_options", new Route());
+
         Router.addRoute("/logs", new LogsHandler(""));
-        Router.addRoute("/patch-content.txt", new FileContentReader());
-    }
-
-    @Test
-    public void testRouterReturnsCustomRouteForForm() throws IOException, URISyntaxException{
-        Request request = RequestParser.process("GET /form HTTP/1.1\r\n");
-
-        RequestHandler handler = Router.route(request);
-
-        assertTrue(handler instanceof Route);
-    }
-
-    @Test
-    public void testRouterReturnsCustomRouteForOptions() throws URISyntaxException {
-        Request request = RequestParser.process("OPTIONS /method_options HTTP/1.1\r\n");
-
-        RequestHandler handler = Router.route(request);
-
-        assertTrue(handler instanceof Route);
     }
 
     @Test
     public void testRouterReturnReadDirectoryAction() throws URISyntaxException{
-        Request request = RequestParser.process("GET / HTTP/1.1");
+        Request request = new Request("GET", new URI("/"), "HTTP/1.1");
 
-        RequestHandler handler = Router.route(request);
+        RequestHandler handler = Router.getHandler(request);
 
-        assertTrue(handler instanceof DirectoryReader);
+        assertTrue(handler instanceof DirectoryHandler);
     }
 
     @Test
-    public void testReturnsA404HandlerIfRouteNotDefined() throws URISyntaxException{
-        Request request = RequestParser.process("GET /foobar HTTP/1.1\r\n\r\n");
+    public void testRouterReturnsAFileAction() throws URISyntaxException{
+        Request request = new Request("GET", new URI("/file1"), "HTTP/1.1");
 
-        RequestHandler handler = Router.route(request);
+        RequestHandler handler = Router.getHandler(request);
 
-        assertTrue(handler instanceof Error404);
+        assertTrue(handler instanceof FileHandler);
     }
 
     @Test
-    public void testReturnsAFileReaderIfPathIsAFile() throws URISyntaxException{
-        Request request = RequestParser.process("GET /file1 HTTP/1.1");
+    public void testRouterReturnsFileHandlerForTxtFiles() throws URISyntaxException {
+        Request request = new Request("GET", new URI("/text-file.txt"), "HTTP/1.1");
 
-        RequestHandler handler = Router.route(request);
+        RequestHandler handler = Router.getHandler(request);
 
-        assertTrue(handler instanceof FileContentReader);
+        assertTrue(handler instanceof FileHandler);
     }
 
     @Test
-    public void testReturnsARedirectHandler() throws URISyntaxException{
-        Request request = RequestParser.process("GET /redirect HTTP/1.1");
+    public void testRouterReturnsFileHandlerForPNGFiles() throws URISyntaxException {
+        Request request = new Request("GET", new URI("/image.png"), "HTTP/1.1");
 
-        RequestHandler handler = Router.route(request);
+        RequestHandler handler = Router.getHandler(request);
 
-        assertTrue(handler instanceof RedirectRoute);
+        assertTrue(handler instanceof FileHandler);
     }
 
     @Test
-    public void testReturnsImageFileReaderForJPEG() throws IOException, URISyntaxException{
-        Request request = RequestParser.process("GET /image.jpeg HTTP/1.1");
+    public void testRouterReturnsFileHandlerForJPEGFiles() throws URISyntaxException {
+        Request request = new Request("GET", new URI("/image.jpeg"), "HTTP/1.1");
 
-        RequestHandler handler = Router.route(request);
+        RequestHandler handler = Router.getHandler(request);
 
-        assertTrue(handler instanceof ImageFileReader);
+        assertTrue(handler instanceof FileHandler);
     }
 
     @Test
-    public void testReturnsAParameterDecoder() throws URISyntaxException{
-        Request request = RequestParser.process("GET /parameters?variable_1=Operators%20%3C%2C%20%3E%2C%20%3D%2C%20!%3D%3B%20%2B%2C%20-%2C%20*%2C%20%26%2C%20%40%2C%20%23%2C%20%24%2C%20%5B%2C%20%5D%3A%20%22is%20that%20all%22%3F&variable_2=stuff HTTP/1.1");
+    public void testRouterReturnsFileHandlerForImageFiles() throws URISyntaxException {
+        Request request = new Request("GET", new URI("/image.gif"), "HTTP/1.1");
 
-        RequestHandler handler = Router.route(request);
+        RequestHandler handler = Router.getHandler(request);
 
-        assertTrue(handler instanceof ParameterDecoder);
+        assertTrue(handler instanceof FileHandler);
     }
 
     @Test
-    public void testReturnsARangeRequest() throws URISyntaxException{
-        Request request = RequestParser.process("GET /partial_content.txt HTTP/1.1\r\nRange: bytes=-4\r\n\r\n");
+    public void testReturnsAAuthHandlerForLogs() throws URISyntaxException {
+        Request request = new Request("GET", new URI("/logs"), "HTTP/1.1");
 
-        RequestHandler handler = Router.route(request);
-
-        assertTrue(handler instanceof FileRangeReader);
-    }
-
-    @Test
-    public void testReturnsAAuthHandler() throws URISyntaxException{
-        Request request = RequestParser.process("GET /logs HTTP/1.1\r\n\r\n");
-
-        RequestHandler handler = Router.route(request);
+        RequestHandler handler = Router.getHandler(request);
 
         assertTrue(handler instanceof LogsHandler);
-    }
-
-    @Test
-    public void test() throws URISyntaxException{
-        Request request = RequestParser.process("GET /patch-content.txt HTTP/1.1\r\n\r\n");
-
-        RequestHandler handler = Router.route(request);
-
-        assertTrue(handler instanceof FileContentReader);
     }
 }
