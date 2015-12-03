@@ -1,0 +1,66 @@
+package test.Handlers;
+
+import main.Handlers.DirectoryHandler;
+import main.Handlers.RequestHandler;
+import main.Request;
+import main.Response;
+import main.ServerSettings;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Formatter;
+
+import static org.junit.Assert.*;
+
+/**
+ * Created by nystrom on 12/3/15.
+ */
+public class DirectoryHandlerTest {
+    DirectoryHandler handler;
+
+    @Before
+    public void setUp(){
+        ServerSettings.parse(new String []{ "-d", "/Users/nystrom/Documents/my-8thlight-apprenticeship/cob_spec/public/"});
+        handler = new DirectoryHandler();
+    }
+
+    @Test
+    public void testIsARequestHandler(){
+        assertTrue(handler instanceof RequestHandler);
+    }
+
+
+    @Test
+    public void testReturns200() throws URISyntaxException, IOException {
+        Request request = new Request("GET", new URI("/"), "HTTP/1.1");
+
+        Response response = handler.handle(request);
+
+        assertTrue(new String(response.toByteArray()).contains("200 OK"));
+    }
+
+    @Test
+    public void testContainsListOfFilesInDirectory() throws URISyntaxException, IOException {
+        Request request = new Request("GET", new URI("/"), "HTTP/1.1");
+
+        Response response = handler.handle(request);
+
+        String expectedResponse = new String(response.toByteArray());
+        assertTrue(
+                expectedResponse.contains("<li><a href=\"/image.png\">image.png</a></li>") &&
+                expectedResponse.contains("<li><a href=\"/image.jpeg\">image.jpeg</a></li>") &&
+                expectedResponse.contains("<li><a href=\"/image.gif\">image.gif</a></li>") &&
+                expectedResponse.contains("<li><a href=\"/file1\">file1</a></li>") &&
+                expectedResponse.contains("<li><a href=\"/file2\">file2</a></li>") &&
+                expectedResponse.contains("<li><a href=\"/partial_content.txt\">partial_content.txt</a></li>") &&
+                expectedResponse.contains("<li><a href=\"/patch-content.txt\">patch-content.txt</a></li>") &&
+                expectedResponse.contains("<li><a href=\"/text-file.txt\">text-file.txt</a></li>")
+        );
+    }
+
+
+
+}
