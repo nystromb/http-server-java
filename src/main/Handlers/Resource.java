@@ -6,7 +6,7 @@ import main.Response;
 /**
  * Created by nystrom on 11/16/15.
  */
-public class Route implements RequestHandler {
+public class Resource implements RequestHandler {
     static String data = "";
     Response response = new Response();
     public Response handle(Request request) {
@@ -26,7 +26,7 @@ public class Route implements RequestHandler {
                 data = "";
                 break;
             case "OPTIONS":
-//                response.addHeader("Allow:", "GET,HEAD,POST,OPTIONS,PUT");
+                response.addHeader("Allow", "GET,HEAD,POST,OPTIONS,PUT");
                 break;
         }
 
