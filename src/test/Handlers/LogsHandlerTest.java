@@ -1,6 +1,7 @@
 package test.Handlers;
 
 import main.Request;
+import main.Response;
 import main.ServerSettings;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,10 +28,9 @@ public class LogsHandlerTest {
         LogsHandler handler = new LogsHandler("admin:hunter2");
         Request request = new Request("GET", new URI("/some_uri"), "HTTP/1.1");
 
-        byte[] response = handler.handle(request);
+        Response response = handler.handle(request);
 
-//        assertEquals(new String(response, "UTF-8"), "401");
-        assertTrue(new String(response, "UTF-8").contains("401"));
+        assertTrue(new String(response.toByteArray()).contains("401"));
     }
 
     @Test
@@ -40,9 +40,8 @@ public class LogsHandlerTest {
 
         request.addHeader("Authorization", "Basic YWRtaW46aHVudGVyMg==");
 
-        byte[] response = handler.handle(request);
+        Response response = handler.handle(request);
 
-//        assertEquals(new String(response, "UTF-8"), "200");
-        assertTrue(new String(response, "UTF-8").contains("200"));
+        assertTrue(new String(response.toByteArray()).contains("200"));
     }
 }
