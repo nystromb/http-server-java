@@ -1,6 +1,6 @@
 package test;
 
-import main.ServerReader;
+import main.FileUtil;
 import main.ServerSettings;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 /**
  * Created by nystrom on 11/10/15.
  */
-public class ServerReaderTest {
+public class FileUtilTest {
 
     @Before
     public void setUp() throws Exception {
@@ -22,15 +22,13 @@ public class ServerReaderTest {
 
     @Test
     public void testGetsListOfFilesInDirectory() throws IOException{
-        File path = new File(ServerSettings.getDirectory(), "/");
+        File path = new File(ServerSettings.getRootDirectory(), "/");
 
-        assertEquals("file1 file2 image.gif image.jpeg image.png logs partial_content.txt patch-content.txt text-file.txt ", ServerReader.readDirectoryContents(path));
+        assertEquals("file1 file2 image.gif image.jpeg image.png logs partial_content.txt patch-content.txt text-file.txt ", FileUtil.getDirectoryFileList(path));
     }
 
     @Test
-    public void testGetsContentsOfTextFile(){
-        File path = new File(ServerSettings.getDirectory(), "/file1");
-
-        assertEquals("file1 contents", ServerReader.readFileContents(path));
+    public void testGetsContentsOfTextFile() throws IOException {
+        assertArrayEquals("file1 contents".getBytes(), FileUtil.readFileContents("/file1"));
     }
 }
