@@ -31,12 +31,12 @@ public class HttpProtocolHandler implements Runnable {
 //            Main.logger.log(Level.INFO, "Received Request from " + client.getRemoteSocketAddress().toString() + "\n" + rawRequest);
 
             Request request = RequestParser.process(rawRequest);
-//            RequestHandler handler = Router.route(request);
-//            byte[] response = handler.handle(request);
+            RequestHandler handler = Router.getHandler(request);
 
-//            Main.logger.log(Level.INFO, "Responding to Request\n" + new String(response, "UTF-8"));
+            Response response = handler.handle(request);
+//            Main.logger.log(Level.INFO, "Response\n" + new String(response.toByteArray()));
 
-            output.write("200 OK".getBytes());
+            output.write(response.toByteArray());
         }catch(IOException e){
             e.printStackTrace();
         } catch (URISyntaxException e) {
