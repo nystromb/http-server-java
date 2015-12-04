@@ -22,9 +22,7 @@ public class FileUtilTest {
 
     @Test
     public void testGetsListOfFilesInDirectory() throws IOException{
-        File path = new File(ServerSettings.getRootDirectory(), "/");
-
-        assertEquals("file1 file2 image.gif image.jpeg image.png logs partial_content.txt patch-content.txt text-file.txt ", FileUtil.getDirectoryFileList(path));
+        assertEquals("file1 file2 image.gif image.jpeg image.png logs partial_content.txt patch-content.txt text-file.txt ", FileUtil.getDirectoryFileList(ServerSettings.getRootDirectory() + "/"));
     }
 
     @Test

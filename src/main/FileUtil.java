@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * Created by nystrom on 11/10/15.
@@ -15,10 +16,10 @@ public class FileUtil {
         return Files.readAllBytes(new File(ServerSettings.getRootDirectory(), path).toPath());
     }
 
-    public static String getDirectoryFileList(File path) throws IOException{
+    public static String getDirectoryFileList(String path) throws IOException{
         StringBuffer contents = new StringBuffer();
 
-        try(DirectoryStream<Path> stream = Files.newDirectoryStream(path.toPath(), "[aA-zZ]*")){
+        try(DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(path), "[aA-zZ]*")){
             for(Path file : stream) {
                 contents.append(file.getFileName() + " ");
             }

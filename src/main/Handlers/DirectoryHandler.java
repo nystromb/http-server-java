@@ -18,7 +18,7 @@ public class DirectoryHandler implements Requestable {
     public Response getResponse(Request request) throws IOException {
         response.setStatus("200 OK");
 
-        String files = FileUtil.getDirectoryFileList(new File(ServerSettings.getRootDirectory(), request.getPath()));
+        String files = FileUtil.getDirectoryFileList(ServerSettings.getRootDirectory() + request.getPath());
         String body = "<!DOCTYPE html><html><head></head><body><ul>";
         for(String file : files.split(" ")){
             body += "<li><a href=\"/" + file +"\">" + file + "</a></li>";
