@@ -1,14 +1,9 @@
 package main;
 
-import main.Handlers.DirectoryHandler;
-import main.Handlers.FileHandler;
-import main.Handlers.Requestable;
-import main.Handlers.Resource;
+import main.Handlers.*;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Hashtable;
-import java.io.File;
 
 /**
  * Created by nystrom on 11/5/15.
@@ -21,16 +16,6 @@ public class Router {
     }
 
     public static Requestable getHandler(Request request) {
-        Path targetPath = new File(ServerSettings.getRootDirectory(), request.getPath()).toPath();
-
-        if(routes.containsKey(request.getPath())){
-            return routes.get(request.getPath());
-        }else if(Files.isDirectory(targetPath)){
-            return new DirectoryHandler();
-        }else if (Files.isReadable(targetPath)){
-            return new FileHandler();
-        }else{
-            return new Resource();
-        }
+        return routes.getOrDefault(Paths.get(request.getPath()).toString(), new Resource());
     }
 }
