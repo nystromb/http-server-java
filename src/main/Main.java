@@ -22,8 +22,18 @@ public class Main {
         }
     }
 
-    public static void buildRoutes() throws IOException {
+    public static void buildRoutes() {
+        Router.addRoute("/", new DirectoryHandler());
+        Router.addRoute("/file1", new FileHandler());
+        Router.addRoute("/file2", new FileHandler());
+        Router.addRoute("/text-file.txt", new FileHandler());
+        Router.addRoute("/image.jpeg", new FileHandler());
+        Router.addRoute("/image.png", new FileHandler());
+        Router.addRoute("/image.gif", new FileHandler());
         Router.addRoute("/logs", new LogsHandler("admin:hunter2"));
+        Router.addRoute("/foobar", new NotFoundHandler());
+        Router.addRoute("/redirect", new RedirectHandler());
+        Router.addRoute("/parameters", new ParameterHandler());
     }
 
     public static void setUpLogger(){

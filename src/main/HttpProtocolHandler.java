@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.net.URISyntaxException;
+import java.util.logging.Level;
 
 /**
  * Created by nystrom on 12/1/15.
