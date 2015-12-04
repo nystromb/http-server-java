@@ -9,7 +9,7 @@ import java.util.Base64;
 /**
  * Created by nystrom on 11/24/15.
  */
-public class LogsHandler implements RequestHandler {
+public class LogsHandler implements Requestable {
     private byte[] authorization;
     Response response = new Response();
 
@@ -17,7 +17,7 @@ public class LogsHandler implements RequestHandler {
         this.authorization = Base64.getEncoder().encode(authorization.getBytes());
     }
 
-    public Response handle(Request request) throws IOException {
+    public Response getResponse(Request request) throws IOException {
         String authHeader = "Basic " + new String(this.authorization);
 
         if (request.hasHeader("Authorization") && authHeader.equals(request.getHeader("Authorization"))) {

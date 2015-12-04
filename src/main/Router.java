@@ -2,7 +2,7 @@ package main;
 
 import main.Handlers.DirectoryHandler;
 import main.Handlers.FileHandler;
-import main.Handlers.RequestHandler;
+import main.Handlers.Requestable;
 import main.Handlers.Resource;
 
 import java.nio.file.Files;
@@ -14,13 +14,13 @@ import java.io.File;
  * Created by nystrom on 11/5/15.
  */
 public class Router {
-    static Hashtable<String, RequestHandler> routes = new Hashtable();
+    static Hashtable<String, Requestable> routes = new Hashtable();
 
-    public static void addRoute(String path, RequestHandler action){
+    public static void addRoute(String path, Requestable action){
         routes.put(path, action);
     }
 
-    public static RequestHandler getHandler(Request request) {
+    public static Requestable getHandler(Request request) {
         Path targetPath = new File(ServerSettings.getRootDirectory(), request.getPath()).toPath();
 
         if(routes.containsKey(request.getPath())){

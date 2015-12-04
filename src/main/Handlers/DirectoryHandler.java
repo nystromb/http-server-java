@@ -5,18 +5,17 @@ import java.io.File;
 import main.Request;
 import main.Response;
 import main.ServerSettings;
-import test.Handlers.DirectoryHandlerTest;
 
 import java.io.IOException;
 
 /**
  * Created by nystrom on 12/3/15.
  */
-public class DirectoryHandler implements RequestHandler{
+public class DirectoryHandler implements Requestable {
     Response response = new Response();
 
     @Override
-    public Response handle(Request request) throws IOException {
+    public Response getResponse(Request request) throws IOException {
         response.setStatus("200 OK");
 
         String files = FileUtil.getDirectoryFileList(new File(ServerSettings.getRootDirectory(), request.getPath()));

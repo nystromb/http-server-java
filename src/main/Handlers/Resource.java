@@ -6,10 +6,10 @@ import main.Response;
 /**
  * Created by nystrom on 11/16/15.
  */
-public class Resource implements RequestHandler {
+public class Resource implements Requestable {
     static String data = "";
     Response response = new Response();
-    public Response handle(Request request) {
+    public Response getResponse(Request request) {
         response.setStatus("200 OK");
 
         switch (request.getMethod()) {
@@ -17,8 +17,6 @@ public class Resource implements RequestHandler {
                 response.setBody(data.getBytes());
                 break;
             case "PUT":
-                data = request.getBody();
-                break;
             case "POST":
                 data = request.getBody();
                 break;

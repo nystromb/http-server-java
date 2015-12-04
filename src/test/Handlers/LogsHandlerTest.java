@@ -11,7 +11,6 @@ import main.Handlers.LogsHandler;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Arrays;
 
 /**
  * Created by nystrom on 11/24/15.
@@ -28,7 +27,7 @@ public class LogsHandlerTest {
         LogsHandler handler = new LogsHandler("admin:hunter2");
         Request request = new Request("GET", new URI("/some_uri"), "HTTP/1.1");
 
-        Response response = handler.handle(request);
+        Response response = handler.getResponse(request);
 
         assertTrue(new String(response.toByteArray()).contains("401"));
     }
@@ -40,7 +39,7 @@ public class LogsHandlerTest {
 
         request.addHeader("Authorization", "Basic YWRtaW46aHVudGVyMg==");
 
-        Response response = handler.handle(request);
+        Response response = handler.getResponse(request);
 
         assertTrue(new String(response.toByteArray()).contains("200"));
     }

@@ -26,7 +26,7 @@ public class RouterTest {
     public void testRouterReturnReadDirectoryAction() throws URISyntaxException{
         Request request = new Request("GET", new URI("/"), "HTTP/1.1");
 
-        RequestHandler handler = Router.getHandler(request);
+        Requestable handler = Router.getHandler(request);
 
         assertTrue(handler instanceof DirectoryHandler);
     }
@@ -35,7 +35,7 @@ public class RouterTest {
     public void testRouterReturnsAFileAction() throws URISyntaxException{
         Request request = new Request("GET", new URI("/file1"), "HTTP/1.1");
 
-        RequestHandler handler = Router.getHandler(request);
+        Requestable handler = Router.getHandler(request);
 
         assertTrue(handler instanceof FileHandler);
     }
@@ -44,7 +44,7 @@ public class RouterTest {
     public void testRouterReturnsFileHandlerForTxtFiles() throws URISyntaxException {
         Request request = new Request("GET", new URI("/text-file.txt"), "HTTP/1.1");
 
-        RequestHandler handler = Router.getHandler(request);
+        Requestable handler = Router.getHandler(request);
 
         assertTrue(handler instanceof FileHandler);
     }
@@ -53,7 +53,7 @@ public class RouterTest {
     public void testRouterReturnsFileHandlerForPNGFiles() throws URISyntaxException {
         Request request = new Request("GET", new URI("/image.png"), "HTTP/1.1");
 
-        RequestHandler handler = Router.getHandler(request);
+        Requestable handler = Router.getHandler(request);
 
         assertTrue(handler instanceof FileHandler);
     }
@@ -62,7 +62,7 @@ public class RouterTest {
     public void testRouterReturnsFileHandlerForJPEGFiles() throws URISyntaxException {
         Request request = new Request("GET", new URI("/image.jpeg"), "HTTP/1.1");
 
-        RequestHandler handler = Router.getHandler(request);
+        Requestable handler = Router.getHandler(request);
 
         assertTrue(handler instanceof FileHandler);
     }
@@ -71,7 +71,7 @@ public class RouterTest {
     public void testRouterReturnsFileHandlerForImageFiles() throws URISyntaxException {
         Request request = new Request("GET", new URI("/image.gif"), "HTTP/1.1");
 
-        RequestHandler handler = Router.getHandler(request);
+        Requestable handler = Router.getHandler(request);
 
         assertTrue(handler instanceof FileHandler);
     }
@@ -80,7 +80,7 @@ public class RouterTest {
     public void testReturnsAAuthHandlerForLogs() throws URISyntaxException {
         Request request = new Request("GET", new URI("/logs"), "HTTP/1.1");
 
-        RequestHandler handler = Router.getHandler(request);
+        Requestable handler = Router.getHandler(request);
 
         assertTrue(handler instanceof LogsHandler);
     }

@@ -1,7 +1,7 @@
 package test.Handlers;
 
 import main.Handlers.FileHandler;
-import main.Handlers.RequestHandler;
+import main.Handlers.Requestable;
 import main.Request;
 import main.Response;
 import main.ServerSettings;
@@ -30,14 +30,14 @@ public class FileHandlerTest {
 
     @Test
     public void testIsARequestHandler(){
-        assertTrue(handler instanceof RequestHandler);
+        assertTrue(handler instanceof Requestable);
     }
 
     @Test
     public void testReturns200OK() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/file1"), "HTTP/1.1");
 
-        Response response = handler.handle(request);
+        Response response = handler.getResponse(request);
 
         assertTrue(new String(response.toByteArray()).contains("200 OK"));
     }
@@ -46,7 +46,7 @@ public class FileHandlerTest {
     public void testReturnsFile1Contents() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/file1"), "HTTP/1.1");
 
-        Response response = handler.handle(request);
+        Response response = handler.getResponse(request);
 
         assertTrue(new String(response.toByteArray()).contains("file1 contents"));
     }
@@ -55,7 +55,7 @@ public class FileHandlerTest {
     public void testWorksWithPNGFiles() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/image.png"), "HTTP/1.1");
 
-        Response response = handler.handle(request);
+        Response response = handler.getResponse(request);
 
         byte[] expectedImageBytes = Files.readAllBytes(new File(ServerSettings.getRootDirectory(), "/image.png").toPath());
         assertArrayEquals(expectedImageBytes, response.getBody());
@@ -65,7 +65,7 @@ public class FileHandlerTest {
     public void testWorksWithJPEGFiles() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/image.jpeg"), "HTTP/1.1");
 
-        Response response = handler.handle(request);
+        Response response = handler.getResponse(request);
 
         byte[] expectedImageBytes = Files.readAllBytes(new File(ServerSettings.getRootDirectory(), "/image.jpeg").toPath());
         assertArrayEquals(expectedImageBytes, response.getBody());
@@ -75,7 +75,7 @@ public class FileHandlerTest {
     public void testWorksWithGIFFiles() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/image.gif"), "HTTP/1.1");
 
-        Response response = handler.handle(request);
+        Response response = handler.getResponse(request);
 
         byte[] expectedImageBytes = Files.readAllBytes(new File(ServerSettings.getRootDirectory(), "/image.gif").toPath());
         assertArrayEquals(expectedImageBytes, response.getBody());

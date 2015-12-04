@@ -1,7 +1,7 @@
 package test.Handlers;
 
 import main.Handlers.DirectoryHandler;
-import main.Handlers.RequestHandler;
+import main.Handlers.Requestable;
 import main.Request;
 import main.Response;
 import main.ServerSettings;
@@ -11,7 +11,6 @@ import org.junit.Test;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Formatter;
 
 import static org.junit.Assert.*;
 
@@ -29,15 +28,15 @@ public class DirectoryHandlerTest {
 
     @Test
     public void testIsARequestHandler(){
-        assertTrue(handler instanceof RequestHandler);
+        assertTrue(handler instanceof Requestable);
     }
 
 
     @Test
-    public void testReturns200() throws URISyntaxException, IOException {
+    public void testReturns200OK() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/"), "HTTP/1.1");
 
-        Response response = handler.handle(request);
+        Response response = handler.getResponse(request);
 
         assertTrue(new String(response.toByteArray()).contains("200 OK"));
     }
@@ -46,7 +45,7 @@ public class DirectoryHandlerTest {
     public void testContainsListOfFilesInDirectory() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/"), "HTTP/1.1");
 
-        Response response = handler.handle(request);
+        Response response = handler.getResponse(request);
 
         String expectedResponse = new String(response.toByteArray());
         assertTrue(

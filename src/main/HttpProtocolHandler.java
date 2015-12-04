@@ -1,6 +1,6 @@
 package main;
 
-import main.Handlers.RequestHandler;
+import main.Handlers.Requestable;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,7 +8,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.net.URISyntaxException;
-import java.util.logging.Level;
 
 /**
  * Created by nystrom on 12/1/15.
@@ -31,9 +30,9 @@ public class HttpProtocolHandler implements Runnable {
 //            Main.logger.log(Level.INFO, "Received Request from " + client.getRemoteSocketAddress().toString() + "\n" + rawRequest);
 
             Request request = RequestParser.process(rawRequest);
-            RequestHandler handler = Router.getHandler(request);
+            Requestable handler = Router.getHandler(request);
 
-            Response response = handler.handle(request);
+            Response response = handler.getResponse(request);
 //            Main.logger.log(Level.INFO, "Response\n" + new String(response.toByteArray()));
 
             output.write(response.toByteArray());

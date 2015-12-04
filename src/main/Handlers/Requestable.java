@@ -5,6 +5,6 @@ import main.Response;
 
 import java.io.IOException;
 
-public interface RequestHandler {
-    Response handle(Request request) throws IOException;
+public interface Requestable {
+    Response getResponse(Request request) throws IOException;
 }
