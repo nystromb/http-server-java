@@ -80,4 +80,23 @@ public class FileHandlerTest {
         byte[] expectedImageBytes = Files.readAllBytes(new File(ServerSettings.getRootDirectory(), "/image.gif").toPath());
         assertArrayEquals(expectedImageBytes, response.getBody());
     }
+
+    @Test
+    public void testMethodNotAllowedForPostRequest() throws IOException, URISyntaxException {
+        Request request = new Request("POST", new URI("/file1"), "HTTP/1.1");
+
+        Response response = handler.getResponse(request);
+
+        assertTrue(new String(response.toByteArray()).contains("405"));
+    }
+
+    @Test
+    public void testMethodNotAllowedForPutRequest() throws IOException, URISyntaxException {
+        Request request = new Request("PUT", new URI("/file1"), "HTTP/1.1");
+
+        Response response = handler.getResponse(request);
+
+        assertTrue(new String(response.toByteArray()).contains("405"));
+    }
+
 }

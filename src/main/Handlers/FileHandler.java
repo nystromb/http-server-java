@@ -14,8 +14,17 @@ public class FileHandler implements Requestable {
 
     @Override
     public Response getResponse(Request request) throws IOException {
-        response.setStatus("200 OK");
-        response.setBody(FileUtil.readFileContents(request.getPath()));
+        switch(request.getMethod()){
+            case "GET":
+                response.setStatus("200 OK");
+                response.setBody(FileUtil.readFileContents(request.getPath()));
+                break;
+            case "PUT":
+            case "POST":
+                response.setStatus("405 Method Not Allowed");
+                response.setBody("Method Not Allowed".getBytes());
+                break;
+        }
         return response;
     }
 }
