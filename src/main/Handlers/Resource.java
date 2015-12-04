@@ -9,6 +9,7 @@ import main.Response;
 public class Resource implements Requestable {
     static String data = "";
     Response response = new Response();
+
     public Response getResponse(Request request) {
         response.setStatus("200 OK");
 
