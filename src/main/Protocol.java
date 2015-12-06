@@ -1,7 +1,5 @@
 package main;
 
-import main.Handlers.Requestable;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,10 +11,10 @@ import java.util.logging.Level;
 /**
  * Created by nystrom on 12/1/15.
  */
-public class HttpProtocolHandler implements Runnable {
+public class Protocol implements Runnable {
     Socket client;
 
-    public HttpProtocolHandler(Socket client) {
+    public Protocol(Socket client) {
         this.client = client;
     }
 
@@ -31,12 +29,12 @@ public class HttpProtocolHandler implements Runnable {
             Main.logger.log(Level.INFO, "Received Request from " + client.getRemoteSocketAddress().toString() + "\n" + rawRequest);
 
             Request request = RequestParser.process(rawRequest);
-            Requestable handler = Router.getHandler(request);
+            HttpExchange handler = Router.getHandler(request);
 
-            byte[] response = handler.getResponse(request);
-            Main.logger.log(Level.INFO, "Response\n" + new String(response));
+            Response response = handler.exchange(request);
+            Main.logger.log(Level.INFO, "Response\n" + new String(response.toByteArray()));
 
-            output.write(response);
+            output.write(response.toByteArray());
         }catch(IOException e){
             e.printStackTrace();
         } catch (URISyntaxException e) {

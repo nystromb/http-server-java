@@ -1,15 +1,11 @@
 package test;
 
-import main.HttpProtocolHandler;
 import main.Main;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 import test.Mocks.MockSocket;
 
 import java.io.*;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by nystrom on 12/1/15.
@@ -36,7 +32,7 @@ public class HttpProtocolHandlerTest {
 //    public void testRootReturns200OK(){
 //        input = new ByteArrayInputStream("GET / HTTP/1.1\r\n\r\n".getBytes());
 //        client = new MockSocket(input, output);
-//        HttpProtocolHandler thread = new HttpProtocolHandler(client);
+//        Protocol thread = new Protocol(client);
 //
 //                thread.run();
 //

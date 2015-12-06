@@ -34,7 +34,7 @@ public class Main {
         Router.addRoute("/foobar", new NotFoundHandler());
         Router.addRoute("/redirect", new RedirectHandler());
         Router.addRoute("/parameters", new ParameterHandler());
-        Router.addRoute("/partial_content.txt", new PartialContentHandler());
+        Router.addRoute("/partial_content.txt", new FileHandler());
         Router.addRoute("/patch-content.txt", new FileHandler());
     }
 

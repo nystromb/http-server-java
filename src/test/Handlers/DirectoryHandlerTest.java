@@ -1,7 +1,7 @@
 package test.Handlers;
 
 import main.Handlers.DirectoryHandler;
-import main.Handlers.Requestable;
+import main.HttpExchange;
 import main.Request;
 import main.Response;
 import main.ServerSettings;
@@ -28,7 +28,7 @@ public class DirectoryHandlerTest {
 
     @Test
     public void testIsARequestHandler(){
-        assertTrue(handler instanceof Requestable);
+        assertTrue(handler instanceof HttpExchange);
     }
 
 
@@ -36,18 +36,18 @@ public class DirectoryHandlerTest {
     public void testReturns200OK() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/"), "HTTP/1.1");
 
-        byte[] response = handler.getResponse(request);
+        Response response = handler.exchange(request);
 
-        assertTrue(new String(response).contains("200 OK"));
+        assertTrue(response.status.contains("200 OK"));
     }
 
     @Test
     public void testContainsListOfFilesInDirectory() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/"), "HTTP/1.1");
 
-        byte[] response = handler.getResponse(request);
+        Response response = handler.exchange(request);
 
-        String expectedResponse = new String(response);
+        String expectedResponse = new String(response.toByteArray());
         assertTrue(
                 expectedResponse.contains("<li><a href=\"/image.png\">image.png</a></li>") &&
                 expectedResponse.contains("<li><a href=\"/image.jpeg\">image.jpeg</a></li>") &&

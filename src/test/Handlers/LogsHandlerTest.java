@@ -27,10 +27,10 @@ public class LogsHandlerTest {
         LogsHandler handler = new LogsHandler("admin:hunter2");
         Request request = new Request("GET", new URI("/some_uri"), "HTTP/1.1");
 
-        byte[] response = handler.getResponse(request);
+        Response response = handler.exchange(request);
 
-        assertTrue(new String(response).contains("401"));
-        assertTrue(new String(response).contains("WWW-Authenticate: Basic realm=\"ServerKey\""));
+        assertTrue(response.status.contains("401"));
+        assertTrue(response.headers.containsKey("WWW-Authenticate"));
     }
 
     @Test
@@ -40,8 +40,8 @@ public class LogsHandlerTest {
 
         request.addHeader("Authorization", "Basic YWRtaW46aHVudGVyMg==");
 
-        byte[] response = handler.getResponse(request);
+        Response response = handler.exchange(request);
 
-        assertTrue(new String(response).contains("200"));
+        assertTrue(response.status.contains("200"));
     }
 }

@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 
 import main.*;
 import main.Handlers.LogsHandler;
-import main.Handlers.Requestable;
+import main.HttpExchange;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -43,7 +43,7 @@ public class ServerSettingsTest {
     public void testIfBuildRoutes() throws URISyntaxException, IOException {
         Main.buildRoutes();
         Request request = new Request("GET", new URI("/logs"), "HTTP/1.1");
-        Requestable handler = Router.getHandler(request);
+        HttpExchange handler = Router.getHandler(request);
         assertTrue(handler instanceof LogsHandler);
     }
 

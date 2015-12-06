@@ -1,18 +1,16 @@
 package test.Handlers;
 
 import main.Handlers.FileHandler;
-import main.Handlers.Requestable;
+import main.HttpExchange;
 import main.Request;
 import main.Response;
 import main.ServerSettings;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.nio.file.Files;
 
 import static org.junit.Assert.*;
 
@@ -30,43 +28,43 @@ public class FileHandlerTest {
 
     @Test
     public void testIsARequestHandler(){
-        assertTrue(handler instanceof Requestable);
+        assertTrue(handler instanceof HttpExchange);
     }
 
     @Test
     public void testReturns200OK() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/file1"), "HTTP/1.1");
 
-        byte[] response = handler.getResponse(request);
+        Response response = handler.exchange(request);
 
-        assertTrue(new String(response).contains("200 OK"));
+        assertTrue(response.status.contains("200 OK"));
     }
 
     @Test
     public void testReturnsFile1Contents() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/file1"), "HTTP/1.1");
 
-        byte[] response = handler.getResponse(request);
+        Response response = handler.exchange(request);
 
-        assertTrue(new String(response).contains("file1 contents"));
+        assertTrue(new String(response.toByteArray()).contains("file1 contents"));
     }
 
     @Test
     public void testMethodNotAllowedForPostRequest() throws IOException, URISyntaxException {
         Request request = new Request("POST", new URI("/file1"), "HTTP/1.1");
 
-        byte[] response = handler.getResponse(request);
+        Response response = handler.exchange(request);
 
-        assertTrue(new String(response).contains("405"));
+        assertTrue(response.status.contains("405"));
     }
 
     @Test
     public void testMethodNotAllowedForPutRequest() throws IOException, URISyntaxException {
         Request request = new Request("PUT", new URI("/file1"), "HTTP/1.1");
 
-        byte[] response = handler.getResponse(request);
+        Response response = handler.exchange(request);
 
-        assertTrue(new String(response).contains("405"));
+        assertTrue(response.status.contains("405"));
     }
 
     @Test
@@ -74,9 +72,9 @@ public class FileHandlerTest {
         Request request = new Request("GET", new URI("/partial_content.txt"), "HTTP/1.1");
         request.addHeader("Range", "bytes=0-4");
 
-        byte[] response = handler.getResponse(request);
+        Response response = handler.exchange(request);
 
-        assertTrue(new String(response).contains("206 Partial Content"));
+        assertTrue(response.status.contains("206 Partial Content"));
     }
 
     @Test
@@ -84,9 +82,9 @@ public class FileHandlerTest {
         Request request = new Request("GET", new URI("/partial_content.txt"), "HTTP/1.1");
         request.addHeader("Range", "bytes=0-4");
 
-        byte[] response = handler.getResponse(request);
+        Response response = handler.exchange(request);
 
-        assertTrue(new String(response).endsWith("This "));
+        assertTrue(new String(response.toByteArray()).endsWith(" This "));
     }
 
     @Test
@@ -94,9 +92,9 @@ public class FileHandlerTest {
         Request request = new Request("GET", new URI("/partial_content.txt"), "HTTP/1.1");
         request.addHeader("Range", "bytes=4-");
 
-        byte[] response = handler.getResponse(request);
+        Response response = handler.exchange(request);
 
-        assertTrue(new String(response).endsWith(" is a file that contains text to read part of in order to fulfill a 206.\n"));
+        assertTrue(new String(response.toByteArray()).endsWith(" is a file that contains text to read part of in order to fulfill a 206.\n"));
     }
 
 
@@ -105,9 +103,9 @@ public class FileHandlerTest {
         Request request = new Request("GET", new URI("/partial_content.txt"), "HTTP/1.1");
         request.addHeader("Range", "bytes=-6");
 
-        byte[] response = handler.getResponse(request);
+        Response response = handler.exchange(request);
 
-        assertTrue(new String(response).endsWith(" 206.\n"));
+        assertTrue(new String(response.toByteArray()).endsWith(" 206.\n"));
     }
 
     @Test
@@ -116,15 +114,15 @@ public class FileHandlerTest {
         request.setBody("patched content");
         request.addHeader("ETag", "dc50a0d27dda2eee9f65644cd7e4c9cf11de8bec");
 
-        byte[] response = handler.getResponse(request);
+        Response response = handler.exchange(request);
 
-        assertTrue(new String(response).contains("204"));
-        assertFalse(new String(response).contains("patched content"));
+        assertTrue(response.status.contains("204"));
+        assertFalse(new String(response.toByteArray()).contains("patched content"));
 
         request = new Request("GET", new URI("/patch-content.txt"), "HTTP/1.1");
 
-        response = handler.getResponse(request);
+        response = handler.exchange(request);
 
-        assertTrue(new String(response).contains("patched content"));
+        assertTrue(new String(response.toByteArray()).contains("patched content"));
     }
 }

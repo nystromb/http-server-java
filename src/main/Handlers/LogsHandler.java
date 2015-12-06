@@ -1,5 +1,6 @@
 package main.Handlers;
 
+import main.HttpExchange;
 import main.Request;
 import main.Response;
 import main.FileUtil;
@@ -9,28 +10,26 @@ import java.util.Base64;
 /**
  * Created by nystrom on 11/24/15.
  */
-public class LogsHandler implements Requestable {
+public class LogsHandler implements HttpExchange {
     private byte[] authorization;
     private String challenge = "ServerKey";
-    Response response = new Response();
+    Response response;
 
     public LogsHandler(String authorization){
         this.authorization = Base64.getEncoder().encode(authorization.getBytes());
     }
 
-    public byte[] getResponse(Request request) throws IOException {
+    public Response exchange(Request request) throws IOException {
         String authHeader = "Basic " + new String(this.authorization);
 
         if (request.hasHeader("Authorization") && authHeader.equals(request.getHeader("Authorization"))) {
-            response.setStatus("200 OK");
-            response.setBody(FileUtil.readFileContents("../../../Documents/workspace/HttpServer/logs/logfile.txt"));
+            response = new Response.Builder(200, FileUtil.readFileContents("../../../Documents/workspace/HttpServer/logs/logfile.txt")).build();
         } else {
-            response.setStatus("401 Authorization Required");
-            response.addHeader("WWW-Authenticate", "Basic realm=\"" + challenge + "\"");
-            response.setBody("Authentication required".getBytes());
+            response = new Response.Builder(401, "Authentication required")
+                    .addHeader("WWW-Authenticate", "Basic realm=\"" + challenge + "\"").build();
         }
         
-        return response.toByteArray();
+        return response;
     }
 
 }
