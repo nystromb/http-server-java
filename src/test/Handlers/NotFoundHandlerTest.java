@@ -27,8 +27,8 @@ public class NotFoundHandlerTest {
     public void test() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/foobar"), "HTTP/1.1");
 
-        Response response = handler.getResponse(request);
+        byte[] response = handler.getResponse(request);
 
-        assertTrue(new String(response.toByteArray()).contains("404"));
+        assertTrue(new String(response).contains("404"));
     }
 }

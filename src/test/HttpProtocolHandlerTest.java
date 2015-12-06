@@ -21,7 +21,9 @@ public class HttpProtocolHandlerTest {
 
     @Before
     public void setUp() throws IOException {
+        Main.main(new String[] {"-d", "/Users/nystrom/Documents/my-8thlight-apprenticeship/cob_spec/public"});
         Main.buildRoutes();
+        Main.setUpLogger();
         output = new ByteArrayOutputStream();
     }
 
@@ -29,39 +31,18 @@ public class HttpProtocolHandlerTest {
     public void shutDown(){
 
     }
-
-    @Test
-    public void testRootReturns200OK(){
-        input = new ByteArrayInputStream("GET / HTTP/1.1\r\n\r\n".getBytes());
-        client = new MockSocket(input, output);
-        HttpProtocolHandler thread = new HttpProtocolHandler(client);
-
-        thread.run();
-
-        assertTrue(output.toString().contains("200 OK"));
-    }
-
-    public void testRootHasNoPostMethod(){
-        input = new ByteArrayInputStream("POST / HTTP/1.1\r\n\r\n".getBytes());
-        client = new MockSocket(input, output);
-        HttpProtocolHandler thread = new HttpProtocolHandler(client);
-
-        thread.run();
-
-        assertTrue(output.toString().contains("405 Method Not Allowed"));
-    }
 //
-//    public void testFormReturns200OK(){
-//        input = new ByteArrayInputStream("GET /form HTTP/1.1\r\n\r\n".getBytes());
+//    @Test
+//    public void testRootReturns200OK(){
+//        input = new ByteArrayInputStream("GET / HTTP/1.1\r\n\r\n".getBytes());
 //        client = new MockSocket(input, output);
 //        HttpProtocolHandler thread = new HttpProtocolHandler(client);
 //
-//        thread.run();
+//                thread.run();
 //
-//        assertEquals(" ", output.toString());
 //
-//        input = new ByteArrayInputStream("POST /form HTTP/1.1".getBytes());
-//        thread.run();
-//        assertEquals("HTTP/1.1 200 OK\r\n", output.toString());
+//
+//        assertTrue(output.toString().contains("200 OK"));
 //    }
+
 }

@@ -12,9 +12,9 @@ public class NotFoundHandler implements Requestable {
     Response response = new Response();
 
     @Override
-    public Response getResponse(Request request) throws IOException {
+    public byte[] getResponse(Request request) throws IOException {
         response.setStatus("404 Not Found");
         response.setBody("Not Found".getBytes());
-        return response;
+        return response.toByteArray();
     }
 }

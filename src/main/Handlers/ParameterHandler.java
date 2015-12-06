@@ -13,9 +13,9 @@ public class ParameterHandler implements Requestable {
     Response response = new Response();
 
     @Override
-    public Response getResponse(Request request) throws IOException {
+    public byte[] getResponse(Request request) throws IOException {
         response.setStatus("200");
         response.setBody(request.getQuery().getBytes());
-        return response;
+        return response.toByteArray();
     }
 }

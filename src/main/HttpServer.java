@@ -9,11 +9,10 @@ import java.util.concurrent.Executors;
  * Created by nystrom on 12/1/15.
  */
 public class HttpServer extends ServerSocket {
-    ExecutorService executorService;
+    ExecutorService executorService = Executors.newFixedThreadPool(15);;
 
     public HttpServer(int port) throws IOException {
         super(port);
-        executorService = Executors.newFixedThreadPool(15);
     }
 
     public void setExecutor(ExecutorService executorService) {
@@ -25,6 +24,8 @@ public class HttpServer extends ServerSocket {
     }
 
     public void start() throws IOException {
-        while(true) executorService.execute(new HttpProtocolHandler(accept()));
+        while(true) {
+            executorService.execute(new HttpProtocolHandler(accept()));
+        }
     }
 }

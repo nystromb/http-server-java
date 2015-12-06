@@ -28,15 +28,15 @@ public class HttpProtocolHandler implements Runnable {
         ){
 
             String rawRequest = RequestReader.read(input);
-//            Main.logger.log(Level.INFO, "Received Request from " + client.getRemoteSocketAddress().toString() + "\n" + rawRequest);
+            Main.logger.log(Level.INFO, "Received Request from " + client.getRemoteSocketAddress().toString() + "\n" + rawRequest);
 
             Request request = RequestParser.process(rawRequest);
             Requestable handler = Router.getHandler(request);
 
-            Response response = handler.getResponse(request);
-//            Main.logger.log(Level.INFO, "Response\n" + new String(response.toByteArray()));
+            byte[] response = handler.getResponse(request);
+            Main.logger.log(Level.INFO, "Response\n" + new String(response));
 
-            output.write(response.toByteArray());
+            output.write(response);
         }catch(IOException e){
             e.printStackTrace();
         } catch (URISyntaxException e) {

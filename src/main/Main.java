@@ -34,11 +34,13 @@ public class Main {
         Router.addRoute("/foobar", new NotFoundHandler());
         Router.addRoute("/redirect", new RedirectHandler());
         Router.addRoute("/parameters", new ParameterHandler());
+        Router.addRoute("/partial_content.txt", new PartialContentHandler());
+        Router.addRoute("/patch-content.txt", new FileHandler());
     }
 
     public static void setUpLogger(){
         try {
-            java.util.logging.FileHandler fileHandler = new java.util.logging.FileHandler(ServerSettings.getRootDirectory() + "/logs/logs.txt", true);
+            java.util.logging.FileHandler fileHandler = new java.util.logging.FileHandler("logs/logfile.txt", true);
             Main.logger.addHandler(fileHandler);
         }catch(IOException e){
             Main.logger.log(Level.SEVERE, "Couldn't set up logging");

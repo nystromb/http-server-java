@@ -3,6 +3,8 @@ package main.Handlers;
 import main.Request;
 import main.Response;
 
+import java.io.IOException;
+
 /**
  * Created by nystrom on 11/16/15.
  */
@@ -10,7 +12,7 @@ public class Resource implements Requestable {
     static String data = "";
     Response response = new Response();
 
-    public Response getResponse(Request request) {
+    public byte[] getResponse(Request request) throws IOException {
         response.setStatus("200 OK");
 
         switch (request.getMethod()) {
@@ -29,6 +31,6 @@ public class Resource implements Requestable {
                 break;
         }
 
-        return response;
+        return response.toByteArray();
     }
 }

@@ -11,24 +11,26 @@ import java.util.Base64;
  */
 public class LogsHandler implements Requestable {
     private byte[] authorization;
+    private String challenge = "ServerKey";
     Response response = new Response();
 
     public LogsHandler(String authorization){
         this.authorization = Base64.getEncoder().encode(authorization.getBytes());
     }
 
-    public Response getResponse(Request request) throws IOException {
+    public byte[] getResponse(Request request) throws IOException {
         String authHeader = "Basic " + new String(this.authorization);
 
         if (request.hasHeader("Authorization") && authHeader.equals(request.getHeader("Authorization"))) {
             response.setStatus("200 OK");
-            response.setBody(FileUtil.readFileContents("logs/logs.txt"));
+            response.setBody(FileUtil.readFileContents("../../../Documents/workspace/HttpServer/logs/logfile.txt"));
         } else {
             response.setStatus("401 Authorization Required");
+            response.addHeader("WWW-Authenticate", "Basic realm=\"" + challenge + "\"");
             response.setBody("Authentication required".getBytes());
         }
         
-        return response;
+        return response.toByteArray();
     }
 
 }

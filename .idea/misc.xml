@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="CoverageSettings">
+    <option name="settingsRevision" value="2" />
+    <option name="instrumentationEnabled" value="true" />
+    <option name="additionalCoverageFiles" value="" />
+    <option name="dataPath" value="HttpServer4" />
+    <option name="hilightSourceBackground" value="true" />
+    <option name="hilightEvenCoveredSource" value="true" />
+  </component>
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>

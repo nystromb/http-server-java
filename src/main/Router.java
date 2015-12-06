@@ -16,6 +16,9 @@ public class Router {
     }
 
     public static Requestable getHandler(Request request) {
+        if(request.hasHeader("Range")){
+            return new PartialContentHandler();
+        }
         return routes.getOrDefault(Paths.get(request.getPath()).toString(), new Resource());
     }
 }

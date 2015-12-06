@@ -6,5 +6,5 @@ import main.Response;
 import java.io.IOException;
 
 public interface Requestable {
-    Response getResponse(Request request) throws IOException;
+    byte[] getResponse(Request request) throws IOException;
 }

@@ -128,4 +128,14 @@ public class RouterTest {
 
         assertTrue(handler instanceof ParameterHandler);
     }
+
+    @Test
+    public void test() throws URISyntaxException {
+        Request request = new Request("GET", new URI("/redirect"), "HTTP/1.1");
+        request.addHeader("Range", "byte=0-4");
+        Requestable handler = Router.getHandler(request);
+
+        assertTrue(handler instanceof PartialContentHandler);
+    }
+
 }

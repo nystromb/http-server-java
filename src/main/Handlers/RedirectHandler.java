@@ -12,9 +12,9 @@ public class RedirectHandler implements Requestable {
     Response response = new Response();
 
     @Override
-    public Response getResponse(Request request) throws IOException {
+    public byte[] getResponse(Request request) throws IOException {
         response.setStatus("302 Redirect");
         response.addHeader("Location", "http://localhost:5000/");
-        return response;
+        return response.toByteArray();
     }
 }

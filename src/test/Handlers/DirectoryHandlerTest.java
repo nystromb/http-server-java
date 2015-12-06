@@ -22,7 +22,7 @@ public class DirectoryHandlerTest {
 
     @Before
     public void setUp(){
-        ServerSettings.parse(new String []{ "-d", "/Users/nystrom/Documents/my-8thlight-apprenticeship/cob_spec/public/"});
+        ServerSettings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
         handler = new DirectoryHandler();
     }
 
@@ -36,18 +36,18 @@ public class DirectoryHandlerTest {
     public void testReturns200OK() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/"), "HTTP/1.1");
 
-        Response response = handler.getResponse(request);
+        byte[] response = handler.getResponse(request);
 
-        assertTrue(new String(response.toByteArray()).contains("200 OK"));
+        assertTrue(new String(response).contains("200 OK"));
     }
 
     @Test
     public void testContainsListOfFilesInDirectory() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/"), "HTTP/1.1");
 
-        Response response = handler.getResponse(request);
+        byte[] response = handler.getResponse(request);
 
-        String expectedResponse = new String(response.toByteArray());
+        String expectedResponse = new String(response);
         assertTrue(
                 expectedResponse.contains("<li><a href=\"/image.png\">image.png</a></li>") &&
                 expectedResponse.contains("<li><a href=\"/image.jpeg\">image.jpeg</a></li>") &&

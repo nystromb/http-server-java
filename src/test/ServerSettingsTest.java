@@ -17,7 +17,6 @@ import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 
 public class ServerSettingsTest {
-
 	@Before
 	public void setUp() throws Exception {
 		String[] args = new String[4];
@@ -26,7 +25,7 @@ public class ServerSettingsTest {
 		args[1] = "5000";
 		args[2] = "-d";
 		args[3] = "/Users/nystrom/Documents/my-8thlight-apprenticeship/cob_spec/public/";
-		
+
 		ServerSettings.parse(args);
 	}
 

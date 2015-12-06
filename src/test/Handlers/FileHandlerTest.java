@@ -24,7 +24,7 @@ public class FileHandlerTest {
 
     @Before
     public void setUp() throws IOException {
-        ServerSettings.parse(new String[]{"-d", "/Users/nystrom/Documents/my-8thlight-apprenticeship/cob_spec/public/"});
+        ServerSettings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
         handler = new FileHandler();
     }
 
@@ -37,66 +37,94 @@ public class FileHandlerTest {
     public void testReturns200OK() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/file1"), "HTTP/1.1");
 
-        Response response = handler.getResponse(request);
+        byte[] response = handler.getResponse(request);
 
-        assertTrue(new String(response.toByteArray()).contains("200 OK"));
+        assertTrue(new String(response).contains("200 OK"));
     }
 
     @Test
     public void testReturnsFile1Contents() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/file1"), "HTTP/1.1");
 
-        Response response = handler.getResponse(request);
+        byte[] response = handler.getResponse(request);
 
-        assertTrue(new String(response.toByteArray()).contains("file1 contents"));
-    }
-
-    @Test
-    public void testWorksWithPNGFiles() throws URISyntaxException, IOException {
-        Request request = new Request("GET", new URI("/image.png"), "HTTP/1.1");
-
-        Response response = handler.getResponse(request);
-
-        byte[] expectedImageBytes = Files.readAllBytes(new File(ServerSettings.getRootDirectory(), "/image.png").toPath());
-        assertArrayEquals(expectedImageBytes, response.getBody());
-    }
-
-    @Test
-    public void testWorksWithJPEGFiles() throws URISyntaxException, IOException {
-        Request request = new Request("GET", new URI("/image.jpeg"), "HTTP/1.1");
-
-        Response response = handler.getResponse(request);
-
-        byte[] expectedImageBytes = Files.readAllBytes(new File(ServerSettings.getRootDirectory(), "/image.jpeg").toPath());
-        assertArrayEquals(expectedImageBytes, response.getBody());
-    }
-
-    @Test
-    public void testWorksWithGIFFiles() throws URISyntaxException, IOException {
-        Request request = new Request("GET", new URI("/image.gif"), "HTTP/1.1");
-
-        Response response = handler.getResponse(request);
-
-        byte[] expectedImageBytes = Files.readAllBytes(new File(ServerSettings.getRootDirectory(), "/image.gif").toPath());
-        assertArrayEquals(expectedImageBytes, response.getBody());
+        assertTrue(new String(response).contains("file1 contents"));
     }
 
     @Test
     public void testMethodNotAllowedForPostRequest() throws IOException, URISyntaxException {
         Request request = new Request("POST", new URI("/file1"), "HTTP/1.1");
 
-        Response response = handler.getResponse(request);
+        byte[] response = handler.getResponse(request);
 
-        assertTrue(new String(response.toByteArray()).contains("405"));
+        assertTrue(new String(response).contains("405"));
     }
 
     @Test
     public void testMethodNotAllowedForPutRequest() throws IOException, URISyntaxException {
         Request request = new Request("PUT", new URI("/file1"), "HTTP/1.1");
 
-        Response response = handler.getResponse(request);
+        byte[] response = handler.getResponse(request);
 
-        assertTrue(new String(response.toByteArray()).contains("405"));
+        assertTrue(new String(response).contains("405"));
     }
 
+    @Test
+    public void testRangeHeaderReturns206Code() throws URISyntaxException, IOException {
+        Request request = new Request("GET", new URI("/partial_content.txt"), "HTTP/1.1");
+        request.addHeader("Range", "bytes=0-4");
+
+        byte[] response = handler.getResponse(request);
+
+        assertTrue(new String(response).contains("206 Partial Content"));
+    }
+
+    @Test
+    public void testRangeHeaderReturnsPartialFileContentsRange04() throws URISyntaxException, IOException {
+        Request request = new Request("GET", new URI("/partial_content.txt"), "HTTP/1.1");
+        request.addHeader("Range", "bytes=0-4");
+
+        byte[] response = handler.getResponse(request);
+
+        assertTrue(new String(response).endsWith("This "));
+    }
+
+    @Test
+    public void testRangeHeaderReturnsPartialFileContentsStart4() throws URISyntaxException, IOException {
+        Request request = new Request("GET", new URI("/partial_content.txt"), "HTTP/1.1");
+        request.addHeader("Range", "bytes=4-");
+
+        byte[] response = handler.getResponse(request);
+
+        assertTrue(new String(response).endsWith(" is a file that contains text to read part of in order to fulfill a 206.\n"));
+    }
+
+
+    @Test
+    public void testRangeHeaderReturnsPartialFileContentsEnd6() throws URISyntaxException, IOException {
+        Request request = new Request("GET", new URI("/partial_content.txt"), "HTTP/1.1");
+        request.addHeader("Range", "bytes=-6");
+
+        byte[] response = handler.getResponse(request);
+
+        assertTrue(new String(response).endsWith(" 206.\n"));
+    }
+
+    @Test
+    public void testPatchContent() throws URISyntaxException, IOException {
+        Request request = new Request("PATCH", new URI("/patch-content.txt"), "HTTP/1.1");
+        request.setBody("patched content");
+        request.addHeader("ETag", "dc50a0d27dda2eee9f65644cd7e4c9cf11de8bec");
+
+        byte[] response = handler.getResponse(request);
+
+        assertTrue(new String(response).contains("204"));
+        assertFalse(new String(response).contains("patched content"));
+
+        request = new Request("GET", new URI("/patch-content.txt"), "HTTP/1.1");
+
+        response = handler.getResponse(request);
+
+        assertTrue(new String(response).contains("patched content"));
+    }
 }

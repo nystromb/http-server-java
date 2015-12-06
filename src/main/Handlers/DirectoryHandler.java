@@ -1,7 +1,6 @@
 package main.Handlers;
 
 import main.FileUtil;
-import java.io.File;
 import main.Request;
 import main.Response;
 import main.ServerSettings;
@@ -15,7 +14,7 @@ public class DirectoryHandler implements Requestable {
     Response response = new Response();
 
     @Override
-    public Response getResponse(Request request) throws IOException {
+    public byte[] getResponse(Request request) throws IOException {
         response.setStatus("200 OK");
 
         String files = FileUtil.getDirectoryFileList(ServerSettings.getRootDirectory() + request.getPath());
@@ -27,6 +26,6 @@ public class DirectoryHandler implements Requestable {
 
         response.setBody(body.getBytes());
 
-        return response;
+        return response.toByteArray();
     }
 }

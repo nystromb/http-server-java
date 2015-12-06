@@ -48,4 +48,9 @@ public class Response {
     public void addHeader(String header, String value) {
         headers.put(header, value);
     }
+
+    public void setBody(String contents) {
+        this.body = contents.getBytes();
+    }
+
 }

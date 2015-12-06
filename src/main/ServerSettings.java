@@ -4,7 +4,9 @@ public class ServerSettings {
 	private static int port = 5000;
 	private static String directory;
 
-	public static void parse(String[] args) {
+
+
+    public static void parse(String[] args) {
 		for(int option = 0; option < args.length; option++){
 			if(args[option].equals("-p")){
 				setPort(args[++option]);
