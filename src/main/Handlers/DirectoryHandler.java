@@ -3,23 +3,23 @@ package main.Handlers;
 import main.*;
 
 import java.io.IOException;
+import main.Response.Builder;
 
 /**
  * Created by nystrom on 12/3/15.
  */
 public class DirectoryHandler implements HttpExchange {
-    Response response;
+    Builder response = new Builder();
 
     @Override
     public Response exchange(Request request) throws IOException {
         String files = FileUtil.getDirectoryFileList(ServerSettings.getRootDirectory() + request.getPath());
-        String body = "<!DOCTYPE html><html><head></head><body><ul>";
+        String contents = "<!DOCTYPE html><html><head></head><body><ul>";
         for(String file : files.split(" ")){
-            body += "<li><a href=\"/" + file +"\">" + file + "</a></li>";
+            contents += "<li><a href=\"/" + file +"\">" + file + "</a></li>";
         }
-        body += "</ul></body>";
+        contents += "</ul></body>";
 
-        response = new Response.Builder(200, body).build();
-        return response;
+        return response.status(200).setBody(contents).build();
     }
 }

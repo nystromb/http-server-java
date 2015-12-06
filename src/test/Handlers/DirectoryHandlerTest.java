@@ -38,7 +38,7 @@ public class DirectoryHandlerTest {
 
         Response response = handler.exchange(request);
 
-        assertTrue(response.status.contains("200 OK"));
+        assertTrue(response.statusLine.contains("200 OK"));
     }
 
     @Test

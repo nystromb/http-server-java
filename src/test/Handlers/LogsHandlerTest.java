@@ -29,7 +29,7 @@ public class LogsHandlerTest {
 
         Response response = handler.exchange(request);
 
-        assertTrue(response.status.contains("401"));
+        assertTrue(response.statusLine.contains("401"));
         assertTrue(response.headers.containsKey("WWW-Authenticate"));
     }
 
@@ -42,6 +42,6 @@ public class LogsHandlerTest {
 
         Response response = handler.exchange(request);
 
-        assertTrue(response.status.contains("200"));
+        assertTrue(response.statusLine.contains("200"));
     }
 }

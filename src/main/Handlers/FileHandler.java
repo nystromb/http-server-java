@@ -11,14 +11,14 @@ import main.Response.Builder;
  * Created by nystrom on 12/3/15.
  */
 public class FileHandler implements HttpExchange {
-    Builder response;
+    Builder response = new Builder();
 
     @Override
     public Response exchange(Request request) throws IOException {
         switch(request.getMethod()){
             case "GET":
                 if(request.hasHeader("Range")) {
-                    response = new Builder(206);
+                    response.status(206);
 
                     String ranges = request.getHeader("Range").split("=")[1];
                     String[] range = ranges.split("-");
@@ -33,15 +33,15 @@ public class FileHandler implements HttpExchange {
                     }
                 }
                 else {
-                    response = new Builder(200, FileUtil.readFileContents(request.getPath()));
+                    response.status(200).setBody(FileUtil.readFileContents(request.getPath()));
                 }
                 break;
             case "PUT":
             case "POST":
-                response = new Builder(405, "Method Not Allowed");
+                response.status(405);
                 break;
             case "PATCH":
-                response = new Builder(204);
+                response.status(204);
                 Files.write(new File(ServerSettings.getRootDirectory() + request.getPath()).toPath(), request.getBody().getBytes());
                 break;
         }

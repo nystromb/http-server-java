@@ -29,6 +29,6 @@ public class NotFoundHandlerTest {
 
         Response response = handler.exchange(request);
 
-        assertTrue(response.status.contains("404 Not Found"));
+        assertTrue(response.statusLine.contains("404 Not Found"));
     }
 }

@@ -28,7 +28,7 @@ public class ResourceTest {
 
         Response response = handler.exchange(request);
 
-        assertTrue(response.status.contains("200 OK"));
+        assertTrue(response.statusLine.contains("200 OK"));
         assertFalse(new String(response.toByteArray()).contains("some=data"));
 
         request = new Request("GET", new URI("/form"), "HTTP/1.1");
@@ -36,7 +36,7 @@ public class ResourceTest {
         response = handler.exchange(request);
 
 
-        assertTrue(response.status.contains("200 OK"));
+        assertTrue(response.statusLine.contains("200 OK"));
         assertTrue(new String(response.toByteArray()).contains("some=data"));
     }
 
@@ -48,12 +48,12 @@ public class ResourceTest {
 
         Response response = handler.exchange(request);
 
-        assertTrue(response.status.contains("200 OK"));
+        assertTrue(response.statusLine.contains("200 OK"));
         request = new Request("GET", new URI("/form"), "HTTP/1.1");
 
         response = handler.exchange(request);
 
-        assertTrue(response.status.contains("200 OK"));
+        assertTrue(response.statusLine.contains("200 OK"));
         assertTrue(new String(response.toByteArray()).contains("some=otherdata"));
     }
 
@@ -63,13 +63,13 @@ public class ResourceTest {
 
         Response response = handler.exchange(request);
 
-        assertTrue(response.status.contains("200 OK"));
+        assertTrue(response.statusLine.contains("200 OK"));
 
         request = new Request("GET", new URI("/form"), "HTTP/1.1");
 
         response = handler.exchange(request);
 
-        assertTrue(response.status.contains("200 OK"));
+        assertTrue(response.statusLine.contains("200 OK"));
     }
 
     @Test

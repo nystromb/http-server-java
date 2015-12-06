@@ -37,7 +37,7 @@ public class FileHandlerTest {
 
         Response response = handler.exchange(request);
 
-        assertTrue(response.status.contains("200 OK"));
+        assertTrue(response.statusLine.contains("200 OK"));
     }
 
     @Test
@@ -55,7 +55,7 @@ public class FileHandlerTest {
 
         Response response = handler.exchange(request);
 
-        assertTrue(response.status.contains("405"));
+        assertTrue(response.statusLine.contains("405"));
     }
 
     @Test
@@ -64,7 +64,7 @@ public class FileHandlerTest {
 
         Response response = handler.exchange(request);
 
-        assertTrue(response.status.contains("405"));
+        assertTrue(response.statusLine.contains("405"));
     }
 
     @Test
@@ -74,7 +74,7 @@ public class FileHandlerTest {
 
         Response response = handler.exchange(request);
 
-        assertTrue(response.status.contains("206 Partial Content"));
+        assertTrue(response.statusLine.contains("206"));
     }
 
     @Test
@@ -84,7 +84,7 @@ public class FileHandlerTest {
 
         Response response = handler.exchange(request);
 
-        assertTrue(new String(response.toByteArray()).endsWith(" This "));
+        assertArrayEquals("This ".getBytes(), response.body);
     }
 
     @Test
@@ -116,7 +116,7 @@ public class FileHandlerTest {
 
         Response response = handler.exchange(request);
 
-        assertTrue(response.status.contains("204"));
+        assertTrue(response.statusLine.contains("204"));
         assertFalse(new String(response.toByteArray()).contains("patched content"));
 
         request = new Request("GET", new URI("/patch-content.txt"), "HTTP/1.1");

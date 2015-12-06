@@ -28,7 +28,7 @@ public class ResponseTest {
     public void testAddHeadersToResponse() throws IOException {
         Response response = new Response.Builder(200, "some=data").build();
 
-        assertEquals("HTTP/1.1 200 OK", response.status);
+        assertEquals("HTTP/1.1 200 OK", response.statusLine);
         assertEquals("9", response.headers.get("Content-Length"));
     }
 
