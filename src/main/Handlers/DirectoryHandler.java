@@ -4,13 +4,11 @@ import main.*;
 
 import java.io.IOException;
 import main.Response.Builder;
-
 /**
  * Created by nystrom on 12/3/15.
  */
 public class DirectoryHandler implements HttpExchange {
     Builder response = new Builder();
-
     @Override
     public Response exchange(Request request) throws IOException {
         String files = FileUtil.getDirectoryFileList(ServerSettings.getRootDirectory() + request.getPath());

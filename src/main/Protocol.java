@@ -29,9 +29,9 @@ public class Protocol implements Runnable {
             Main.logger.log(Level.INFO, "Received Request from " + client.getRemoteSocketAddress().toString() + "\n" + rawRequest);
 
             Request request = RequestParser.process(rawRequest);
-            HttpExchange handler = Router.getHandler(request);
+            Route route = DynamicRouter.buildRoute(request);
 
-            Response response = handler.exchange(request);
+            Response response = DynamicRouter.route(route, request);
             Main.logger.log(Level.INFO, "Response\n" + new String(response.toByteArray()));
 
             output.write(response.toByteArray());
