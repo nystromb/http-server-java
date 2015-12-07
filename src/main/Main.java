@@ -34,19 +34,6 @@ public class Main {
         Route logsRoute = new Route();
         logsRoute.setAuthentication("admin", "hunter2", "challenge");
         DynamicRouter.addRoute("/logs", logsRoute);
-//        DynamicRouter.addRoute("/", new DirectoryHandler());
-//        DynamicRouter.addRoute("/file1", new FileHandler());
-//        DynamicRouter.addRoute("/file2", new FileHandler());
-//        DynamicRouter.addRoute("/text-file.txt", new FileHandler());
-//        DynamicRouter.addRoute("/image.jpeg", new FileHandler());
-//        DynamicRouter.addRoute("/image.png", new FileHandler());
-//        DynamicRouter.addRoute("/image.gif", new FileHandler());
-//        DynamicRouter.addRoute("/logs", new AuthHandler("admin:hunter2"));
-//        DynamicRouter.addRoute("/foobar", new NotFoundHandler());
-//        DynamicRouter.addRoute("/redirect", new RedirectHandler());
-//        DynamicRouter.addRoute("/parameters", new ParameterHandler());
-//        DynamicRouter.addRoute("/partial_content.txt", new FileHandler());
-//        DynamicRouter.addRoute("/patch-content.txt", new FileHandler());
     }
 
     public static void setUpLogger(){
