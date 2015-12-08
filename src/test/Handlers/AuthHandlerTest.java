@@ -1,7 +1,7 @@
 package test.Handlers;
 
-import main.Request;
-import main.Response;
+import main.Builders.Request;
+import main.Builders.Response;
 import main.ServerSettings;
 import org.junit.Before;
 import org.junit.Test;

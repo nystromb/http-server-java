@@ -1,9 +1,9 @@
 package main.Handlers;
 
 import main.HttpExchange;
-import main.Request;
-import main.Response;
-import main.Response.Builder;
+import main.Builders.Request;
+import main.Builders.Response;
+import main.Builders.Response.Builder;
 
 import java.io.IOException;
 

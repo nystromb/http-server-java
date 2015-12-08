@@ -1,8 +1,9 @@
-package main;
+package main.Builders;
 
 import main.Handlers.AuthHandler;
 import main.Handlers.DirectoryHandler;
 import main.Handlers.Resource;
+import main.HttpExchange;
 
 import java.util.ArrayList;
 import java.util.List;

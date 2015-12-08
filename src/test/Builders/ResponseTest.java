@@ -1,6 +1,6 @@
-package test;
+package test.Builders;
 
-import main.Response;
+import main.Builders.Response;
 import org.junit.Before;
 import org.junit.Test;
 

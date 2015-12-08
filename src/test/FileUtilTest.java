@@ -1,19 +1,12 @@
 package test;
 
 import main.FileUtil;
-import main.Request;
 import main.ServerSettings;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.nio.ByteBuffer;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Arrays;
 
 import static org.junit.Assert.*;
 

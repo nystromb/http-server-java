@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import main.*;
 
+import main.Builders.Request;
+import main.Builders.Response;
 import main.Handlers.Resource;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,6 +1,8 @@
 package test;
 
 import main.*;
+import main.Builders.Request;
+import main.Builders.Route;
 import main.Handlers.*;
 import main.Handlers.FileHandler;
 import org.junit.After;

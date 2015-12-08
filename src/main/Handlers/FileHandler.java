@@ -5,7 +5,10 @@ import main.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import main.Response.Builder;
+
+import main.Builders.Request;
+import main.Builders.Response;
+import main.Builders.Response.Builder;
 
 /**
  * Created by nystrom on 12/3/15.

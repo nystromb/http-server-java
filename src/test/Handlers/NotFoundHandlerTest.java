@@ -1,8 +1,8 @@
 package test.Handlers;
 
 import main.Handlers.NotFoundHandler;
-import main.Request;
-import main.Response;
+import main.Builders.Request;
+import main.Builders.Response;
 import org.junit.Before;
 import org.junit.Test;
 

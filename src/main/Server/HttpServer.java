@@ -1,4 +1,6 @@
-package main;
+package main.Server;
+
+import main.Protocol;
 
 import java.io.IOException;
 import java.net.ServerSocket;

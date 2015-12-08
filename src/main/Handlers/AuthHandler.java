@@ -1,6 +1,8 @@
 package main.Handlers;
 
 import main.*;
+import main.Builders.Request;
+import main.Builders.Response;
 
 import java.io.IOException;
 import java.util.Base64;

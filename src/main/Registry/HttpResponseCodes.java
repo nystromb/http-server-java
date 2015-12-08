@@ -1,4 +1,4 @@
-package main;
+package main.Registry;
 
 import java.util.HashMap;
 

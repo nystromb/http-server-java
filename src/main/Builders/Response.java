@@ -1,9 +1,10 @@
-package main;
+package main.Builders;
+
+import main.Registry.HttpResponseCodes;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Map.Entry;
 /**
  * Created by nystrom on 11/23/15.

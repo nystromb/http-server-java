@@ -1,7 +1,7 @@
-package test;
+package test.Builders;
 
 import main.*;
-import main.Handlers.AuthHandler;
+import main.Builders.Route;
 import main.Handlers.DirectoryHandler;
 import main.Handlers.Resource;
 import org.junit.Before;
