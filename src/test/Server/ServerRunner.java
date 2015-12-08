@@ -1,4 +1,4 @@
-package test;
+package test.Server;
 
 import main.Main;
 import org.junit.After;
@@ -10,17 +10,16 @@ import java.io.*;
 /**
  * Created by nystrom on 12/1/15.
  */
-public class HttpProtocolHandlerTest {
-    InputStream input;
-    OutputStream output;
-    MockSocket client;
+public class ServerRunner {
+//    InputStream input;
+//    OutputStream output;
+//    MockSocket client;
 
     @Before
     public void setUp() throws IOException {
-        Main.main(new String[] {"-d", "/Users/nystrom/Documents/my-8thlight-apprenticeship/cob_spec/public"});
-        Main.buildRoutes();
-        Main.setUpLogger();
-        output = new ByteArrayOutputStream();
+//        Main.main(new String[] {"-d", "/Users/nystrom/Documents/my-8thlight-apprenticeship/cob_spec/public"});
+//        Main.setUpLogger();
+//        output = new ByteArrayOutputStream();
     }
 
     @After
@@ -32,7 +31,7 @@ public class HttpProtocolHandlerTest {
 //    public void testRootReturns200OK(){
 //        input = new ByteArrayInputStream("GET / HTTP/1.1\r\n\r\n".getBytes());
 //        client = new MockSocket(input, output);
-//        Protocol thread = new Protocol(client);
+//        ServerRunner thread = new ServerRunner(client);
 //
 //                thread.run();
 //

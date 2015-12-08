@@ -2,7 +2,7 @@ package test.Handlers;
 
 import main.Builders.Request;
 import main.Builders.Response;
-import main.ServerSettings;
+import main.Configuration.ServerSettings;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

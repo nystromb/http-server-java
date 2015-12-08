@@ -1,18 +1,15 @@
-package test;
+package test.Configuration;
 
 
 import static org.junit.Assert.*;
 
 import main.*;
-import main.Handlers.AuthHandler;
-import main.HttpExchange;
+import main.Configuration.ServerSettings;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 
@@ -43,7 +40,7 @@ public class ServerSettingsTest {
 //    public void testIfBuildRoutes() throws URISyntaxException, IOException {
 //        Main.buildRoutes();
 //        Request request = new Request("GET", new URI("/logs"), "HTTP/1.1");
-//        Route handler = DynamicRouter.buildRoute(request);
+//        Route handler = Router.buildRoute(request);
 //        assertTrue(handler instanceof AuthHandler);
 //    }
 

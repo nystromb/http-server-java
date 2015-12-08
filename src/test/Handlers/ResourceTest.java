@@ -7,6 +7,7 @@ import main.*;
 import main.Builders.Request;
 import main.Builders.Response;
 import main.Handlers.Resource;
+import main.Registry.Routes;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,7 +20,7 @@ public class ResourceTest {
 
     @Before
     public void setUp() throws Exception{
-        Main.buildRoutes();
+
     }
 
     @Test

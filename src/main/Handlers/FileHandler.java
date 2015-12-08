@@ -1,14 +1,14 @@
 package main.Handlers;
 
-import main.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 
+import main.Assets.FileUtil;
 import main.Builders.Request;
 import main.Builders.Response;
 import main.Builders.Response.Builder;
+import main.Configuration.ServerSettings;
 
 /**
  * Created by nystrom on 12/3/15.

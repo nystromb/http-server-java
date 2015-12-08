@@ -1,4 +1,4 @@
-package main;
+package main.Configuration;
 
 public class ServerSettings {
 	private static int port = 5000;

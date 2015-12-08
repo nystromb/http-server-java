@@ -1,6 +1,8 @@
-package main;
+package main.Server;
 
 import main.Builders.*;
+import main.Router.Router;
+import main.Main;
 import main.Registry.Routes;
 
 import java.io.BufferedReader;
@@ -14,13 +16,13 @@ import java.util.logging.Level;
 /**
  * Created by nystrom on 12/1/15.
  */
-public class Protocol implements Runnable {
+public class ServerRunner implements Runnable {
     Routes routes = new Routes();
     Socket client;
 
-    public Protocol(Socket client, Routes routes) {
+    public ServerRunner(Socket client, Routes routes) {
         this.client = client;
-        this.routes = routes.build();
+        this.routes = routes;
     }
 
     @Override
@@ -34,9 +36,9 @@ public class Protocol implements Runnable {
             Main.logger.log(Level.INFO, "Received Request from " + client.getRemoteSocketAddress().toString() + "\n" + rawRequest);
 
             Request request = RequestParser.process(rawRequest);
-            Route route = DynamicRouter.buildRoute(request);
+            Route route = Router.buildRoute(request);
 
-            Response response = DynamicRouter.route(route, request);
+            Response response = Router.route(route, request);
             Main.logger.log(Level.INFO, "Response\n" + new String(response.toByteArray()));
 
             output.write(response.toByteArray());

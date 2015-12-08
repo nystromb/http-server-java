@@ -1,7 +1,7 @@
 package test.Builders;
 
-import main.*;
 import main.Builders.Route;
+import main.Configuration.ServerSettings;
 import main.Handlers.DirectoryHandler;
 import main.Handlers.Resource;
 import org.junit.Before;

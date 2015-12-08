@@ -1,37 +1,35 @@
-package main;
+package main.Router;
 
 import main.Builders.Request;
 import main.Builders.Response;
 import main.Builders.Route;
 import main.Handlers.*;
+import main.Handlers.HttpExchange;
+import main.Registry.Routes;
+import main.Configuration.ServerSettings;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Hashtable;
 
 /**
  * Created by nystrom on 11/5/15.
  */
-public class DynamicRouter {
+public class Router {
     static HttpExchange directoryHandler = new DirectoryHandler();
     static HttpExchange fileHandler = new FileHandler();
     static HttpExchange paramHandler = new ParameterHandler();
     static HttpExchange fileNotFound = new NotFoundHandler();
     static HttpExchange redirectHandler = new RedirectHandler();
 
-    public static Hashtable<String, Route> routes = new Hashtable();
-
-    public static void addRoute(String path, Route route){
-        routes.put(path, route);
-    }
+    private static Routes routes = new Routes();
 
     public static Route buildRoute(Request request) {
         Route route = routes.getOrDefault(request.getPath(), new Route());
 
-        if(request.getPath().equals("/redirect"))
-        {
-            route.setNext(redirectHandler);
+        if(!routes.containsKey(request.getPath()) && Files.notExists(Paths.get(ServerSettings.getRootDirectory() + request.getPath()))){
+            route.setNext(fileNotFound);
+            return route;
         }
 
         if(request.getQuery().length() > 0){
@@ -40,7 +38,7 @@ public class DynamicRouter {
 
         if(route.handler != null){
             route.setNext(route.handler);
-        }else{
+        } else {
             if(Files.isDirectory(Paths.get(ServerSettings.getRootDirectory() + request.getPath()).normalize())){
                 route.setNext(directoryHandler);
             } else if(Files.isReadable(Paths.get(ServerSettings.getRootDirectory() + request.getPath()).normalize())) {

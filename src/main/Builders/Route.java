@@ -1,9 +1,8 @@
 package main.Builders;
 
 import main.Handlers.AuthHandler;
-import main.Handlers.DirectoryHandler;
-import main.Handlers.Resource;
-import main.HttpExchange;
+import main.Handlers.RedirectHandler;
+import main.Handlers.HttpExchange;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,5 +34,9 @@ public class Route {
 
     public void setHandler(HttpExchange controller) {
         this.handler = controller;
+    }
+
+    public void setRedirect(String redirectPath) {
+        handlers.add(new RedirectHandler(redirectPath));
     }
 }

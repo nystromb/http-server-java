@@ -1,4 +1,6 @@
-package main;
+package main.Assets;
+
+import main.Configuration.ServerSettings;
 
 import java.io.File;
 import java.io.FileReader;

@@ -1,7 +1,6 @@
 package main;
 
-import main.Builders.Route;
-import main.Handlers.Resource;
+import main.Configuration.ServerSettings;
 import main.Server.HttpServer;
 
 import java.io.IOException;
@@ -15,27 +14,12 @@ public class Main {
         ServerSettings.parse(args);
         try {
             setUpLogger();
-            buildRoutes();
             HttpServer http = new HttpServer(ServerSettings.getPort());
             logger.log(Level.INFO, "Server starting on port " + ServerSettings.getPort());
             http.start();
         } catch (IOException e) {
             logger.log(Level.SEVERE, "ERROR: Could not start server on port " + ServerSettings.getPort());
         }
-    }
-
-    public static void buildRoutes() {
-        Route formRoute = new Route();
-        formRoute.setHandler(new Resource());
-        DynamicRouter.addRoute("/form", formRoute);
-
-        Route methodOptions = new Route();
-        methodOptions.setHandler(new Resource());
-        DynamicRouter.addRoute("/method_options", methodOptions);
-
-        Route logsRoute = new Route();
-        logsRoute.setAuthentication("admin", "hunter2", "challenge");
-        DynamicRouter.addRoute("/logs", logsRoute);
     }
 
     public static void setUpLogger(){

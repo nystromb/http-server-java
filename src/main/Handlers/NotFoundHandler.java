@@ -1,6 +1,5 @@
 package main.Handlers;
 
-import main.HttpExchange;
 import main.Builders.Request;
 import main.Builders.Response;
 

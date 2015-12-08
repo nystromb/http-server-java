@@ -1,7 +1,7 @@
-package test;
+package test.Assets;
 
-import main.FileUtil;
-import main.ServerSettings;
+import main.Assets.FileUtil;
+import main.Configuration.ServerSettings;
 import org.junit.Before;
 import org.junit.Test;
 

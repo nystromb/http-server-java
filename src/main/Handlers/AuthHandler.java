@@ -1,8 +1,9 @@
 package main.Handlers;
 
-import main.*;
+import main.Assets.FileUtil;
 import main.Builders.Request;
 import main.Builders.Response;
+import main.Router.Router;
 
 import java.io.IOException;
 import java.util.Base64;
@@ -10,7 +11,7 @@ import java.util.Base64;
 /**
  * Created by nystrom on 11/24/15.
  */
-public class AuthHandler extends DynamicRouter implements HttpExchange {
+public class AuthHandler extends Router implements HttpExchange {
 
     private byte[] authorization;
     private String challenge = "Default";

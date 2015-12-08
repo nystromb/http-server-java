@@ -1,4 +1,4 @@
-package main;
+package main.Handlers;
 
 
 import main.Builders.Request;

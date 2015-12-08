@@ -1,7 +1,6 @@
 package main.Registry;
 
 import main.Builders.Route;
-import main.DynamicRouter;
 import main.Handlers.Resource;
 
 import java.util.HashMap;
@@ -11,10 +10,6 @@ import java.util.HashMap;
  */
 public class Routes extends HashMap<String, Route> {
     public Routes () {
-
-    }
-
-    public Routes build(){
         Route formRoute = new Route();
         formRoute.setHandler(new Resource());
         this.put("/form", formRoute);
@@ -27,7 +22,12 @@ public class Routes extends HashMap<String, Route> {
         logsRoute.setAuthentication("admin", "hunter2", "challenge");
         this.put("/logs", logsRoute);
 
-        return this;
+        Route redirectRoute = new Route();
+        redirectRoute.setRedirect("/");
+        this.put("/redirect", redirectRoute);
+
+        Route parameter = new Route();
+        this.put("/parameters", parameter);
     }
 
 }
