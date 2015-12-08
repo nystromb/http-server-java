@@ -15,7 +15,6 @@ public class Route {
     private boolean isAuthenticated = false;
     public List<HttpExchange> handlers = new ArrayList<>();
     public HttpExchange handler;
-    String path;
 
     public Route() {
 

@@ -1,6 +1,7 @@
 package main;
 
 import main.Builders.*;
+import main.Registry.Routes;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,10 +15,12 @@ import java.util.logging.Level;
  * Created by nystrom on 12/1/15.
  */
 public class Protocol implements Runnable {
+    Routes routes = new Routes();
     Socket client;
 
-    public Protocol(Socket client) {
+    public Protocol(Socket client, Routes routes) {
         this.client = client;
+        this.routes = routes.build();
     }
 
     @Override
