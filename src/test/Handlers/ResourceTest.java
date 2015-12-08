@@ -26,18 +26,18 @@ public class ResourceTest {
         request.addHeader("Content-Length", "9");
         request.setBody("some=data");
 
-        byte[] response = handler.getResponse(request);
+        Response response = handler.exchange(request);
 
-        assertTrue(new String(response).contains("200 OK"));
-        assertFalse(new String(response).contains("some=data"));
+        assertTrue(response.statusLine.contains("200 OK"));
+        assertFalse(new String(response.toByteArray()).contains("some=data"));
 
         request = new Request("GET", new URI("/form"), "HTTP/1.1");
 
-        response = handler.getResponse(request);
+        response = handler.exchange(request);
 
-        String expectedResponse = new String(response);
-        assertTrue(expectedResponse.contains("200 OK"));
-        assertTrue(expectedResponse.contains("some=data"));
+
+        assertTrue(response.statusLine.contains("200 OK"));
+        assertTrue(new String(response.toByteArray()).contains("some=data"));
     }
 
     @Test
@@ -46,38 +46,39 @@ public class ResourceTest {
         request.addHeader("Content-Length", "14");
         request.setBody("some=otherdata");
 
-        byte[]  response = handler.getResponse(request);
+        Response response = handler.exchange(request);
 
-        assertTrue(new String(response).contains("200 OK"));
+        assertTrue(response.statusLine.contains("200 OK"));
         request = new Request("GET", new URI("/form"), "HTTP/1.1");
 
-        response = handler.getResponse(request);
+        response = handler.exchange(request);
 
-        assertTrue(new String(response).contains("200 OK"));
-        assertTrue(new String(response).contains("some=otherdata"));
+        assertTrue(response.statusLine.contains("200 OK"));
+        assertTrue(new String(response.toByteArray()).contains("some=otherdata"));
     }
 
     @Test
     public void testDeleteTheData() throws IOException, URISyntaxException{
         Request request = new Request("DELETE", new URI("/form"), "HTTP/1.1");
 
-        byte[]  response = handler.getResponse(request);
+        Response response = handler.exchange(request);
 
-        assertTrue(new String(response).contains("200 OK"));
+        assertTrue(response.statusLine.contains("200 OK"));
 
         request = new Request("GET", new URI("/form"), "HTTP/1.1");
 
-        response = handler.getResponse(request);
+        response = handler.exchange(request);
 
-        assertTrue(new String(response).contains("200 OK"));
+        assertTrue(response.statusLine.contains("200 OK"));
     }
 
     @Test
     public void testOptionsRequestHasAllowHeaders() throws URISyntaxException, IOException {
         Request request = new Request("OPTIONS", new URI("/form"), "HTTP/1.1");
 
-        byte[] response = handler.getResponse(request);
+        Response response = handler.exchange(request);
 
-        assertTrue(new String(response).contains("Allow: GET,HEAD,POST,OPTIONS,PUT"));
+        assertTrue(response.headers.containsKey("Allow"));
+        assertTrue(response.headers.containsValue("GET,HEAD,POST,OPTIONS,PUT"));
     }
 }

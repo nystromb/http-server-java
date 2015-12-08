@@ -1,6 +1,6 @@
 package main;
 
-import main.Handlers.*;
+import main.Handlers.Resource;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -23,19 +23,17 @@ public class Main {
     }
 
     public static void buildRoutes() {
-        Router.addRoute("/", new DirectoryHandler());
-        Router.addRoute("/file1", new FileHandler());
-        Router.addRoute("/file2", new FileHandler());
-        Router.addRoute("/text-file.txt", new FileHandler());
-        Router.addRoute("/image.jpeg", new FileHandler());
-        Router.addRoute("/image.png", new FileHandler());
-        Router.addRoute("/image.gif", new FileHandler());
-        Router.addRoute("/logs", new LogsHandler("admin:hunter2"));
-        Router.addRoute("/foobar", new NotFoundHandler());
-        Router.addRoute("/redirect", new RedirectHandler());
-        Router.addRoute("/parameters", new ParameterHandler());
-        Router.addRoute("/partial_content.txt", new PartialContentHandler());
-        Router.addRoute("/patch-content.txt", new FileHandler());
+        Route formRoute = new Route();
+        formRoute.setHandler(new Resource());
+        DynamicRouter.addRoute("/form", formRoute);
+
+        Route methodOptions = new Route();
+        methodOptions.setHandler(new Resource());
+        DynamicRouter.addRoute("/method_options", methodOptions);
+
+        Route logsRoute = new Route();
+        logsRoute.setAuthentication("admin", "hunter2", "challenge");
+        DynamicRouter.addRoute("/logs", logsRoute);
     }
 
     public static void setUpLogger(){

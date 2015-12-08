@@ -1,23 +1,23 @@
 package main.Handlers;
 
+import main.HttpExchange;
 import main.Request;
 import main.Response;
+import main.Response.Builder;
 
 import java.io.IOException;
 
 /**
  * Created by nystrom on 11/16/15.
  */
-public class Resource implements Requestable {
+public class Resource implements HttpExchange {
     static String data = "";
-    Response response = new Response();
+    Builder response = new Builder(200);
 
-    public byte[] getResponse(Request request) throws IOException {
-        response.setStatus("200 OK");
-
+    public Response exchange(Request request) throws IOException {
         switch (request.getMethod()) {
             case "GET":
-                response.setBody(data.getBytes());
+                response.setBody(data);
                 break;
             case "PUT":
             case "POST":
@@ -31,6 +31,6 @@ public class Resource implements Requestable {
                 break;
         }
 
-        return response.toByteArray();
+        return response.build();
     }
 }

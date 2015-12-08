@@ -1,53 +1,51 @@
 package main.Handlers;
 
-import main.FileUtil;
-import main.Request;
-import main.Response;
-import main.ServerSettings;
+import main.*;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import main.Response.Builder;
 
 /**
  * Created by nystrom on 12/3/15.
  */
-public class FileHandler implements Requestable {
-    Response response = new Response();
-    String patchData = "";
+public class FileHandler implements HttpExchange {
+    Builder response = new Builder();
+
     @Override
-    public byte[] getResponse(Request request) throws IOException {
+    public Response exchange(Request request) throws IOException {
         switch(request.getMethod()){
             case "GET":
                 if(request.hasHeader("Range")) {
-                    response.setStatus("206 Partial Content");
+                    response.status(206);
 
                     String ranges = request.getHeader("Range").split("=")[1];
                     String[] range = ranges.split("-");
+
                     String contents = FileUtil.readFileContents(new File(ServerSettings.getRootDirectory(), request.getPath()));
                     if(ranges.startsWith("-")){
                         response.setBody(contents.substring(contents.length() - Integer.parseInt(range[1])));
                     }else if (ranges.endsWith("-")){
                         response.setBody(contents.substring(Integer.parseInt(range[0])));
                     }else {
-                        response.setBody(" " + contents.substring(Integer.parseInt(range[0]), (Integer.parseInt(range[1]) + 1)));
+                        response.setBody(contents.substring(Integer.parseInt(range[0]), (Integer.parseInt(range[1]) + 1)));
                     }
                 }
                 else {
-                    response.setStatus("200 OK");
-                    response.setBody(FileUtil.readFileContents(request.getPath()));
+                    response.status(200).setBody(FileUtil.readFileContents(request.getPath()));
                 }
                 break;
             case "PUT":
             case "POST":
-                response.setStatus("405 Method Not Allowed");
-                response.setBody("Method Not Allowed".getBytes());
+                response.status(405);
                 break;
             case "PATCH":
-                response.setStatus("204 Patch Content");
+                response.status(204);
                 Files.write(new File(ServerSettings.getRootDirectory() + request.getPath()).toPath(), request.getBody().getBytes());
                 break;
         }
 
-        return response.toByteArray();
+        return response.build();
     }
 }

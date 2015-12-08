@@ -19,28 +19,22 @@ public class ResponseTest {
 
     @Test
     public void testBuildsResponseFromStatusLine() throws IOException{
-        Response response = new Response();
-
-        response.setStatus("200 OK");
+        Response response = new Response.Builder(200).build();
 
         assertEquals("HTTP/1.1 200 OK\r\n\r\n", new String(response.toByteArray()));
     }
 
     @Test
     public void testAddHeadersToResponse() throws IOException {
-        Response response = new Response();
+        Response response = new Response.Builder(200, "some=data").build();
 
-        response.addHeader("Content-Length", "9");
-
-        assertEquals("9", response.getHeader("Content-Length"));
+        assertEquals("HTTP/1.1 200 OK", response.statusLine);
+        assertEquals("9", response.headers.get("Content-Length"));
     }
 
     @Test
     public void testSettingTheBody() throws IOException {
-        Response response = new Response();
-
-        response.setStatus("200 OK");
-        response.setBody("some=data".getBytes());
+        Response response = new Response.Builder(200, "some=data").build();
 
         assertTrue(new String(response.toByteArray()).contains("Content-Length: 9\r\n"));
         assertTrue(new String(response.toByteArray()).contains("some=data"));

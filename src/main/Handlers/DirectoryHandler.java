@@ -1,31 +1,23 @@
 package main.Handlers;
 
-import main.FileUtil;
-import main.Request;
-import main.Response;
-import main.ServerSettings;
+import main.*;
 
 import java.io.IOException;
-
+import main.Response.Builder;
 /**
  * Created by nystrom on 12/3/15.
  */
-public class DirectoryHandler implements Requestable {
-    Response response = new Response();
-
+public class DirectoryHandler implements HttpExchange {
+    Builder response = new Builder();
     @Override
-    public byte[] getResponse(Request request) throws IOException {
-        response.setStatus("200 OK");
-
+    public Response exchange(Request request) throws IOException {
         String files = FileUtil.getDirectoryFileList(ServerSettings.getRootDirectory() + request.getPath());
-        String body = "<!DOCTYPE html><html><head></head><body><ul>";
+        String contents = "<!DOCTYPE html><html><head></head><body><ul>";
         for(String file : files.split(" ")){
-            body += "<li><a href=\"/" + file +"\">" + file + "</a></li>";
+            contents += "<li><a href=\"/" + file +"\">" + file + "</a></li>";
         }
-        body += "</ul></body>";
+        contents += "</ul></body>";
 
-        response.setBody(body.getBytes());
-
-        return response.toByteArray();
+        return response.status(200).setBody(contents).build();
     }
 }

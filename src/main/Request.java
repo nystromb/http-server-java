@@ -7,6 +7,7 @@ public class Request {
     public URI uri;
     String method, version, body = "";
     Hashtable<String, String> headers = new Hashtable<>();
+    private String path;
 
     public Request(String method, URI uri, String protocol){
         this.method = method;
@@ -47,6 +48,13 @@ public class Request {
 	}
 
     public String getQuery() {
+        if(uri.getQuery() == null)
+            return "";
+
         return uri.getQuery().replaceAll("(?<![\\s><!+-,])[=]", " = ").replaceAll("(?<![\\s><!+-,])[&]", " ");
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 }

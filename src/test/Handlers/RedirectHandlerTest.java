@@ -24,12 +24,13 @@ public class RedirectHandlerTest {
     }
 
     @Test
-    public void testReturns302Status() throws URISyntaxException, IOException {
+    public void testReturns302statusLineLine() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/redirect"), "HTTP/1.1");
 
-        byte[] response = handler.getResponse(request);
+        Response response = handler.exchange(request);
 
-        assertTrue(new String(response).contains("302"));
-        assertTrue(new String(response).contains("Location: http://localhost:5000/"));
+        assertTrue(response.statusLine.contains("302 Found"));
+        assertTrue(response.headers.containsKey("Location"));
+        assertTrue(response.headers.containsValue("http://localhost:5000/"));
     }
 }

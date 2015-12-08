@@ -25,7 +25,8 @@ public class HttpServer extends ServerSocket {
 
     public void start() throws IOException {
         while(true) {
-            executorService.execute(new HttpProtocolHandler(accept()));
+            executorService.execute(new Protocol(accept()));
         }
     }
 }
+
