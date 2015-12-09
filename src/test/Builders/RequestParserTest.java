@@ -2,8 +2,8 @@ package test.Builders;
 
 import static org.junit.Assert.*;
 
-import main.Builders.Request;
-import main.Builders.RequestParser;
+import http.Builders.Request;
+import http.Builders.RequestParser;
 import org.junit.Test;
 
 import java.net.URISyntaxException;

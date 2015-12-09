@@ -1,6 +1,6 @@
 package test.Server;
 
-import main.Server.HttpServer;
+import http.Server.HttpServer;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

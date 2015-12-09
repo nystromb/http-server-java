@@ -1,11 +1,13 @@
 package test.RouterTest;
 
-import main.Builders.Request;
-import main.Builders.Route;
-import main.Configuration.ServerSettings;
-import main.Handlers.*;
-import main.Handlers.FileHandler;
-import main.Router.Router;
+import http.Builders.Request;
+import http.Builders.Route;
+import http.Configuration.Settings;
+import http.Handlers.DirectoryHandler;
+import http.Handlers.ParameterHandler;
+import http.Handlers.TicTacToeHandler;
+import http.Handlers.FileHandler;
+import http.Router.Router;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,7 +22,7 @@ import static org.junit.Assert.*;
 public class RouterTest {
     @Before
     public void setUp() {
-        ServerSettings.parse(new String[]{"-d", "/Users/nystrom/Documents/my-8thlight-apprenticeship/cob_spec/public/"});
+        Settings.parse(new String[]{"-d", "/Users/nystrom/Documents/my-8thlight-apprenticeship/cob_spec/public/"});
     }
 
     @Test
@@ -61,4 +63,22 @@ public class RouterTest {
 
         assertTrue(route.handlers.get(0) instanceof FileHandler);
     }
+
+    @Test
+    public void testTicTacToe() throws URISyntaxException {
+        Request request = new Request("GET", new URI("/tictactoe"), "HTTP/1.1");
+
+        Route route = Router.buildRoute(request);
+
+        assertTrue(route.handlers.get(0) instanceof TicTacToeHandler);
+    }
+//
+//    @Test
+//    public void testTicTacToeWithUrlParams() throws URISyntaxException {
+//        Request request = new Request("POST", new URI("/tictactoe/1"), "HTTP/1.1");
+//
+//        Route route = Router.buildRoute(request);
+//
+//        assertTrue(route.handlers.get(0) instanceof TicTacToeHandler);
+//    }
 }

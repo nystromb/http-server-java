@@ -1,14 +1,15 @@
 package test.Builders;
 
-import main.Builders.Route;
-import main.Configuration.ServerSettings;
-import main.Handlers.DirectoryHandler;
-import main.Handlers.Resource;
+import http.Builders.Route;
+import http.Configuration.Settings;
+import http.Handlers.DirectoryHandler;
+import http.Handlers.Resource;
+import http.Registry.Routes;
 import org.junit.Before;
 import org.junit.Test;
 
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 
 /**
@@ -17,7 +18,7 @@ import static org.junit.Assert.*;
 public class RouteTest {
     @Before
     public void setUp(){
-        ServerSettings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
+        Settings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
     }
 
     @Test
@@ -49,5 +50,15 @@ public class RouteTest {
         route.setHandler(new Resource());
 
         assertTrue(route.handler != null);
+    }
+
+    @Test
+    public void testSomething(){
+        Routes routes = new Routes();
+        Route ttt = new Route();
+
+
+        routes.put("/tictactoe", ttt);
+        assertTrue(routes.containsKey("/tictactoe"));
     }
 }

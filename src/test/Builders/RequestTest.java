@@ -2,7 +2,7 @@ package test.Builders;
 
 import static org.junit.Assert.*;
 
-import main.Builders.Request;
+import http.Builders.Request;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
