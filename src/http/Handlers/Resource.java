@@ -9,11 +9,11 @@ import java.io.IOException;
 /**
  * Created by nystrom on 11/16/15.
  */
-public class Resource implements HttpExchange {
+public class Resource implements Handler {
     static String data = "";
     Builder response = new Builder(200);
 
-    public Response exchange(Request request) throws IOException {
+    public Response handle(Request request) throws IOException {
         switch (request.getMethod()) {
             case "GET":
                 response.setBody(data);

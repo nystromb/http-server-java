@@ -12,11 +12,11 @@ import http.Configuration.Settings;
 /**
  * Created by nystrom on 12/3/15.
  */
-public class FileHandler implements HttpExchange {
+public class FileHandler implements Handler {
     Response.Builder response = new Response.Builder();
 
     @Override
-    public Response exchange(Request request) throws IOException {
+    public Response handle(Request request) throws IOException {
         switch(request.getMethod()){
             case "GET":
                 if(request.hasHeader("Range")) {

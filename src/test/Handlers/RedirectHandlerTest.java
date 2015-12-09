@@ -27,7 +27,7 @@ public class RedirectHandlerTest {
     public void testReturns302statusLineLine() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/redirect"), "HTTP/1.1");
 
-        Response response = handler.exchange(request);
+        Response response = handler.handle(request);
 
         assertTrue(response.statusLine.contains("302 Found"));
         assertTrue(response.headers.containsKey("Location"));

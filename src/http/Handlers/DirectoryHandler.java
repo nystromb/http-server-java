@@ -11,10 +11,10 @@ import http.Configuration.Settings;
 /**
  * Created by nystrom on 12/3/15.
  */
-public class DirectoryHandler implements HttpExchange {
+public class DirectoryHandler implements Handler {
     Builder response = new Builder();
     @Override
-    public Response exchange(Request request) throws IOException {
+    public Response handle(Request request) throws IOException {
         String files = FileUtil.getDirectoryFileList(Settings.getRootDirectory() + request.getPath());
         String contents = "<!DOCTYPE html><html><head></head><body><ul>";
         for(String file : files.split(" ")){

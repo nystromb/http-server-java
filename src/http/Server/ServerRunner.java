@@ -1,9 +1,10 @@
 package http.Server;
 
-import http.Builders.*;
+import http.Builders.Request;
+import http.Builders.RequestParser;
+import http.Builders.RequestReader;
 import http.Main;
 import http.Registry.Routes;
-import http.Router.Router;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -36,12 +37,12 @@ public class ServerRunner implements Runnable {
             Main.logger.log(Level.INFO, "Received Request from " + client.getRemoteSocketAddress().toString() + "\n" + rawRequest);
 
             Request request = RequestParser.process(rawRequest);
-            Route route = Router.buildRoute(request);
+//            Route route = Router.buildRoute(request);
 
-            Response response = Router.route(route, request);
-            Main.logger.log(Level.INFO, "Response\n" + new String(response.toByteArray()));
-
-            output.write(response.toByteArray());
+//            Response response = Router.route(route, request);
+//            Main.logger.log(Level.INFO, "Response\n" + new String(response.toByteArray()));
+//
+//            output.write(response.toByteArray());
         }catch(IOException e){
             e.printStackTrace();
         } catch (URISyntaxException e) {

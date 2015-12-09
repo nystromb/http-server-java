@@ -1,7 +1,6 @@
 package test.Configuration;
 
 
-import http.Configuration.ServerSettings;
 import http.Configuration.Settings;
 import http.Main;
 import org.junit.Assert;

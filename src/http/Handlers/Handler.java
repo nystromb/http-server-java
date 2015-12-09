@@ -6,6 +6,6 @@ import http.Builders.Response;
 
 import java.io.IOException;
 
-public interface HttpExchange {
-    Response exchange(Request request) throws IOException;
+public interface Handler {
+    Response handle(Request request) throws IOException;
 }

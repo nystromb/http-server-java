@@ -11,7 +11,8 @@ import java.util.Base64;
 /**
  * Created by nystrom on 11/24/15.
  */
-public class AuthHandler extends Router implements HttpExchange {
+public class AuthHandler extends Router implements Handler {
+
     private byte[] authorization;
     private String challenge = "Default";
     Response response;
@@ -24,7 +25,7 @@ public class AuthHandler extends Router implements HttpExchange {
         this.authorization = Base64.getEncoder().encode((user + ":" + password).getBytes());
     }
 
-    public Response exchange(Request request) throws IOException {
+    public Response handle(Request request) throws IOException {
         String authHeader = "Basic " + new String(this.authorization);
 
         if (request.hasHeader("Authorization") && authHeader.equals(request.getHeader("Authorization"))) {

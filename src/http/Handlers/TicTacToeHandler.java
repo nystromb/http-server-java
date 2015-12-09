@@ -9,7 +9,7 @@ import java.util.Observable;
 /**
  * Created by nystrom on 12/8/15.
  */
-public class TicTacToeHandler implements HttpExchange {
+public class TicTacToeHandler implements Handler {
     Observable model;
 
     public TicTacToeHandler(Observable model) {
@@ -17,7 +17,7 @@ public class TicTacToeHandler implements HttpExchange {
     }
 
     @Override
-    public Response exchange(Request request) throws IOException {
+    public Response handle(Request request) throws IOException {
         return new Response.Builder(200, "Good stuff").build();
     }
 }

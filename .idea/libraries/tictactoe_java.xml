@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="tictactoe_jar">
+  <library name="tictactoe-java">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/tictactoe_jar.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tictactoe-java.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

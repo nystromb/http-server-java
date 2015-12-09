@@ -1,0 +1,881 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<<<<<<< Updated upstream
+<record>
+  <date>2015-12-08T14:15:05</date>
+  <millis>1449605705046</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>main.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-08T14:39:57</date>
+  <millis>1449607197493</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>main.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-08T14:40:54</date>
+  <millis>1449607254599</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>main.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-08T15:04:10</date>
+  <millis>1449608650410</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>main.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-08T15:06:25</date>
+  <millis>1449608785969</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-08T15:10:28</date>
+  <millis>1449609028126</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-08T15:24:53</date>
+  <millis>1449609893354</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-08T15:35:29</date>
+  <millis>1449610529604</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-08T16:04:11</date>
+  <millis>1449612251457</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-08T16:09:46</date>
+  <millis>1449612586371</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-08T16:13:40</date>
+  <millis>1449612820917</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-08T16:37:14</date>
+  <millis>1449614234728</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-08T16:37:50</date>
+  <millis>1449614270623</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-08T16:42:19</date>
+  <millis>1449614539706</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+<record>
+  <date>2015-12-08T16:42:26</date>
+  <millis>1449614546023</millis>
+  <sequence>1</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>11</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:56713
+GET / HTTP/1.1
+User-Agent: curl/7.37.1
+Host: localhost:5000
+Accept: */*
+
+</message>
+</record>
+<record>
+  <date>2015-12-08T16:42:26</date>
+  <millis>1449614546032</millis>
+  <sequence>2</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>11</thread>
+  <message>Response
+HTTP/1.1 200 OK
+
+&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;ul&gt;&lt;li&gt;&lt;a href="/file1"&gt;file1&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/file2"&gt;file2&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/image.gif"&gt;image.gif&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/image.jpeg"&gt;image.jpeg&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/image.png"&gt;image.png&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/partial_content.txt"&gt;partial_content.txt&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/patch-content.txt"&gt;patch-content.txt&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/text-file.txt"&gt;text-file.txt&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;</message>
+</record>
+<record>
+  <date>2015-12-08T16:44:22</date>
+  <millis>1449614662667</millis>
+  <sequence>3</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>Received Request from /127.0.0.1:56715
+GET /info?txtAirPlay&amp;txtRAOP RTSP/1.0
+
+</message>
+</record>
+<record>
+  <date>2015-12-08T16:44:22</date>
+  <millis>1449614662669</millis>
+  <sequence>4</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>Response
+HTTP/1.1 200 OK
+
+&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;ul&gt;&lt;li&gt;&lt;a href="/file1"&gt;file1&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/file2"&gt;file2&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/image.gif"&gt;image.gif&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/image.jpeg"&gt;image.jpeg&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/image.png"&gt;image.png&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/partial_content.txt"&gt;partial_content.txt&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/patch-content.txt"&gt;patch-content.txt&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/text-file.txt"&gt;text-file.txt&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;</message>
+</record>
+<record>
+  <date>2015-12-08T16:53:02</date>
+  <millis>1449615182332</millis>
+  <sequence>5</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>13</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:56729
+GET / HTTP/1.1
+User-Agent: curl/7.37.1
+Host: localhost:5000
+Accept: */*
+
+</message>
+</record>
+<record>
+  <date>2015-12-08T16:53:02</date>
+  <millis>1449615182335</millis>
+  <sequence>6</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>13</thread>
+  <message>Response
+HTTP/1.1 200 OK
+
+&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;ul&gt;&lt;li&gt;&lt;a href="/file1"&gt;file1&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/file2"&gt;file2&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/image.gif"&gt;image.gif&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/image.jpeg"&gt;image.jpeg&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/image.png"&gt;image.png&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/partial_content.txt"&gt;partial_content.txt&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/patch-content.txt"&gt;patch-content.txt&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/text-file.txt"&gt;text-file.txt&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-08T16:53:07</date>
+  <millis>1449615187501</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-08T17:03:25</date>
+  <millis>1449615805202</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+<record>
+  <date>2015-12-08T17:03:32</date>
+  <millis>1449615812273</millis>
+  <sequence>1</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>11</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:56856
+GET / HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-08T17:03:32</date>
+  <millis>1449615812283</millis>
+  <sequence>2</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>11</thread>
+  <message>Response
+HTTP/1.1 200 OK
+
+&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;ul&gt;&lt;li&gt;&lt;a href="/file1"&gt;file1&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/file2"&gt;file2&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/image.gif"&gt;image.gif&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/image.jpeg"&gt;image.jpeg&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/image.png"&gt;image.png&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/partial_content.txt"&gt;partial_content.txt&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/patch-content.txt"&gt;patch-content.txt&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="/text-file.txt"&gt;text-file.txt&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;</message>
+</record>
+<record>
+  <date>2015-12-08T17:03:33</date>
+  <millis>1449615813894</millis>
+  <sequence>3</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:56859
+GET /patch-content.txt HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Referer: http://localhost:5000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-08T17:03:33</date>
+  <millis>1449615813900</millis>
+  <sequence>4</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>Response
+HTTP/1.1 200 OK
+
+patched content</message>
+</record>
+<record>
+  <date>2015-12-08T17:03:40</date>
+  <millis>1449615820897</millis>
+  <sequence>5</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>Received Request from /127.0.0.1:56866
+GET /info?txtAirPlay&amp;txtRAOP RTSP/1.0
+
+</message>
+</record>
+<record>
+  <date>2015-12-08T17:03:40</date>
+  <millis>1449615820898</millis>
+  <sequence>6</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>Response
+HTTP/1.1 200 OK
+
+patched content</message>
+</record>
+<record>
+  <date>2015-12-08T17:03:58</date>
+  <millis>1449615838769</millis>
+  <sequence>7</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>13</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:56860
+</message>
+</record>
+<record>
+  <date>2015-12-08T17:03:58</date>
+  <millis>1449615838771</millis>
+  <sequence>8</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>13</thread>
+  <message>Response
+HTTP/1.1 200 OK
+
+patched content</message>
+</record>
+<record>
+  <date>2015-12-08T17:04:40</date>
+  <millis>1449615880285</millis>
+  <sequence>9</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>15</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:56870
+GET /tictactoe HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-08T17:04:40</date>
+  <millis>1449615880287</millis>
+  <sequence>10</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>15</thread>
+  <message>Response
+HTTP/1.1 404 Not Found
+
+</message>
+</record>
+<record>
+  <date>2015-12-08T17:04:46</date>
+  <millis>1449615886988</millis>
+  <sequence>11</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>16</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:56873
+GET /tictactoe/something HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-08T17:04:46</date>
+  <millis>1449615886990</millis>
+  <sequence>12</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>16</thread>
+  <message>Response
+HTTP/1.1 404 Not Found
+Content-Length: 9
+
+Not Found</message>
+</record>
+<record>
+  <date>2015-12-08T17:04:52</date>
+  <millis>1449615892305</millis>
+  <sequence>13</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>17</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:56874
+GET /tictactoe/ HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-08T17:04:52</date>
+  <millis>1449615892307</millis>
+  <sequence>14</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>17</thread>
+  <message>Response
+HTTP/1.1 404 Not Found
+Content-Length: 9
+
+Not Found</message>
+</record>
+<record>
+  <date>2015-12-08T17:07:21</date>
+  <millis>1449616041726</millis>
+  <sequence>15</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>18</thread>
+  <message>Received Request from /127.0.0.1:56876
+GET /info?txtAirPlay&amp;txtRAOP RTSP/1.0
+
+</message>
+</record>
+<record>
+  <date>2015-12-08T17:07:21</date>
+  <millis>1449616041728</millis>
+  <sequence>16</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>18</thread>
+  <message>Response
+HTTP/1.1 404 Not Found
+Content-Length: 9
+
+Not Found</message>
+</record>
+<record>
+  <date>2015-12-08T17:08:49</date>
+  <millis>1449616129035</millis>
+  <sequence>17</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>19</thread>
+  <message>Received Request from /127.0.0.1:56878
+GET /info?txtAirPlay&amp;txtRAOP RTSP/1.0
+
+</message>
+</record>
+<record>
+  <date>2015-12-08T17:08:49</date>
+  <millis>1449616129036</millis>
+  <sequence>18</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>19</thread>
+  <message>Response
+HTTP/1.1 404 Not Found
+Content-Length: 9
+
+Not Found</message>
+</record>
+<record>
+  <date>2015-12-08T18:25:12</date>
+  <millis>1449620712087</millis>
+  <sequence>19</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>20</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:56932
+GET /tictactoe/1 HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-08T18:25:12</date>
+  <millis>1449620712089</millis>
+  <sequence>20</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>20</thread>
+  <message>Response
+HTTP/1.1 404 Not Found
+Content-Length: 9
+
+Not Found</message>
+</record>
+<record>
+  <date>2015-12-08T18:25:19</date>
+  <millis>1449620719225</millis>
+  <sequence>21</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>21</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:56934
+GET /tictactoe/2 HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-08T18:25:19</date>
+  <millis>1449620719226</millis>
+  <sequence>22</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>21</thread>
+  <message>Response
+HTTP/1.1 404 Not Found
+Content-Length: 9
+
+Not Found</message>
+</record>
+<record>
+  <date>2015-12-08T18:25:22</date>
+  <millis>1449620722783</millis>
+  <sequence>23</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>22</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:56935
+GET /tictactoe/3 HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-08T18:25:22</date>
+  <millis>1449620722784</millis>
+  <sequence>24</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>22</thread>
+  <message>Response
+HTTP/1.1 404 Not Found
+Content-Length: 9
+
+Not Found</message>
+</record>
+<record>
+  <date>2015-12-08T18:25:25</date>
+  <millis>1449620725817</millis>
+  <sequence>25</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>23</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:56936
+GET /tictactoe HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-08T18:25:25</date>
+  <millis>1449620725818</millis>
+  <sequence>26</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>23</thread>
+  <message>Response
+HTTP/1.1 404 Not Found
+
+</message>
+</record>
+<record>
+  <date>2015-12-08T18:25:32</date>
+  <millis>1449620732543</millis>
+  <sequence>27</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:56937
+GET /tictactoe/1 HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-08T18:25:32</date>
+  <millis>1449620732544</millis>
+  <sequence>28</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>24</thread>
+  <message>Response
+HTTP/1.1 404 Not Found
+Content-Length: 9
+
+Not Found</message>
+</record>
+<record>
+  <date>2015-12-08T18:25:35</date>
+  <millis>1449620735959</millis>
+  <sequence>29</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>25</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:56939
+GET /tictactoe/2 HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-08T18:25:35</date>
+  <millis>1449620735961</millis>
+  <sequence>30</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>25</thread>
+  <message>Response
+HTTP/1.1 404 Not Found
+Content-Length: 9
+
+Not Found</message>
+</record>
+=======
+>>>>>>> Stashed changes
+</log>

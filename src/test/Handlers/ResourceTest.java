@@ -26,14 +26,14 @@ public class ResourceTest {
         request.addHeader("Content-Length", "9");
         request.setBody("some=data");
 
-        Response response = handler.exchange(request);
+        Response response = handler.handle(request);
 
         assertTrue(response.statusLine.contains("200 OK"));
         assertFalse(new String(response.toByteArray()).contains("some=data"));
 
         request = new Request("GET", new URI("/form"), "HTTP/1.1");
 
-        response = handler.exchange(request);
+        response = handler.handle(request);
 
 
         assertTrue(response.statusLine.contains("200 OK"));
@@ -46,12 +46,12 @@ public class ResourceTest {
         request.addHeader("Content-Length", "14");
         request.setBody("some=otherdata");
 
-        Response response = handler.exchange(request);
+        Response response = handler.handle(request);
 
         assertTrue(response.statusLine.contains("200 OK"));
         request = new Request("GET", new URI("/form"), "HTTP/1.1");
 
-        response = handler.exchange(request);
+        response = handler.handle(request);
 
         assertTrue(response.statusLine.contains("200 OK"));
         assertTrue(new String(response.toByteArray()).contains("some=otherdata"));
@@ -61,13 +61,13 @@ public class ResourceTest {
     public void testDeleteTheData() throws IOException, URISyntaxException{
         Request request = new Request("DELETE", new URI("/form"), "HTTP/1.1");
 
-        Response response = handler.exchange(request);
+        Response response = handler.handle(request);
 
         assertTrue(response.statusLine.contains("200 OK"));
 
         request = new Request("GET", new URI("/form"), "HTTP/1.1");
 
-        response = handler.exchange(request);
+        response = handler.handle(request);
 
         assertTrue(response.statusLine.contains("200 OK"));
     }
@@ -76,7 +76,7 @@ public class ResourceTest {
     public void testOptionsRequestHasAllowHeaders() throws URISyntaxException, IOException {
         Request request = new Request("OPTIONS", new URI("/form"), "HTTP/1.1");
 
-        Response response = handler.exchange(request);
+        Response response = handler.handle(request);
 
         assertTrue(response.headers.containsKey("Allow"));
         assertTrue(response.headers.containsValue("GET,HEAD,POST,OPTIONS,PUT"));

@@ -1,48 +1,48 @@
 package http.Builders;
 
-import http.Handlers.AuthHandler;
-import http.Handlers.HttpExchange;
-import http.Handlers.RedirectHandler;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Observable;
+import http.Handlers.*;
 
 /**
- * Created by nystrom on 12/6/15.
+ * Created by nystrom on 12/8/15.
  */
 public class Route {
-    private boolean isAuthenticated = false;
-    public List<HttpExchange> handlers = new ArrayList<>();
-    public HttpExchange handler;
-    private Observable model;
+    private Handler authentication, redirect, encoding;
+    public Handler handler = new Resource();
 
     public Route() {
 
     }
 
+    public Route authenticate(String user, String password, String secret) {
+        authentication = new AuthHandler(user, password, secret);
+        return this;
+    }
+
+    public void setRedirectTo(String redirect) {
+        this.redirect = new RedirectHandler(redirect);
+    }
+
+    public void supportEncoding() {
+        encoding = new ParameterHandler();
+    }
+
     public boolean isAuthenticated() {
-        return isAuthenticated;
+        return (authentication != null);
     }
 
-    public void setAuthentication(String user, String password, String challenge) {
-        handlers.add(new AuthHandler(user, password, challenge));
-        isAuthenticated = true;
+    public boolean isRedirected() {
+        return (redirect != null);
     }
 
-    public void setNext(HttpExchange next) {
-        handlers.add(next);
+    public boolean supportsEncoding() {
+        return (encoding != null);
     }
 
-    public void setHandler(HttpExchange controller) {
-        this.handler = controller;
+    public void setMyHandler(Handler handler) {
+        this.handler = handler;
     }
 
-    public void setRedirect(String redirectPath) {
-        handlers.add(new RedirectHandler(redirectPath));
-    }
-
-    public void setModel(Observable model) {
-        this.model = model;
+    public Handler getAuth() {
+        return authentication;
     }
 }

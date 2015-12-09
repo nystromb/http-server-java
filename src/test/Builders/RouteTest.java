@@ -1,10 +1,6 @@
 package test.Builders;
 
 import http.Builders.Route;
-import http.Configuration.Settings;
-import http.Handlers.DirectoryHandler;
-import http.Handlers.Resource;
-import http.Registry.Routes;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,47 +14,43 @@ import static org.junit.Assert.assertTrue;
 public class RouteTest {
     @Before
     public void setUp(){
-        Settings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
+
     }
 
     @Test
-    public void test(){
+    public void testIsAuthenticated(){
         Route route = new Route();
 
         assertFalse(route.isAuthenticated());
+
+
     }
 
     @Test
-    public void testSetAuthentication(){
-        Route route = new Route();
-        route.setAuthentication("admin", "hunter2", "challenge");
+    public void testNotAuthenticated(){
+        Route route = new Route().authenticate("user", "password", "secret");
 
         assertTrue(route.isAuthenticated());
+        assertFalse(route.isRedirected());
     }
 
     @Test
-    public void testSetNextHandler(){
+    public void testSetRedirect(){
         Route route = new Route();
+        route.setRedirectTo("/");
 
-        route.setNext(new DirectoryHandler());
+        assertTrue(route.isRedirected());
     }
 
     @Test
-    public void testCustomHandler(){
-        Route route = new Route();
+    public void testAcceptParams(){
+        Route route1 = new Route();
+        assertFalse(route1.supportsEncoding());
 
-        route.setHandler(new Resource());
+        Route route2 = new Route();
+        route2.supportEncoding();
 
-        assertTrue(route.handler != null);
+        assertTrue(route2.supportsEncoding());
     }
 
-    @Test
-    public void testSomething(){
-        Routes routes = new Routes();
-        Route ttt = new Route();
-
-
-        routes.put("/tictactoe", ttt);
-        assertTrue(routes.containsKey("/tictactoe"));
-    }
 }

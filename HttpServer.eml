@@ -4,6 +4,5 @@
 	<contentEntry url="file://$MODULE_DIR$"/>
 	<levels>
 		<level name="org.hamcrest:hamcrest-junit:2.0.0.0" value="project"/>
-		<level name="tictactoe_jar" value="project"/>
 	</levels>
 </component>

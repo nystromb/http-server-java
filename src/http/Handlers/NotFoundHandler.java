@@ -2,18 +2,20 @@ package http.Handlers;
 
 import http.Builders.Request;
 import http.Builders.Response;
-
-import java.io.IOException;
+import http.Registry.Routes;
+import http.Router.Router;
 
 /**
- * Created by nystrom on 12/4/15.
+ * Created by nystrom on 11/5/15.
  */
-public class NotFoundHandler implements HttpExchange {
-    Response response;
+public class NotFoundHandler extends Router {
+    private static Routes routes = new Routes();
 
-    @Override
-    public Response exchange(Request request) throws IOException {
-        response = new Response.Builder(404, "Not Found").build();
-        return response;
+    public void handle(Request request) {
+        if(!routes.containsKey(request.getPath())){
+            Response response = new Response.Builder(404).build();
+        }else{
+            nextRouter.handle(request);
+        }
     }
 }

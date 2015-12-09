@@ -27,7 +27,7 @@ public class AuthHandlerTest {
         AuthHandler handler = new AuthHandler("admin:hunter2");
         Request request = new Request("GET", new URI("/some_uri"), "HTTP/1.1");
 
-        Response response = handler.exchange(request);
+        Response response = handler.handle(request);
 
         assertTrue(response.statusLine.contains("401"));
         assertTrue(response.headers.containsKey("WWW-Authenticate"));
@@ -40,7 +40,7 @@ public class AuthHandlerTest {
 
         request.addHeader("Authorization", "Basic YWRtaW46aHVudGVyMg==");
 
-        Response response = handler.exchange(request);
+        Response response = handler.handle(request);
 
         assertTrue(response.statusLine.contains("200"));
     }
