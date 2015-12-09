@@ -1,0 +1,65 @@
+package http.Router;
+
+import http.Builders.Route;
+import http.Configuration.Settings;
+import http.Handlers.*;
+import http.Builders.Request;
+import http.Builders.Response;
+import http.Handlers.HttpExchange;
+import http.Registry.Routes;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+/**
+ * Created by nystrom on 11/5/15.
+ */
+public class Router {
+    static HttpExchange directoryHandler = new DirectoryHandler();
+    static HttpExchange fileHandler = new FileHandler();
+    static HttpExchange paramHandler = new ParameterHandler();
+    static HttpExchange fileNotFound = new NotFoundHandler();
+
+    private static Routes routes = new Routes();
+
+    public static Route buildRoute(Request request) {
+        Route route = routes.getOrDefault(request.getPath(), new Route());
+
+        if(!routes.containsKey(request.getPath()) && Files.notExists(Paths.get(Settings.getRootDirectory() + request.getPath()))){
+            route.setNext(fileNotFound);
+            return route;
+        }
+
+        if(request.getQuery().length() > 0){
+            route.setNext(paramHandler);
+        }
+
+        if(route.handler != null){
+            route.setNext(route.handler);
+        } else {
+            if(Files.isDirectory(Paths.get(Settings.getRootDirectory() + request.getPath()).normalize())){
+                route.setNext(directoryHandler);
+            } else if(Files.isReadable(Paths.get(Settings.getRootDirectory() + request.getPath()).normalize())) {
+                route.setNext(fileHandler);
+            }
+        }
+
+        return route;
+    }
+
+    public static Response route(Route route, Request request) throws IOException {
+        Response response = new Response.Builder(404).build();
+
+        for(HttpExchange handler : route.handlers){
+            response = handler.exchange(request);
+            if(response.statusLine.contains("200 OK")){
+                continue;
+            }else {
+                break;
+            }
+        }
+
+        return response;
+    }
+}

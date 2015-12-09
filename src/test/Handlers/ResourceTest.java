@@ -2,12 +2,9 @@ package test.Handlers;
 
 import static org.junit.Assert.*;
 
-import main.*;
-
-import main.Builders.Request;
-import main.Builders.Response;
-import main.Handlers.Resource;
-import main.Registry.Routes;
+import http.Builders.Request;
+import http.Builders.Response;
+import http.Handlers.Resource;
 import org.junit.Before;
 import org.junit.Test;
 

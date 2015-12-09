@@ -1,10 +1,10 @@
 package test.Handlers;
 
-import main.Handlers.FileHandler;
-import main.Handlers.HttpExchange;
-import main.Builders.Request;
-import main.Builders.Response;
-import main.Configuration.ServerSettings;
+import http.Handlers.FileHandler;
+import http.Handlers.HttpExchange;
+import http.Builders.Request;
+import http.Builders.Response;
+import http.Configuration.Settings;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,7 +22,7 @@ public class FileHandlerTest {
 
     @Before
     public void setUp() throws IOException {
-        ServerSettings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
+        Settings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
         handler = new FileHandler();
     }
 

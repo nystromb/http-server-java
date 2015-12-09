@@ -1,8 +1,8 @@
 package test.Handlers;
 
-import main.Handlers.ParameterHandler;
-import main.Builders.Request;
-import main.Builders.Response;
+import http.Handlers.ParameterHandler;
+import http.Builders.Request;
+import http.Builders.Response;
 import org.junit.Before;
 import org.junit.Test;
 

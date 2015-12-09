@@ -1,12 +1,12 @@
 package test.Handlers;
 
-import main.Builders.Request;
-import main.Builders.Response;
-import main.Configuration.ServerSettings;
+import http.Builders.Request;
+import http.Builders.Response;
+import http.Configuration.Settings;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import main.Handlers.AuthHandler;
+import http.Handlers.AuthHandler;
 
 import java.io.IOException;
 import java.net.URI;
@@ -19,7 +19,7 @@ public class AuthHandlerTest {
 
     @Before
     public void setUp(){
-        ServerSettings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
+        Settings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
         }
 
     @Test
