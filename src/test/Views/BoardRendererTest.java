@@ -1,5 +1,6 @@
-package test.Handlers;
+package test.Views;
 
+import http.Views.Renderer;
 import main.Boards.ThreeByThreeBoard;
 import main.Models.GameModel;
 import main.Players.GameToken;
@@ -7,7 +8,6 @@ import main.Players.Human;
 import http.Views.BoardRenderer;
 import org.junit.Before;
 import org.junit.Test;
-import test.Renderer;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -80,16 +80,39 @@ public class BoardRendererTest {
 
         String boardHtml = renderer.render(game);
 
-        assertEquals(3, countTokens(boardHtml, "X"));
+        assertEquals(3, countTokens(boardHtml, "X")-1);
         assertEquals(0, countTokens(boardHtml, "O")-2);
     }
 
     @Test
-    public void testClearButtonShowsUp(){
+         public void testClearButtonShowsUp(){
         Renderer renderer = new BoardRenderer();
 
         String BoardHTML = renderer.render(game);
 
         assertTrue(BoardHTML.contains("clear"));
+    }
+
+    @Test
+    public void testShowsWinnerOWhenGameOver(){
+        Renderer renderer = new BoardRenderer();
+
+        game.board.putMove(1, GameToken.O);
+        game.board.putMove(2, GameToken.O);
+        game.board.putMove(3, GameToken.O);
+
+        String BoardHTML = renderer.render(game);
+        assertTrue(BoardHTML.contains("O wins!"));
+    }
+
+    @Test
+    public void testShowsWinnerXWhenGameOver(){
+        Renderer renderer = new BoardRenderer();
+        game.board.putMove(1, GameToken.X);
+        game.board.putMove(2, GameToken.X);
+        game.board.putMove(3, GameToken.X);
+        String BoardHTML = renderer.render(game);
+
+        assertTrue(BoardHTML.contains("X wins!"));
     }
 }

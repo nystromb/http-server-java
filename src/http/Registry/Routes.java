@@ -31,7 +31,7 @@ public class Routes extends HashMap<String, Route> {
         this.put("/method_options", new Route(new Resource()));
         this.put("/redirect", new Route(new RedirectHandler("/")));
 
-        this.put("/tictactoe", new Route(new TicTacToeHandler(
+        this.put("/tictactoe", new Route(new GameHandler(
                             new GameModel(
                                 new ThreeByThreeBoard(),
                                 new Human(GameToken.X),

@@ -2,7 +2,7 @@ package test.Handlers;
 
 import http.Builders.Request;
 import http.Builders.Response;
-import http.Handlers.TicTacToeHandler;
+import http.Handlers.GameHandler;
 import http.Router.AbstractRouter;
 import main.Boards.Board;
 import main.Boards.ThreeByThreeBoard;
@@ -30,12 +30,12 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by nystrom on 12/9/15.
  */
-public class TicTacToeHandlerTest {
+public class GameHandlerTest {
     Board board = new ThreeByThreeBoard();
     AbstractRouter handler;
     @Before
     public void setUp(){
-        handler = new TicTacToeHandler(new GameModel(board, new Human(GameToken.X), new Human(GameToken.O)), new MockBoardRenderer());
+        handler = new GameHandler(new GameModel(board, new Human(GameToken.X), new Human(GameToken.O)), new MockBoardRenderer());
     }
 
     @Test

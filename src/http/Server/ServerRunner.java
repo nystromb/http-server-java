@@ -29,8 +29,8 @@ public class ServerRunner implements Runnable {
         try (
                 OutputStream output = client.getOutputStream()
         ){
-            Route route = routes.get(request.getPath());
             if(routes.containsKey(request.getPath())){
+                Route route = routes.get(request.getPath());
                 if(route.isAuthenticated()){
                     route.authentication.setNext(route.handler);
                     response = route.authentication.handle(request);
@@ -41,7 +41,6 @@ public class ServerRunner implements Runnable {
                 response = new Response.Builder(404, "Not Found").build();
             }
             output.write(response.toByteArray());
-
         } catch (IOException e) {
             e.printStackTrace();
         }

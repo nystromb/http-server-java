@@ -1,12 +1,7 @@
 package test.Server;
 
 import http.Builders.Request;
-import http.Builders.Route;
 import http.Configuration.Settings;
-import http.Handlers.DirectoryHandler;
-import http.Handlers.LogsHandler;
-import http.Handlers.ParameterHandler;
-import http.Handlers.Resource;
 import http.Registry.Routes;
 import http.Server.ServerRunner;
 import org.junit.After;
@@ -32,12 +27,6 @@ public class ServerRunnerTest {
     @Before
     public void setUp() throws IOException {
         Settings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
-
-        routes.put("/", new Route(new DirectoryHandler()));
-        routes.put("/logs", new Route(new LogsHandler()).authenticate("admin", "hunter2", "Challenge"));
-        routes.put("/form", new Route(new Resource()));
-        routes.put("/parameters", new Route(new ParameterHandler()));
-        routes.put("/method_options", new Route(new Resource()));
 
         output = new ByteArrayOutputStream();
         input = new ByteArrayInputStream("".getBytes());
@@ -192,6 +181,26 @@ public class ServerRunnerTest {
     @Test
     public void testGetsFile2OK() throws URISyntaxException {
         Request request = new Request("GET", new URI("/file2"), "HTTP/1.1");
+
+        ServerRunner thread = new ServerRunner(client, request, this.routes);
+        thread.run();
+
+        assertTrue(output.toString().contains("200 OK"));
+    }
+
+    @Test
+    public void testFirstChecksFor404ForUndefinedRoute() throws URISyntaxException, IOException {
+        Request request = new Request("GET", new URI("/foobar"), "HTTP/1.1");
+
+        ServerRunner thread = new ServerRunner(client, request, this.routes);
+        thread.run();
+
+        assertTrue(output.toString().contains("404 Not Found"));
+    }
+
+    @Test
+    public void testForSuccess() throws URISyntaxException, IOException {
+        Request request = new Request("GET", new URI("/tictactoe"), "HTTP/1.1");
 
         ServerRunner thread = new ServerRunner(client, request, this.routes);
         thread.run();

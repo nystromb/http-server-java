@@ -1,4 +1,4 @@
-package test;
+package http.Views;
 
 import main.Boards.Board;
 import main.Models.GameModel;

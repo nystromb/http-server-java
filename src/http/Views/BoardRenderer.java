@@ -2,7 +2,6 @@ package http.Views;
 
 import main.Models.GameModel;
 import main.Players.GameToken;
-import test.Renderer;
 
 /**
  * Created by nystrom on 12/9/15.
@@ -12,29 +11,39 @@ public class BoardRenderer implements Renderer {
     public String render(GameModel game) {
         StringBuffer boardString = new StringBuffer();
         boardString.append("<html>\n" +
-                "  <head></head>\n" +
+                "  <head>" +
+                "<style>" +
+                    "li {" +
+                        "float: left;" +
+                        "width: 30px;" +
+                    "}" +
+                "</style>" +
+                "</head>\n" +
                 "  <body>\n" +
+                    "</style>" +
                 "    <form action=\"/tictactoe\" method=\"get\">\n" +
-                "      <input name=\"move\">\n" +
+                "      <input type=\"number\" min=\"1\" max=\"9\" name=\"move\">\n" +
                 "      <button>Make move</button>\n" +
                 "    </form>");
-        if(game.isOver()){
-            boardString.append("Game Over!</br>");
-        }
+        if(game.isOver()) boardString.append("Game Over!</br>");
+        if(game.board.win(GameToken.O)) boardString.append("O wins!");
+        if(game.board.win(GameToken.X)) boardString.append("X wins!");
+        boardString.append("<ul style=\"list-style:none;margin:0;padding:0;\">");
         for(int spot = 1; spot <= game.board.getCellCount(); spot++){
             switch(game.board.getMove(spot)){
                 case X:
-                    boardString.append(GameToken.X);
+                    boardString.append("<li>"+GameToken.X+"</li>");
                     break;
                 case O:
-                    boardString.append(GameToken.O);
+                    boardString.append("<li>"+GameToken.O+"</li>");
                     break;
                 case EMPTY:
-                    boardString.append("-");
+                    boardString.append("<li>"+"-"+"</li>");
                     break;
             }
             if((spot % 3) == 0) boardString.append("</br>");
         }
+        boardString.append("</ul>");
         boardString.append("<form action=\"#\" method=\"get\">\n" +
                 "          <button name=\"clear\" value=\"true\">Reset Board</button>\n" +
                 "    </form>");

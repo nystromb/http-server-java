@@ -13,11 +13,14 @@ import java.net.Socket;
 import java.net.URISyntaxException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by nystrom on 12/1/15.
  */
 public class HttpServer extends ServerSocket {
+    private static Logger logger = Logger.getLogger( HttpServer.class.getName());
     ExecutorService executorService = Executors.newFixedThreadPool(15);
     Routes routes = new Routes();
     public HttpServer(int port) throws IOException {
@@ -39,6 +42,7 @@ public class HttpServer extends ServerSocket {
                 BufferedReader input = new BufferedReader(new InputStreamReader(client.getInputStream()));
                 String rawRequest = RequestReader.read(input);
                 Request request = RequestParser.process(rawRequest);
+                logger.log(Level.INFO, rawRequest);
                 executorService.execute(new ServerRunner(client, request, routes));
             } catch (URISyntaxException e) {
                 e.printStackTrace();
