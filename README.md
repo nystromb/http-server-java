@@ -3,7 +3,7 @@
 
 To run the HttpServer.jar file use the command make sure you are in the current working directory of the .jar then run the command:
 
-`java -jar HttpServ.jar -p 5000 -d /some/path/to/serve/
+`java -jar HttpServer.jar -p 5000 -d /some/path/to/serve/
 
 Make sure you have a trailing / at the end of your path name!
 
