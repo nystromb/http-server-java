@@ -1,4 +1,4 @@
-package main.Views;
+package http.Views;
 
 import main.Models.GameModel;
 import main.Players.GameToken;

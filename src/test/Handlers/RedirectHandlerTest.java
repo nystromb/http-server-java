@@ -16,8 +16,6 @@ import static org.junit.Assert.*;
  * Created by nystrom on 12/4/15.
  */
 public class RedirectHandlerTest {
-    RedirectHandler handler = new RedirectHandler();
-
     @Before
     public void setUp(){
 
@@ -27,7 +25,7 @@ public class RedirectHandlerTest {
     public void testReturns302statusLineLine() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/redirect"), "HTTP/1.1");
 
-        Response response = handler.handle(request);
+        Response response = new RedirectHandler("/").handle(request);
 
         assertTrue(response.statusLine.contains("302 Found"));
         assertTrue(response.headers.containsKey("Location"));

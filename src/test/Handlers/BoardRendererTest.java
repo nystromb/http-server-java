@@ -4,7 +4,7 @@ import main.Boards.ThreeByThreeBoard;
 import main.Models.GameModel;
 import main.Players.GameToken;
 import main.Players.Human;
-import main.Views.BoardRenderer;
+import http.Views.BoardRenderer;
 import org.junit.Before;
 import org.junit.Test;
 import test.Renderer;

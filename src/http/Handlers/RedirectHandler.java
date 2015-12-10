@@ -17,10 +17,6 @@ public class RedirectHandler extends AbstractRouter {
         this.redirectPath = redirectPath;
     }
 
-    public RedirectHandler() {
-
-    }
-
     @Override
     public Response handle(Request request) throws IOException {
         response.addHeader("Location", "http://localhost:5000" + redirectPath);

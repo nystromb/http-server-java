@@ -11,14 +11,8 @@ import java.util.Base64;
  * Created by nystrom on 11/24/15.
  */
 public class AuthHandler extends AbstractRouter {
-
-    private byte[] authorization;
     private String challenge = "Default";
-    Response response;
-
-    public AuthHandler(String authorization){
-        this.authorization = Base64.getEncoder().encode(authorization.getBytes());
-    }
+    private byte[] authorization;
 
     public AuthHandler(String user, String password, String challenge) {
         this.authorization = Base64.getEncoder().encode((user + ":" + password).getBytes());
@@ -27,14 +21,14 @@ public class AuthHandler extends AbstractRouter {
 
     public Response handle(Request request) throws IOException {
         String authHeader = "Basic " + new String(this.authorization);
-        if(routes.get(request.getPath()).isAuthenticated() && authHeader.equals(request.getHeader("Authorization"))) {
-            nextRouter.handle(request);
-        } else {
-            response = new Response.Builder(401, "Authentication required")
-                    .addHeader("WWW-Authenticate", "Basic realm=\"" + challenge + "\"").build();
+        if(authHeader.equals(request.getHeader("Authorization"))) {
+            return nextRouter.handle(request);
         }
 
-        return response;
+        return new Response.Builder(401, "Authentication required")
+                    .addHeader("WWW-Authenticate", "Basic realm=\"" + challenge + "\"").build();
+
+
     }
 
 }
