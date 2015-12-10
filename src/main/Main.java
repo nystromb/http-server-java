@@ -4,6 +4,7 @@ import main.Configuration.ServerSettings;
 import main.Server.HttpServer;
 
 import java.io.IOException;
+import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,9 +25,9 @@ public class Main {
 
     public static void setUpLogger(){
         try {
-            java.util.logging.FileHandler fileHandler = new java.util.logging.FileHandler("logs/logfile.txt", true);
+            FileHandler fileHandler = new FileHandler("logs/logfile.txt", true);
             Main.logger.addHandler(fileHandler);
-        }catch(IOException e){
+        } catch(IOException e){
             Main.logger.log(Level.SEVERE, "Couldn't set up logging");
         }
     }
