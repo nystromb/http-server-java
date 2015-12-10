@@ -1,5 +1,6 @@
 package http.Views;
 
+import http.Builders.Request;
 import main.Models.GameModel;
 import main.Players.GameToken;
 
@@ -8,7 +9,7 @@ import main.Players.GameToken;
  */
 public class BoardRenderer implements Renderer {
     @Override
-    public String render(GameModel game) {
+    public String render(Request request, GameModel game) {
         StringBuffer boardString = new StringBuffer();
         boardString.append("<html>\n" +
                 "  <head>" +
@@ -21,7 +22,7 @@ public class BoardRenderer implements Renderer {
                 "</head>\n" +
                 "  <body>\n" +
                     "</style>" +
-                "    <form action=\"/tictactoe\" method=\"get\">\n" +
+                "    <form action=\"" + request.getPath() + "\" method=\"get\">\n" +
                 "      <input type=\"number\" min=\"1\" max=\"9\" name=\"move\">\n" +
                 "      <button>Make move</button>\n" +
                 "    </form>");

@@ -1,11 +1,12 @@
 package test.Mocks;
 
-import main.Models.GameModel;
+import http.Builders.Request;
 import http.Views.Renderer;
+import main.Models.GameModel;
 
 public class MockBoardRenderer implements Renderer {
 
-    public String render(GameModel game){
+    public String render(Request request, GameModel game){
         StringBuffer boardString = new StringBuffer();
 
         for(int spot = 1; spot <= game.board.getCellCount(); spot++){

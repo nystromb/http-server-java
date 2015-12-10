@@ -3,8 +3,10 @@ package http.Handlers;
 import http.Builders.Request;
 import http.Builders.Response;
 import http.Router.AbstractRouter;
-import main.Models.GameModel;
 import http.Views.Renderer;
+import main.Models.GameModel;
+import main.Players.RandomPlayer;
+import main.Players.UnbeatablePlayer;
 
 import java.io.IOException;
 
@@ -28,16 +30,26 @@ public class GameHandler extends AbstractRouter {
 
                 if(params[0].startsWith("move")){
                     int move = Integer.parseInt(params[params.length - 1]);
-                    if(!model.isOver()) model.play(move);
+                    if(!model.isOver()) {
+                        model.play(move);
+                        if(currentPlayerComptuer()){
+                            move = model.currentPlayer.getMove(model);
+                            model.play(move);
+                        }
+                    }
                 }else if(params[0].startsWith("clear")){
                     model.board.clearAll();
                 }
             }
 
-            String boardHtml = renderer.render(model);
+            String boardHtml = renderer.render(request, model);
             return new Response.Builder(200, boardHtml).build();
         }
 
         return new Response.Builder(200, "Good stuff").build();
+    }
+
+    private boolean currentPlayerComptuer() {
+        return (model.currentPlayer instanceof UnbeatablePlayer) || (model.currentPlayer instanceof RandomPlayer);
     }
 }

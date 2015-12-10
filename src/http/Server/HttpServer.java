@@ -21,8 +21,9 @@ import java.util.logging.Logger;
  */
 public class HttpServer extends ServerSocket {
     private static Logger logger = Logger.getLogger( HttpServer.class.getName());
-    ExecutorService executorService = Executors.newFixedThreadPool(15);
-    Routes routes = new Routes();
+    private ExecutorService executorService = Executors.newFixedThreadPool(15);
+    private Routes routes = new Routes();
+
     public HttpServer(int port) throws IOException {
         super(port);
     }

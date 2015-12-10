@@ -1,8 +1,8 @@
 package http.Views;
 
-import main.Boards.Board;
+import http.Builders.Request;
 import main.Models.GameModel;
 
 public interface Renderer {
-    String render(GameModel board);
+    String render(Request request, GameModel board);
 }

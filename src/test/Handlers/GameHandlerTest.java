@@ -9,6 +9,7 @@ import main.Boards.ThreeByThreeBoard;
 import main.Models.GameModel;
 import main.Players.GameToken;
 import main.Players.Human;
+import main.Players.UnbeatablePlayer;
 import org.junit.Before;
 import org.junit.Test;
 import test.Mocks.MockBoardRenderer;
@@ -85,6 +86,7 @@ public class GameHandlerTest {
         handler.handle(move3);
         handler.handle(move4);
         handler.handle(move5);
+
         Response response = handler.handle(move6);
         assertEquals(0,new String(response.body).split("O").length-3);
 
@@ -93,4 +95,16 @@ public class GameHandlerTest {
         assertEquals("---------", new String(response.body));
     }
 
+
+    @Test
+    public void testComputerPlaysMoveIfItsHisTurn() throws URISyntaxException, IOException {
+        UnbeatablePlayer unbeatablePlayer = new UnbeatablePlayer();
+        unbeatablePlayer.setPiece(GameToken.O);
+        handler = new GameHandler(new GameModel(new ThreeByThreeBoard(), new Human(GameToken.X), unbeatablePlayer), new MockBoardRenderer());
+
+        Request request = new Request("GET", new URI("/unbeatable?move=1"), "HTTP/1.1");
+        Response response = handler.handle(request);
+
+        assertEquals("X---O----", new String(response.body));
+    }
 }
