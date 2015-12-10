@@ -1,8 +1,8 @@
 package test.Handlers;
 
-import main.Handlers.RedirectHandler;
-import main.Builders.Request;
-import main.Builders.Response;
+import http.Handlers.RedirectHandler;
+import http.Builders.Request;
+import http.Builders.Response;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,8 +16,6 @@ import static org.junit.Assert.*;
  * Created by nystrom on 12/4/15.
  */
 public class RedirectHandlerTest {
-    RedirectHandler handler = new RedirectHandler();
-
     @Before
     public void setUp(){
 
@@ -27,7 +25,7 @@ public class RedirectHandlerTest {
     public void testReturns302statusLineLine() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/redirect"), "HTTP/1.1");
 
-        Response response = handler.exchange(request);
+        Response response = new RedirectHandler("/").handle(request);
 
         assertTrue(response.statusLine.contains("302 Found"));
         assertTrue(response.headers.containsKey("Location"));

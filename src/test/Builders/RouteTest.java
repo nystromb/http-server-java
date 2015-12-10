@@ -1,14 +1,12 @@
 package test.Builders;
 
-import main.Builders.Route;
-import main.Configuration.ServerSettings;
-import main.Handlers.DirectoryHandler;
-import main.Handlers.Resource;
+import http.Builders.Route;
+import http.Handlers.Resource;
 import org.junit.Before;
 import org.junit.Test;
 
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 
 /**
@@ -17,37 +15,33 @@ import static org.junit.Assert.*;
 public class RouteTest {
     @Before
     public void setUp(){
-        ServerSettings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
+
     }
 
     @Test
-    public void test(){
-        Route route = new Route();
+    public void testIsAuthenticated(){
+        Route route = new Route(new Resource());
 
         assertFalse(route.isAuthenticated());
     }
 
     @Test
-    public void testSetAuthentication(){
-        Route route = new Route();
-        route.setAuthentication("admin", "hunter2", "challenge");
+    public void testNotAuthenticated(){
+        Route route = new Route(new Resource()).authenticate("user", "password", "secret");
 
         assertTrue(route.isAuthenticated());
+        assertFalse(route.isRedirected());
     }
 
     @Test
-    public void testSetNextHandler(){
-        Route route = new Route();
+    public void testAcceptParams(){
+        Route route1 = new Route(new Resource());;
+        assertFalse(route1.supportsEncoding());
 
-        route.setNext(new DirectoryHandler());
+        Route route2 = new Route(new Resource());;
+        route2.supportEncoding();
+
+        assertTrue(route2.supportsEncoding());
     }
 
-    @Test
-    public void testCustomHandler(){
-        Route route = new Route();
-
-        route.setHandler(new Resource());
-
-        assertTrue(route.handler != null);
-    }
 }

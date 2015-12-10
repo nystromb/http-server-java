@@ -18,14 +18,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" exported="" name="org.hamcrest:hamcrest-junit:2.0.0.0" level="project" />
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/TicTacToe.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" exported="" name="tictactoe-java" level="project" />
   </component>
 </module>

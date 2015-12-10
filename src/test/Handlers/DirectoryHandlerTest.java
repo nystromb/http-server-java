@@ -1,10 +1,9 @@
 package test.Handlers;
 
-import main.Handlers.DirectoryHandler;
-import main.Handlers.HttpExchange;
-import main.Builders.Request;
-import main.Builders.Response;
-import main.Configuration.ServerSettings;
+import http.Handlers.DirectoryHandler;
+import http.Builders.Request;
+import http.Builders.Response;
+import http.Configuration.Settings;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,21 +21,15 @@ public class DirectoryHandlerTest {
 
     @Before
     public void setUp(){
-        ServerSettings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
+        Settings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
         handler = new DirectoryHandler();
     }
-
-    @Test
-    public void testIsARequestHandler(){
-        assertTrue(handler instanceof HttpExchange);
-    }
-
 
     @Test
     public void testReturns200OK() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/"), "HTTP/1.1");
 
-        Response response = handler.exchange(request);
+        Response response = handler.handle(request);
 
         assertTrue(response.statusLine.contains("200 OK"));
     }
@@ -45,7 +38,7 @@ public class DirectoryHandlerTest {
     public void testContainsListOfFilesInDirectory() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/"), "HTTP/1.1");
 
-        Response response = handler.exchange(request);
+        Response response = handler.handle(request);
 
         String expectedResponse = new String(response.toByteArray());
         assertTrue(
