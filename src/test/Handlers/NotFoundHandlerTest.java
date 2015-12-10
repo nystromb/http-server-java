@@ -2,6 +2,7 @@ package test.Handlers;
 
 import http.Builders.Request;
 import http.Builders.Response;
+import http.Handlers.NotFoundHandler;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,7 +10,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by nystrom on 12/4/15.

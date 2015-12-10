@@ -1,7 +1,5 @@
 package http.Server;
 
-import http.Registry.Routes;
-
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.concurrent.ExecutorService;
@@ -27,7 +25,7 @@ public class HttpServer extends ServerSocket {
 
     public void start() throws IOException {
         while(true) {
-            executorService.execute(new ServerRunner(accept(), new Routes()));
+            executorService.execute(new ServerRunner(accept()));
         }
     }
 }

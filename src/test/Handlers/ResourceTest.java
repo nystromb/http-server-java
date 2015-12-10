@@ -1,7 +1,5 @@
 package test.Handlers;
 
-import static org.junit.Assert.*;
-
 import http.Builders.Request;
 import http.Builders.Response;
 import http.Handlers.Resource;
@@ -11,6 +9,9 @@ import org.junit.Test;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class ResourceTest {
     Resource handler = new Resource();;

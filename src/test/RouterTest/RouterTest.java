@@ -2,8 +2,7 @@ package test.RouterTest;
 
 import http.Builders.Request;
 import http.Builders.Response;
-import http.Builders.Route;
-import http.Registry.Routes;
+import http.Configuration.Settings;
 import http.Router.Router;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,40 +12,34 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 /**
  * Created by nystrom on 11/5/15.
  */
 public class RouterTest {
-    Routes routes = new Routes();
-    Route route;
+    Router router = new Router();
 
     @Before
     public void setUp() {
-        route = new Route();
-
-        routes.put("/defined/route",route);
+        Settings.parse(new String[]{"-d", "/Users/Documents/cob_spec/public"});
     }
 
     @Test
-         public void testFirstChecksFor404ForUndefinedRoute() throws URISyntaxException, IOException {
-        Request request = new Request("GET", new URI("/some/random/route"), "HTTP/1.1");
-        Router router = new Router();
-        router.setNext(route.getAuth());
+    public void testFirstChecksFor404ForUndefinedRoute() throws URISyntaxException, IOException {
+        Request request = new Request("GET", new URI("/some/undefined/route"), "HTTP/1.1");
 
-        Response response = router.route(request);
+        router.buildRoute(request);
+        Response response = router.handle(request);
 
-        assertTrue(response.statusLine.contains("404"));
+        assertEquals("HTTP/1.1 404 Not Found", response.statusLine);
     }
 
     @Test
-    public void test() throws URISyntaxException, IOException {
-        Request request = new Request("GET", new URI("/defined/route"), "HTTP/1.1");
-        Router router = new Router();
-        router.setNext(route.handler);
+    public void testForSuccess() throws URISyntaxException, IOException {
+        Request request = new Request("GET", new URI("/tictactoe"), "HTTP/1.1");
 
-        Response response = router.route(request);
+        router.buildRoute(request);
+        Response response = router.handle(request);
 
         assertEquals("HTTP/1.1 200 OK", response.statusLine);
     }

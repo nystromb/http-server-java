@@ -1,7 +1,6 @@
 package test.Handlers;
 
 import http.Handlers.FileHandler;
-import http.Handlers.Handler;
 import http.Builders.Request;
 import http.Builders.Response;
 import http.Configuration.Settings;
@@ -24,11 +23,6 @@ public class FileHandlerTest {
     public void setUp() throws IOException {
         Settings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
         handler = new FileHandler();
-    }
-
-    @Test
-    public void testIsARequestHandler(){
-        assertTrue(handler instanceof Handler);
     }
 
     @Test

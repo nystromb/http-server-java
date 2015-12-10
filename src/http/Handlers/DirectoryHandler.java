@@ -1,17 +1,18 @@
 package http.Handlers;
 
-import java.io.IOException;
-
 import http.Assets.FileUtil;
 import http.Builders.Request;
 import http.Builders.Response;
 import http.Builders.Response.Builder;
 import http.Configuration.Settings;
+import http.Router.AbstractRouter;
+
+import java.io.IOException;
 
 /**
  * Created by nystrom on 12/3/15.
  */
-public class DirectoryHandler implements Handler {
+public class DirectoryHandler extends AbstractRouter {
     Builder response = new Builder();
     @Override
     public Response handle(Request request) throws IOException {

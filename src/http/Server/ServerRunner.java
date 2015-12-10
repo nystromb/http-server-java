@@ -3,8 +3,9 @@ package http.Server;
 import http.Builders.Request;
 import http.Builders.RequestParser;
 import http.Builders.RequestReader;
+import http.Builders.Response;
 import http.Main;
-import http.Registry.Routes;
+import http.Router.Router;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,12 +19,11 @@ import java.util.logging.Level;
  * Created by nystrom on 12/1/15.
  */
 public class ServerRunner implements Runnable {
-    Routes routes = new Routes();
+    Router router = new Router();
     Socket client;
 
-    public ServerRunner(Socket client, Routes routes) {
+    public ServerRunner(Socket client) {
         this.client = client;
-        this.routes = routes;
     }
 
     @Override
@@ -37,12 +37,12 @@ public class ServerRunner implements Runnable {
             Main.logger.log(Level.INFO, "Received Request from " + client.getRemoteSocketAddress().toString() + "\n" + rawRequest);
 
             Request request = RequestParser.process(rawRequest);
-//            Route route = Router.buildRoute(request);
+            router.buildRoute(request);
 
-//            Response response = Router.route(route, request);
+            Response response = router.handle(request);
 //            Main.logger.log(Level.INFO, "Response\n" + new String(response.toByteArray()));
 //
-//            output.write(response.toByteArray());
+            output.write(response.toByteArray());
         }catch(IOException e){
             e.printStackTrace();
         } catch (URISyntaxException e) {

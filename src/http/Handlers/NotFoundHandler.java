@@ -2,20 +2,25 @@ package http.Handlers;
 
 import http.Builders.Request;
 import http.Builders.Response;
-import http.Registry.Routes;
-import http.Router.Router;
+import http.Router.AbstractRouter;
+
+import java.io.IOException;
 
 /**
  * Created by nystrom on 11/5/15.
  */
-public class NotFoundHandler extends Router {
-    private static Routes routes = new Routes();
+public class NotFoundHandler extends AbstractRouter {
+    protected static AbstractRouter nextRouter;
 
-    public void handle(Request request) {
+    public void setNext(AbstractRouter next) {
+        nextRouter = next;
+    }
+
+    public Response handle(Request request) throws IOException {
         if(!routes.containsKey(request.getPath())){
-            Response response = new Response.Builder(404).build();
+            return new Response.Builder(404).build();
         }else{
-            nextRouter.handle(request);
+            return nextRouter.handle(request);
         }
     }
 }

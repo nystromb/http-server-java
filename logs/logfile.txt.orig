@@ -879,3 +879,1085 @@ Not Found</message>
 =======
 >>>>>>> Stashed changes
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-09T16:14:25</date>
+  <millis>1449699265518</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-09T16:14:56</date>
+  <millis>1449699296623</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-09T16:19:20</date>
+  <millis>1449699560068</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+<record>
+  <date>2015-12-09T16:19:23</date>
+  <millis>1449699563042</millis>
+  <sequence>1</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>11</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61135
+GET / HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T16:19:23</date>
+  <millis>1449699563046</millis>
+  <sequence>2</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61136
+GET / HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T16:19:23</date>
+  <millis>1449699563048</millis>
+  <sequence>3</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>13</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61137
+GET / HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T16:19:32</date>
+  <millis>1449699572031</millis>
+  <sequence>4</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61141
+GET /tictactoe HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T16:19:32</date>
+  <millis>1449699572033</millis>
+  <sequence>5</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>15</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61142
+GET /tictactoe HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T16:19:32</date>
+  <millis>1449699572034</millis>
+  <sequence>6</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>16</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61143
+GET /tictactoe HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T16:20:08</date>
+  <millis>1449699608544</millis>
+  <sequence>7</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>17</thread>
+  <message>Received Request from /127.0.0.1:61145
+GET /info?txtAirPlay&amp;txtRAOP RTSP/1.0
+
+</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-09T16:21:31</date>
+  <millis>1449699691153</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+<record>
+  <date>2015-12-09T16:21:33</date>
+  <millis>1449699693720</millis>
+  <sequence>1</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>11</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61154
+GET /tictactoe HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T16:24:31</date>
+  <millis>1449699871470</millis>
+  <sequence>2</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61155
+</message>
+</record>
+<record>
+  <date>2015-12-09T16:29:31</date>
+  <millis>1449700171164</millis>
+  <sequence>3</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>13</thread>
+  <message>Received Request from /127.0.0.1:61159
+GET /info?txtAirPlay&amp;txtRAOP RTSP/1.0
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T16:33:38</date>
+  <millis>1449700418697</millis>
+  <sequence>4</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>Received Request from /127.0.0.1:61165
+GET /info?txtAirPlay&amp;txtRAOP RTSP/1.0
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T16:37:20</date>
+  <millis>1449700640499</millis>
+  <sequence>5</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>15</thread>
+  <message>Received Request from /127.0.0.1:61175
+GET /info?txtAirPlay&amp;txtRAOP RTSP/1.0
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T16:37:30</date>
+  <millis>1449700650378</millis>
+  <sequence>6</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>16</thread>
+  <message>Received Request from /127.0.0.1:61177
+GET /info?txtAirPlay&amp;txtRAOP RTSP/1.0
+
+</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-09T16:44:22</date>
+  <millis>1449701062470</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+<record>
+  <date>2015-12-09T16:44:25</date>
+  <millis>1449701065613</millis>
+  <sequence>1</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>11</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61182
+GET /tictactoe HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T16:44:25</date>
+  <millis>1449701065617</millis>
+  <sequence>2</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61183
+GET /tictactoe HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T16:44:25</date>
+  <millis>1449701065619</millis>
+  <sequence>3</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>15</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61184
+GET /tictactoe HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T16:44:25</date>
+  <millis>1449701065676</millis>
+  <sequence>4</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>17</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61185
+GET /tictactoe HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T16:44:30</date>
+  <millis>1449701070690</millis>
+  <sequence>5</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>19</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61187
+GET /tictactoe HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T16:45:00</date>
+  <millis>1449701100703</millis>
+  <sequence>6</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>21</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61189
+GET /tictactoe HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-09T16:45:12</date>
+  <millis>1449701112027</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+<record>
+  <date>2015-12-09T16:45:14</date>
+  <millis>1449701114107</millis>
+  <sequence>1</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>11</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61191
+GET /tictactoe HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T16:45:53</date>
+  <millis>1449701153001</millis>
+  <sequence>2</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61192
+</message>
+</record>
+<record>
+  <date>2015-12-09T16:45:53</date>
+  <millis>1449701153005</millis>
+  <sequence>3</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>13</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61195
+GET /tictactoe HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-09T16:45:56</date>
+  <millis>1449701156682</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+<record>
+  <date>2015-12-09T16:45:57</date>
+  <millis>1449701157992</millis>
+  <sequence>1</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>11</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61198
+GET /tictactoe HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T16:49:53</date>
+  <millis>1449701393034</millis>
+  <sequence>2</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61199
+</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-09T18:52:53</date>
+  <millis>1449708773811</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+<record>
+  <date>2015-12-09T18:53:00</date>
+  <millis>1449708780160</millis>
+  <sequence>1</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>11</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61616
+GET / HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T18:53:06</date>
+  <millis>1449708786100</millis>
+  <sequence>2</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61617
+GET /tictactoe HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-09T18:53:38</date>
+  <millis>1449708818052</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+<record>
+  <date>2015-12-09T18:53:41</date>
+  <millis>1449708821579</millis>
+  <sequence>1</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>11</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61621
+GET /tictactoe HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T18:53:44</date>
+  <millis>1449708824643</millis>
+  <sequence>2</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61623
+GET /tictactoe?move=1 HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Referer: http://localhost:5000/tictactoe
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T18:53:59</date>
+  <millis>1449708839092</millis>
+  <sequence>3</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>13</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61624
+GET /tictactoe?move=2 HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Referer: http://localhost:5000/tictactoe?move=1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T18:54:03</date>
+  <millis>1449708843517</millis>
+  <sequence>4</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61626
+GET /tictactoe?move=3 HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Referer: http://localhost:5000/tictactoe?move=2
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T18:54:07</date>
+  <millis>1449708847587</millis>
+  <sequence>5</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>15</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61627
+GET /tictactoe?move=5 HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Referer: http://localhost:5000/tictactoe?move=3
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T18:54:15</date>
+  <millis>1449708855230</millis>
+  <sequence>6</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>16</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61628
+GET /tictactoe?move=8 HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Referer: http://localhost:5000/tictactoe?move=5
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T18:54:27</date>
+  <millis>1449708867128</millis>
+  <sequence>7</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>17</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61629
+GET /tictactoe HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T18:55:59</date>
+  <millis>1449708959565</millis>
+  <sequence>8</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>18</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61630
+</message>
+</record>
+<record>
+  <date>2015-12-09T19:05:14</date>
+  <millis>1449709514944</millis>
+  <sequence>9</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>19</thread>
+  <message>Received Request from /127.0.0.1:61638
+GET /info?txtAirPlay&amp;txtRAOP RTSP/1.0
+
+</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-09T23:38:19</date>
+  <millis>1449725899979</millis>
+  <sequence>0</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Server starting on port 5000</message>
+</record>
+<record>
+  <date>2015-12-09T23:38:24</date>
+  <millis>1449725904100</millis>
+  <sequence>1</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>11</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61851
+GET / HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T23:38:26</date>
+  <millis>1449725906924</millis>
+  <sequence>2</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61852
+GET /tictactoe HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T23:38:39</date>
+  <millis>1449725919108</millis>
+  <sequence>3</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>13</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61855
+</message>
+</record>
+<record>
+  <date>2015-12-09T23:38:39</date>
+  <millis>1449725919108</millis>
+  <sequence>4</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61857
+GET /tictactoe?move=a HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Referer: http://localhost:5000/tictactoe
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T23:38:39</date>
+  <millis>1449725919170</millis>
+  <sequence>5</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>16</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61858
+GET /tictactoe?move=a HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T23:38:44</date>
+  <millis>1449725924186</millis>
+  <sequence>6</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>18</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61859
+GET /tictactoe?move=a HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+<record>
+  <date>2015-12-09T23:39:14</date>
+  <millis>1449725954199</millis>
+  <sequence>7</sequence>
+  <logger>ServerLogger</logger>
+  <level>INFO</level>
+  <class>http.Server.ServerRunner</class>
+  <method>run</method>
+  <thread>20</thread>
+  <message>Received Request from /0:0:0:0:0:0:0:1:61860
+GET /tictactoe?move=a HTTP/1.1
+Host: localhost:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36
+DNT: 1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: textwrapon=false; wysiwyg=textarea
+
+</message>
+</record>
+</log>

@@ -3,13 +3,14 @@ package http.Handlers;
 import http.Builders.Request;
 import http.Builders.Response;
 import http.Builders.Response.Builder;
+import http.Router.AbstractRouter;
 
 import java.io.IOException;
 
 /**
  * Created by nystrom on 11/16/15.
  */
-public class Resource implements Handler {
+public class Resource extends AbstractRouter {
     static String data = "";
     Builder response = new Builder(200);
 

@@ -1,16 +1,16 @@
 package http.Builders;
 
 import http.Handlers.*;
+import http.Router.AbstractRouter;
 
 /**
  * Created by nystrom on 12/8/15.
  */
 public class Route {
-    private Handler authentication, redirect, encoding;
-    public Handler handler = new Resource();
+    public AbstractRouter authentication, redirect, encoding, handler;
 
-    public Route() {
-
+    public Route(AbstractRouter handler) {
+        this.handler = handler;
     }
 
     public Route authenticate(String user, String password, String secret) {
@@ -38,11 +38,7 @@ public class Route {
         return (encoding != null);
     }
 
-    public void setMyHandler(Handler handler) {
+    public void setMyHandler(AbstractRouter handler) {
         this.handler = handler;
-    }
-
-    public Handler getAuth() {
-        return authentication;
     }
 }
