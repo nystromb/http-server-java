@@ -25,10 +25,15 @@ public class TicTacToeHandler extends AbstractRouter {
         if(request.getMethod().equals("GET")){
             if(request.getQuery().length() > 0){
                 String[] params = request.getQuery().split(" ");
-                int move = Integer.parseInt(params[params.length-1]);
-                model.play(move);
+                if(params[0].startsWith("move")){
+                    int move = Integer.parseInt(params[params.length - 1]);
+                    if(!model.isOver()) model.play(move);
+                }else if(params[0].startsWith("clear")){
+                    model.board.clearAll();
+                }
+
             }
-            String boardHtml = renderer.render(model.board);
+            String boardHtml = renderer.render(model);
             return new Response.Builder(200, boardHtml).build();
         }
 

@@ -1,7 +1,8 @@
 package test;
 
 import main.Boards.Board;
+import main.Models.GameModel;
 
 public interface Renderer {
-    String render(Board board);
+    String render(GameModel board);
 }

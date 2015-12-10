@@ -1,15 +1,15 @@
 package test.Mocks;
 
-import main.Boards.Board;
+import main.Models.GameModel;
 import test.Renderer;
 
 public class MockBoardRenderer implements Renderer {
 
-    public String render(Board board){
+    public String render(GameModel game){
         StringBuffer boardString = new StringBuffer();
 
-        for(int spot = 1; spot <= board.getCellCount(); spot++){
-            switch(board.getMove(spot)){
+        for(int spot = 1; spot <= game.board.getCellCount(); spot++){
+            switch(game.board.getMove(spot)){
                 case X:
                     boardString.append("X");
                     break;

@@ -1,6 +1,7 @@
 package main.Views;
 
-import main.Boards.Board;
+import main.Models.GameModel;
+import main.Players.GameToken;
 import test.Renderer;
 
 /**
@@ -8,7 +9,7 @@ import test.Renderer;
  */
 public class BoardRenderer implements Renderer {
     @Override
-    public String render(Board board) {
+    public String render(GameModel game) {
         StringBuffer boardString = new StringBuffer();
         boardString.append("<html>\n" +
                 "  <head></head>\n" +
@@ -17,20 +18,26 @@ public class BoardRenderer implements Renderer {
                 "      <input name=\"move\">\n" +
                 "      <button>Make move</button>\n" +
                 "    </form>");
-        for(int spot = 1; spot <= board.getCellCount(); spot++){
-            switch(board.getMove(spot)){
+        if(game.isOver()){
+            boardString.append("Game Over!</br>");
+        }
+        for(int spot = 1; spot <= game.board.getCellCount(); spot++){
+            switch(game.board.getMove(spot)){
                 case X:
-                    boardString.append("X");
+                    boardString.append(GameToken.X);
                     break;
                 case O:
-                    boardString.append("O");
+                    boardString.append(GameToken.O);
                     break;
                 case EMPTY:
                     boardString.append("-");
                     break;
             }
+            if((spot % 3) == 0) boardString.append("</br>");
         }
-
+        boardString.append("<form action=\"#\" method=\"get\">\n" +
+                "          <button name=\"clear\" value=\"true\">Reset Board</button>\n" +
+                "    </form>");
         boardString.append("  </body>\n" +
                 "</html>");
         return boardString.toString();
