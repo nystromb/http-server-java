@@ -3,17 +3,15 @@ package http.Handlers;
 import http.Assets.FileUtil;
 import http.Builders.Request;
 import http.Builders.Response;
-import http.Builders.Response.Builder;
 import http.Configuration.Settings;
-import http.Router.AbstractRouter;
 
 import java.io.IOException;
 
 /**
  * Created by nystrom on 12/3/15.
  */
-public class DirectoryHandler extends AbstractRouter {
-    Builder response = new Builder();
+public class DirectoryHandler implements Router {
+
     @Override
     public Response handle(Request request) throws IOException {
         String files = FileUtil.getDirectoryFileList(Settings.getRootDirectory() + request.getPath());
@@ -23,6 +21,6 @@ public class DirectoryHandler extends AbstractRouter {
         }
         contents += "</ul></body>";
 
-        return response.status(200).setBody(contents).build();
+        return new Response.Builder(200).setBody(contents).build();
     }
 }

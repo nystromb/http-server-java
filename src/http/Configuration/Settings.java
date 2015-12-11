@@ -39,7 +39,7 @@ public class Settings {
 
     public static void setUpLogger(){
         try {
-            FileHandler fileHandler = new FileHandler("logs/logfile.txt", true);
+            FileHandler fileHandler = new FileHandler(directory + "logs/logfile.txt", true);
             logger.addHandler(fileHandler);
         }catch(IOException e){
             logger.log(Level.SEVERE, "Couldn't set up logging");

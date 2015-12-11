@@ -1,47 +1,62 @@
 package test.Builders;
 
+import http.Builders.Request;
+import http.Builders.Response;
 import http.Builders.Route;
-import http.Handlers.Resource;
+import http.Configuration.Settings;
+import http.Handlers.Authorization;
+import http.Handlers.DirectoryHandler;
+import http.Registry.Routes;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
+import static junit.framework.TestCase.assertTrue;
 
 /**
- * Created by nystrom on 12/7/15.
+ * Created by nystrom on 12/11/15.
  */
 public class RouteTest {
+    Routes routes = new Routes();
+
     @Before
     public void setUp(){
-
+        Settings.parse(new String[] { "-d", "/Users/nystrom/Documents/cob_spec/public/"});
+        routes.put("/", new Route(new DirectoryHandler()));
+        routes.put("/logs", new Route(new Authorization("admin", "hunter2", "secret", new DirectoryHandler())));
     }
 
     @Test
-    public void testIsAuthenticated(){
-        Route route = new Route(new Resource());
+    public void testCreateASingleChain() throws URISyntaxException, IOException {
+        Request request = new Request("GET", new URI("/"), "HTTP/1.1");
+        Route route = routes.get("/");
 
-        assertFalse(route.isAuthenticated());
+        Response response = route.handle(request);
+
+        assertTrue(response.statusLine.contains("200 OK"));
     }
 
     @Test
-    public void testNotAuthenticated(){
-        Route route = new Route(new Resource()).authenticate("user", "password", "secret");
+    public void testUnauthorizedChain() throws URISyntaxException, IOException {
+        Request request = new Request("GET", new URI("/logs"), "HTTP/1.1");
+        Route route = routes.get("/logs");
 
-        assertTrue(route.isAuthenticated());
-        assertFalse(route.isRedirected());
+        Response response = route.handle(request);
+
+        assertTrue(response.statusLine.contains("401 Unauthorized"));
     }
 
     @Test
-    public void testAcceptParams(){
-        Route route1 = new Route(new Resource());;
-        assertFalse(route1.supportsEncoding());
+    public void testAuthorizedChain() throws URISyntaxException, IOException {
+        Request request = new Request("GET", new URI("/logs"), "HTTP/1.1");
+        request.addHeader("Authorization", "Basic YWRtaW46aHVudGVyMg==");
 
-        Route route2 = new Route(new Resource());;
-        route2.supportEncoding();
+        Route route = routes.get("/logs");
+        Response response = route.handle(request);
 
-        assertTrue(route2.supportsEncoding());
+        assertTrue(response.statusLine.contains("200 OK"));
     }
-
 }

@@ -8,11 +8,14 @@ import http.Registry.Routes;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by nystrom on 12/1/15.
  */
 public class ServerRunner implements Runnable {
+    private final Logger logger = Logger.getLogger( ServerRunner.class.getName() );
     private Routes routes;
     private Socket client;
     private Request request;
@@ -31,18 +34,13 @@ public class ServerRunner implements Runnable {
         ){
             if(routes.containsKey(request.getPath())){
                 Route route = routes.get(request.getPath());
-                if(route.isAuthenticated()){
-                    route.authentication.setNext(route.handler);
-                    response = route.authentication.handle(request);
-                }else{
-                    response = route.handler.handle(request);
-                }
+                response = route.handle(request);
             }else{
                 response = new Response.Builder(404, "Not Found").build();
             }
             output.write(response.toByteArray());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, e.getMessage());
         }
     }
 }

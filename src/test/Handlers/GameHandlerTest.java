@@ -3,7 +3,7 @@ package test.Handlers;
 import http.Builders.Request;
 import http.Builders.Response;
 import http.Handlers.GameHandler;
-import http.Router.AbstractRouter;
+import http.Handlers.Router;
 import main.Boards.Board;
 import main.Boards.ThreeByThreeBoard;
 import main.Models.GameModel;
@@ -33,7 +33,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class GameHandlerTest {
     Board board = new ThreeByThreeBoard();
-    AbstractRouter handler;
+    Router handler;
     @Before
     public void setUp(){
         handler = new GameHandler(new GameModel(board, new Human(GameToken.X), new Human(GameToken.O)), new MockBoardRenderer());

@@ -4,7 +4,6 @@ import http.Assets.FileUtil;
 import http.Builders.Request;
 import http.Builders.Response;
 import http.Configuration.Settings;
-import http.Router.AbstractRouter;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,7 +12,7 @@ import java.nio.file.Files;
 /**
  * Created by nystrom on 12/3/15.
  */
-public class FileHandler extends AbstractRouter {
+public class FileHandler implements Router {
     Response.Builder response = new Response.Builder();
 
     @Override

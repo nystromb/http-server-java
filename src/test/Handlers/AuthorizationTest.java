@@ -3,7 +3,8 @@ package test.Handlers;
 import http.Builders.Request;
 import http.Builders.Response;
 import http.Configuration.Settings;
-import http.Handlers.AuthHandler;
+import http.Handlers.Authorization;
+import http.Handlers.DirectoryHandler;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,7 +17,7 @@ import static junit.framework.TestCase.assertTrue;
 /**
  * Created by nystrom on 11/24/15.
  */
-public class AuthHandlerTest {
+public class AuthorizationTest {
 
     @Before
     public void setUp() {
@@ -25,7 +26,7 @@ public class AuthHandlerTest {
 
     @Test
     public void testWithoutAuthorization() throws URISyntaxException, IOException {
-        AuthHandler handler = new AuthHandler("admin", "hunter2", "secretKey");
+        Authorization handler = new Authorization("admin", "hunter2", "secretKey", new DirectoryHandler());
         Request request = new Request("GET", new URI("/logs"), "HTTP/1.1");
 
         Response response = handler.handle(request);

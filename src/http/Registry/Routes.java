@@ -17,49 +17,50 @@ import java.util.HashMap;
  */
 public class Routes extends HashMap<String, Route> {
     public Routes () {
-        this.put("/", new Route(
+        put("/", new Route(
                 new DirectoryHandler()));
 
-        this.put("/file1", new Route(
+        put("/file1", new Route(
                 new FileHandler()));
 
-        this.put("/file2", new Route(
+        put("/file2", new Route(
                 new FileHandler()));
 
-        this.put("/image.png", new Route(
+        put("/image.png", new Route(
                 new FileHandler()));
 
-        this.put("/image.jpeg", new Route(
+        put("/image.jpeg", new Route(
                 new FileHandler()));
 
-        this.put("/image.gif", new Route(
+        put("/image.gif", new Route(
                 new FileHandler()));
 
-        this.put("/text-file.txt", new Route(
+        put("/text-file.txt", new Route(
                 new FileHandler()));
 
-        this.put("/partial_content.txt", new Route(
+        put("/partial_content.txt", new Route(
                 new FileHandler()));
 
-        this.put("/patch-content.txt", new Route(
+        put("/patch-content.txt", new Route(
                 new FileHandler()));
 
-        this.put("/logs", new Route(new LogsHandler())
-                .authenticate("admin", "hunter2", "Challenge"));
+        put("/logs", new Route(
+                new Authorization("admin", "hunter2", "Challenge",
+                        new LogsHandler())));
 
-        this.put("/form", new Route(
+        put("/form", new Route(
                 new Resource()));
 
-        this.put("/parameters", new Route(
+        put("/parameters", new Route(
                 new ParameterHandler()));
 
-        this.put("/method_options", new Route(
+        put("/method_options", new Route(
                 new Resource()));
 
-        this.put("/redirect", new Route(
+        put("/redirect", new Route(
                 new RedirectHandler("/")));
 
-        this.put("/tictactoe", new Route(
+        put("/tictactoe", new Route(
                 new GameHandler(
                     new GameModel(
                         new ThreeByThreeBoard(),
@@ -69,7 +70,7 @@ public class Routes extends HashMap<String, Route> {
 
         UnbeatablePlayer computer = new UnbeatablePlayer();
         computer.setPiece(GameToken.O);
-        this.put("/unbeatable", new Route(
+        put("/unbeatable", new Route(
                 new GameHandler(
                         new GameModel(
                                 new ThreeByThreeBoard(),

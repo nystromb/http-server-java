@@ -2,7 +2,6 @@ package http.Handlers;
 
 import http.Builders.Request;
 import http.Builders.Response;
-import http.Router.AbstractRouter;
 import http.Views.Renderer;
 import main.Models.GameModel;
 import main.Players.RandomPlayer;
@@ -13,9 +12,9 @@ import java.io.IOException;
 /**
  * Created by nystrom on 12/8/15.
  */
-public class GameHandler extends AbstractRouter {
-    GameModel model;
-    Renderer renderer;
+public class GameHandler implements Router {
+    private GameModel model;
+    private Renderer renderer;
 
     public GameHandler(GameModel model, Renderer renderer) {
         this.model = model;
