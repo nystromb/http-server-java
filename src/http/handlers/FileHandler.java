@@ -34,16 +34,16 @@ public class FileHandler extends ApplicationController {
 
         return response.build();
     }
-//
-//    @Override
-//    protected Response put(Request request){
-//        return response.status(405).build();
-//    }
-//
-//    @Override
-//    protected Response post(Request request){
-//        return response.status(405).build();
-//    }
+
+    @Override
+    protected Response put(Request request){
+        return response.status(405).build();
+    }
+
+    @Override
+    protected Response post(Request request){
+        return response.status(405).build();
+    }
 
     @Override
     protected Response patch(Request request) throws IOException {

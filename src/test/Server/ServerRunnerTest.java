@@ -1,7 +1,7 @@
 package test.server;
 
-import http.request.Request;
 import http.configuration.RouterConfig;
+import http.request.Request;
 import http.server.ServerRunner;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +11,6 @@ import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class ServerRunnerTest {
@@ -184,7 +183,7 @@ public class ServerRunnerTest {
         ServerRunner thread = new ServerRunner(client, request);
         thread.run();
 
-        assertEquals("405 Method Not Allowed",output.toString());
+        assertTrue(output.toString().contains("405 Method Not Allowed"));
     }
 
     @Test
