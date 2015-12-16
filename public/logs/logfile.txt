@@ -1,0 +1,2252 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-16T12:14:32</date>
+  <millis>1450289672813</millis>
+  <sequence>1</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /logs HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:32</date>
+  <millis>1450289672838</millis>
+  <sequence>3</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /log HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:32</date>
+  <millis>1450289672845</millis>
+  <sequence>5</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PUT /these HTTP/1.1
+Content-Length: 0
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:32</date>
+  <millis>1450289672851</millis>
+  <sequence>7</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>HEAD /requests HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:32</date>
+  <millis>1450289672860</millis>
+  <sequence>9</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /logs HTTP/1.1
+Authorization: Basic YWRtaW46aHVudGVyMg==
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:32</date>
+  <millis>1450289672873</millis>
+  <sequence>11</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET / HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:32</date>
+  <millis>1450289672947</millis>
+  <sequence>13</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET / HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:32</date>
+  <millis>1450289672957</millis>
+  <sequence>15</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /file1 HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:32</date>
+  <millis>1450289672976</millis>
+  <sequence>17</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /foobar HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:32</date>
+  <millis>1450289672985</millis>
+  <sequence>19</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /image.jpeg HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:32</date>
+  <millis>1450289672992</millis>
+  <sequence>21</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /image.png HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:32</date>
+  <millis>1450289672998</millis>
+  <sequence>23</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /image.gif HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673007</millis>
+  <sequence>25</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /file1 HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673013</millis>
+  <sequence>27</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PUT /file1 HTTP/1.1
+Content-Length: 0
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673018</millis>
+  <sequence>29</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>BTQDRYIA /file1 HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673023</millis>
+  <sequence>31</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /text-file.txt HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673028</millis>
+  <sequence>33</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>POST /text-file.txt HTTP/1.1
+Content-Length: 0
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673033</millis>
+  <sequence>35</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>YFESKNBH /file1 HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673045</millis>
+  <sequence>37</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /parameters?variable_1=Operators%20%3C%2C%20%3E%2C%20%3D%2C%20!%3D%3B%20%2B%2C%20-%2C%20*%2C%20%26%2C%20%40%2C%20%23%2C%20%24%2C%20%5B%2C%20%5D%3A%20%22is%20that%20all%22%3F&amp;variable_2=stuff HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673055</millis>
+  <sequence>39</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /partial_content.txt HTTP/1.1
+Range: bytes=0-4
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673060</millis>
+  <sequence>41</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /partial_content.txt HTTP/1.1
+Range: bytes=-6
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673065</millis>
+  <sequence>43</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /partial_content.txt HTTP/1.1
+Range: bytes=4-
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673074</millis>
+  <sequence>45</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /patch-content.txt HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673080</millis>
+  <sequence>47</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PATCH /patch-content.txt HTTP/1.1
+If-Match: dc50a0d27dda2eee9f65644cd7e4c9cf11de8bec
+Content-Length: 15
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+patched content</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673085</millis>
+  <sequence>49</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /patch-content.txt HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673090</millis>
+  <sequence>51</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PATCH /patch-content.txt HTTP/1.1
+If-Match: 5c36acad75b78b82be6d9cbbd6143ab7e0cc04b0
+Content-Length: 15
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+default content</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673095</millis>
+  <sequence>53</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /patch-content.txt HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673106</millis>
+  <sequence>55</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /form HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673110</millis>
+  <sequence>57</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>POST /form HTTP/1.1
+Content-Length: 11
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+data=fatcat</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673115</millis>
+  <sequence>59</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /form HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673119</millis>
+  <sequence>61</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PUT /form HTTP/1.1
+Content-Length: 15
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+data=heathcliff</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673124</millis>
+  <sequence>63</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /form HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673128</millis>
+  <sequence>65</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>DELETE /form HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673132</millis>
+  <sequence>67</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /form HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673141</millis>
+  <sequence>69</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /redirect HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673148</millis>
+  <sequence>71</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET / HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673156</millis>
+  <sequence>73</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>OPTIONS /method_options HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673160</millis>
+  <sequence>75</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /method_options HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673164</millis>
+  <sequence>77</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PUT /method_options HTTP/1.1
+Content-Length: 0
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673167</millis>
+  <sequence>79</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>POST /method_options HTTP/1.1
+Content-Length: 0
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673172</millis>
+  <sequence>81</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>HEAD /method_options HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673180</millis>
+  <sequence>83</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>POST /form HTTP/1.1
+Content-Length: 11
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+"My"="Data"</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:33</date>
+  <millis>1450289673189</millis>
+  <sequence>85</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PUT /form HTTP/1.1
+Content-Length: 11
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+"My"="Data"</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678061</millis>
+  <sequence>87</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /logs HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678083</millis>
+  <sequence>89</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /log HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678088</millis>
+  <sequence>91</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PUT /these HTTP/1.1
+Content-Length: 0
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678093</millis>
+  <sequence>93</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>HEAD /requests HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678101</millis>
+  <sequence>95</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /logs HTTP/1.1
+Authorization: Basic YWRtaW46aHVudGVyMg==
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678111</millis>
+  <sequence>97</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET / HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678184</millis>
+  <sequence>99</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET / HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678194</millis>
+  <sequence>101</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /file1 HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678212</millis>
+  <sequence>103</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /foobar HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678220</millis>
+  <sequence>105</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /image.jpeg HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678227</millis>
+  <sequence>107</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /image.png HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678232</millis>
+  <sequence>109</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /image.gif HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678242</millis>
+  <sequence>111</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /file1 HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678246</millis>
+  <sequence>113</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PUT /file1 HTTP/1.1
+Content-Length: 0
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678250</millis>
+  <sequence>115</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>FCVHLFDN /file1 HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678256</millis>
+  <sequence>117</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /text-file.txt HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678260</millis>
+  <sequence>119</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>POST /text-file.txt HTTP/1.1
+Content-Length: 0
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678263</millis>
+  <sequence>121</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>YWPOLFDJ /file1 HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678274</millis>
+  <sequence>123</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /parameters?variable_1=Operators%20%3C%2C%20%3E%2C%20%3D%2C%20!%3D%3B%20%2B%2C%20-%2C%20*%2C%20%26%2C%20%40%2C%20%23%2C%20%24%2C%20%5B%2C%20%5D%3A%20%22is%20that%20all%22%3F&amp;variable_2=stuff HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678282</millis>
+  <sequence>125</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /partial_content.txt HTTP/1.1
+Range: bytes=0-4
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678286</millis>
+  <sequence>127</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /partial_content.txt HTTP/1.1
+Range: bytes=-6
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678291</millis>
+  <sequence>129</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /partial_content.txt HTTP/1.1
+Range: bytes=4-
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678299</millis>
+  <sequence>131</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /patch-content.txt HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678302</millis>
+  <sequence>133</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PATCH /patch-content.txt HTTP/1.1
+If-Match: dc50a0d27dda2eee9f65644cd7e4c9cf11de8bec
+Content-Length: 15
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+patched content</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678306</millis>
+  <sequence>135</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /patch-content.txt HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678310</millis>
+  <sequence>137</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PATCH /patch-content.txt HTTP/1.1
+If-Match: 5c36acad75b78b82be6d9cbbd6143ab7e0cc04b0
+Content-Length: 15
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+default content</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678313</millis>
+  <sequence>139</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /patch-content.txt HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678324</millis>
+  <sequence>141</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /form HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678328</millis>
+  <sequence>143</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>POST /form HTTP/1.1
+Content-Length: 11
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+data=fatcat</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678331</millis>
+  <sequence>145</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /form HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678336</millis>
+  <sequence>147</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PUT /form HTTP/1.1
+Content-Length: 15
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+data=heathcliff</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678339</millis>
+  <sequence>149</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /form HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678343</millis>
+  <sequence>151</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>DELETE /form HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678346</millis>
+  <sequence>153</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /form HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678354</millis>
+  <sequence>155</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /redirect HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678360</millis>
+  <sequence>157</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET / HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678368</millis>
+  <sequence>159</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>OPTIONS /method_options HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678372</millis>
+  <sequence>161</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /method_options HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678375</millis>
+  <sequence>163</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PUT /method_options HTTP/1.1
+Content-Length: 0
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678379</millis>
+  <sequence>165</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>POST /method_options HTTP/1.1
+Content-Length: 0
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678383</millis>
+  <sequence>167</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>HEAD /method_options HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678390</millis>
+  <sequence>169</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>POST /form HTTP/1.1
+Content-Length: 11
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+"My"="Data"</message>
+</record>
+<record>
+  <date>2015-12-16T12:14:38</date>
+  <millis>1450289678397</millis>
+  <sequence>171</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PUT /form HTTP/1.1
+Content-Length: 11
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+"My"="Data"</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097339</millis>
+  <sequence>1</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /logs HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097364</millis>
+  <sequence>3</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /log HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097372</millis>
+  <sequence>5</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PUT /these HTTP/1.1
+Content-Length: 0
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097377</millis>
+  <sequence>7</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>HEAD /requests HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097386</millis>
+  <sequence>9</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /logs HTTP/1.1
+Authorization: Basic YWRtaW46aHVudGVyMg==
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097403</millis>
+  <sequence>11</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET / HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097481</millis>
+  <sequence>13</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET / HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097491</millis>
+  <sequence>15</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /file1 HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097510</millis>
+  <sequence>17</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /foobar HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097519</millis>
+  <sequence>19</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /image.jpeg HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097526</millis>
+  <sequence>21</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /image.png HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097532</millis>
+  <sequence>23</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /image.gif HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097542</millis>
+  <sequence>25</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /file1 HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097547</millis>
+  <sequence>27</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PUT /file1 HTTP/1.1
+Content-Length: 0
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097551</millis>
+  <sequence>29</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>DGQBJRQS /file1 HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097557</millis>
+  <sequence>31</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /text-file.txt HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097562</millis>
+  <sequence>33</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>POST /text-file.txt HTTP/1.1
+Content-Length: 0
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097567</millis>
+  <sequence>35</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>JAXPKYPP /file1 HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097579</millis>
+  <sequence>37</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /parameters?variable_1=Operators%20%3C%2C%20%3E%2C%20%3D%2C%20!%3D%3B%20%2B%2C%20-%2C%20*%2C%20%26%2C%20%40%2C%20%23%2C%20%24%2C%20%5B%2C%20%5D%3A%20%22is%20that%20all%22%3F&amp;variable_2=stuff HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097589</millis>
+  <sequence>39</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /partial_content.txt HTTP/1.1
+Range: bytes=0-4
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097594</millis>
+  <sequence>41</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /partial_content.txt HTTP/1.1
+Range: bytes=-6
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097598</millis>
+  <sequence>43</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /partial_content.txt HTTP/1.1
+Range: bytes=4-
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097608</millis>
+  <sequence>45</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /patch-content.txt HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097613</millis>
+  <sequence>47</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PATCH /patch-content.txt HTTP/1.1
+If-Match: dc50a0d27dda2eee9f65644cd7e4c9cf11de8bec
+Content-Length: 15
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+patched content</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097618</millis>
+  <sequence>49</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /patch-content.txt HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097623</millis>
+  <sequence>51</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PATCH /patch-content.txt HTTP/1.1
+If-Match: 5c36acad75b78b82be6d9cbbd6143ab7e0cc04b0
+Content-Length: 15
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+default content</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097627</millis>
+  <sequence>53</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /patch-content.txt HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097638</millis>
+  <sequence>55</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /form HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097642</millis>
+  <sequence>57</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>POST /form HTTP/1.1
+Content-Length: 11
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+data=fatcat</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097647</millis>
+  <sequence>59</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /form HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097650</millis>
+  <sequence>61</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PUT /form HTTP/1.1
+Content-Length: 15
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+data=heathcliff</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097655</millis>
+  <sequence>63</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /form HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097659</millis>
+  <sequence>65</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>DELETE /form HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097663</millis>
+  <sequence>67</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /form HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097671</millis>
+  <sequence>69</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /redirect HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097678</millis>
+  <sequence>71</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET / HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097685</millis>
+  <sequence>73</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>OPTIONS /method_options HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097690</millis>
+  <sequence>75</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>GET /method_options HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097694</millis>
+  <sequence>77</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PUT /method_options HTTP/1.1
+Content-Length: 0
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097698</millis>
+  <sequence>79</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>POST /method_options HTTP/1.1
+Content-Length: 0
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097701</millis>
+  <sequence>81</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>HEAD /method_options HTTP/1.1
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097711</millis>
+  <sequence>83</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>POST /form HTTP/1.1
+Content-Length: 11
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+"My"="Data"</message>
+</record>
+<record>
+  <date>2015-12-16T12:21:37</date>
+  <millis>1450290097719</millis>
+  <sequence>85</sequence>
+  <logger>http.log</logger>
+  <level>INFO</level>
+  <class>http.server.HttpServer</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>PUT /form HTTP/1.1
+Content-Length: 11
+Host: localhost:5000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.3.5 (java 1.5)
+Accept-Encoding: gzip,deflate
+
+"My"="Data"</message>
+</record>
+</log>

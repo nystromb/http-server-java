@@ -17,7 +17,7 @@ public class DirectoryHandlerTest {
 
     @Before
     public void setUp(){
-//        Settings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
+
     }
 
     @Test

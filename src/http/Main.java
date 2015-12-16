@@ -12,6 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         Settings.parse(args);
+        Settings.setUpLogger();
         try {
             HttpServer http = new HttpServer(Settings.getPort());
             logger.log(Level.INFO, "Server starting on port " + Settings.getPort());

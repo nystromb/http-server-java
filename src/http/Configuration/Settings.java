@@ -3,15 +3,12 @@ package http.configuration;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Settings {
-    private static final Logger logger = Logger.getLogger( Settings.class.getName() );
-    private static int port = 5000;
-	private static String directory =  System.getProperty("user.dir") + "/public/";
+    private static final Logger logger = Logger.getLogger( "http.log" );
     public static int PORT = 5000;
     public static String PUBLIC_DIR =  System.getProperty("user.dir") + "/public/";
 
@@ -27,23 +24,22 @@ public class Settings {
                     break;
             }
 		}
-        setUpLogger();
 	}
 
 	private static void setDirectory(String directory) {
-        Settings.directory = directory;
+        PUBLIC_DIR = directory;
 	}
 
 	private static void setPort(String arg) {
-		port = Integer.parseInt(arg);
+		PORT = Integer.parseInt(arg);
 	}
 
 	public static int getPort() {
-		return port;
+		return PORT;
 	}
 
 	public static String getRootDirectory() {
-		return directory;
+		return PUBLIC_DIR;
 	}
 
     public static void setUpLogger(){
@@ -52,14 +48,11 @@ public class Settings {
             if(Files.notExists(logs.toPath())){
                 logs.mkdir();
             }
-            FileHandler fileHandler = new FileHandler(new File(logs.toString(), "logs.txt").toString(), true);
+            FileHandler fileHandler = new FileHandler(new File(logs.toString(), "logfile.txt").toString(), true);
             logger.addHandler(fileHandler);
         }catch(IOException e){
+            e.printStackTrace();
             logger.log(Level.SEVERE, "Couldn't set up logging");
         }
-    }
-
-    public static void configureServer() {
-        setUpLogger();
     }
 }

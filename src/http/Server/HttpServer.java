@@ -16,19 +16,21 @@ import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class HttpServer extends ServerSocket {
-    private static Logger logger = Logger.getLogger( HttpServer.class.getName() );
+public class HttpServer {
+    private static Logger logger = Logger.getLogger( "http.log" );
+    private ServerSocket server;
+    private Socket client;
     private ExecutorService executorService = Executors.newCachedThreadPool();
     private Routes routes = new Routes();
 
     public HttpServer(int port) throws IOException {
-        super(port);
+        server = new ServerSocket(port);
     }
 
     public void start() throws IOException {
         while(true) {
             try {
-                Socket client = accept();
+                client = server.accept();
                 BufferedReader input = new BufferedReader(new InputStreamReader(client.getInputStream()));
                 String rawRequest = RequestReader.read(input);
                 Request request = RequestParser.process(rawRequest);

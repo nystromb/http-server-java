@@ -1,11 +1,11 @@
 package test.handlers;
 
+import http.Authorization;
 import http.builders.Request;
 import http.builders.Response;
-import http.Authorization;
-import http.LogsHandler;
 import org.junit.Before;
 import org.junit.Test;
+import test.mocks.MockController;
 
 import java.io.IOException;
 import java.net.URI;
@@ -15,7 +15,7 @@ import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 public class AuthorizationTest {
-    Authorization handler = new Authorization("admin", "hunter2", "secretKey", new LogsHandler());
+    Authorization handler = new Authorization("admin", "hunter2", "secretKey", new MockController());
 
     @Before
     public void setUp(){

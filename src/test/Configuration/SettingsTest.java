@@ -27,16 +27,10 @@ public class SettingsTest {
 
     @Test
     public void testCreatesLogsDirectory(){
-        Settings.configureServer();
+        Settings.setUpLogger();
 
         assertTrue(Files.exists(new File(PUBLIC_DIR, "/logs/").toPath()));
         assertTrue(Files.exists(new File(PUBLIC_DIR, "/logs/logs.txt").toPath()));
-
-    }
-
-    @Test
-    public void test(){
-        Settings.configureServer();
 
     }
 }
