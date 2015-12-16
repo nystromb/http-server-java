@@ -3,16 +3,15 @@ package http.myhandlers;
 import http.handlers.ApplicationController;
 import http.request.Request;
 import http.response.Response;
-import http.configuration.Settings;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.io.File;
 
 public class LogsHandler extends ApplicationController {
     @Override
     protected Response get(Request request) throws IOException {
-        byte[] logs = Files.readAllBytes(new File(Settings.PUBLIC_DIR, "/logs/logfile.txt").toPath());
+        byte[] logs = Files.readAllBytes(new File(System.getProperty("user.dir"), "/logs/logfile.txt").toPath());
         return new Response.Builder(200, logs).build();
     }
 }

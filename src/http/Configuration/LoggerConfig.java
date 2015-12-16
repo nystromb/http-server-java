@@ -12,7 +12,7 @@ public class LoggerConfig {
 
     public static void setUpLogger(){
         try {
-            File logs = new File(Settings.PUBLIC_DIR, "/logs/");
+            File logs = new File(System.getProperty("user.dir"), "/logs/");
             if(Files.notExists(logs.toPath())){
                 logs.mkdir();
             }

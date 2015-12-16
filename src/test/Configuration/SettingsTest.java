@@ -31,7 +31,7 @@ public class SettingsTest {
     public void testCreatesLogsDirectory(){
         Settings.setUpLogger();
 
-        assertTrue(Files.exists(new File(PUBLIC_DIR, "/logs/").toPath()));
+        assertTrue(Files.exists(new File(System.getProperty("user.dir"), "/logs/").toPath()));
     }
 
     @Test
@@ -39,5 +39,14 @@ public class SettingsTest {
         Settings.createRoutes();
 
         assertTrue(Router.getRoute("/") != null);
+        assertTrue(Router.getRoute("/file1") != null);
+        assertTrue(Router.getRoute("/file2") != null);
+        assertTrue(Router.getRoute("/text-file.txt") != null);
+        assertTrue(Router.getRoute("/patch-content.txt") != null);
+        assertTrue(Router.getRoute("/image.png") != null);
+        assertTrue(Router.getRoute("/image.gif") != null);
+        assertTrue(Router.getRoute("/partial_content.txt") != null);
+        assertTrue(Router.getRoute("/image.jpeg") != null);
+        assertTrue(Router.getRoute("/someDirectory") != null);
     }
 }
