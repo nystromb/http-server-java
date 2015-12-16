@@ -1,4 +1,4 @@
-package http.builders;
+package http.request;
 
 import java.net.URI;
 import java.util.Hashtable;

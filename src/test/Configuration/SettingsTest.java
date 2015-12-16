@@ -1,11 +1,13 @@
 package test.configuration;
 
 
+import http.router.Router;
 import http.configuration.Settings;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 
 import static http.configuration.Settings.PORT;
@@ -30,7 +32,12 @@ public class SettingsTest {
         Settings.setUpLogger();
 
         assertTrue(Files.exists(new File(PUBLIC_DIR, "/logs/").toPath()));
-        assertTrue(Files.exists(new File(PUBLIC_DIR, "/logs/logs.txt").toPath()));
+    }
 
+    @Test
+    public void testCreatesRoutes() throws URISyntaxException {
+        Settings.createRoutes();
+
+        assertTrue(Router.getRoute("/") != null);
     }
 }

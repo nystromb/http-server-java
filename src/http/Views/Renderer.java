@@ -1,6 +1,6 @@
 package http.views;
 
-import http.builders.Request;
+import http.request.Request;
 import main.Models.GameModel;
 
 public interface Renderer {

@@ -1,8 +1,8 @@
-package http;
+package http.handlers;
 
 import http.assets.FileUtil;
-import http.builders.Request;
-import http.builders.Response;
+import http.request.Request;
+import http.response.Response;
 import http.configuration.Settings;
 
 import java.io.File;
@@ -20,7 +20,7 @@ public class FileHandler extends ApplicationController {
             String ranges = request.getHeader("Range").split("=")[1];
             String[] range = ranges.split("-");
 
-            String contents = FileUtil.readFileContents(new File(Settings.getRootDirectory(), request.getPath()));
+            String contents = FileUtil.readFileContents(new File(Settings.PUBLIC_DIR, request.getPath()));
             if(ranges.startsWith("-")){
                 response.setBody(contents.substring(contents.length() - Integer.parseInt(range[1])));
             }else if (ranges.endsWith("-")){
@@ -34,21 +34,21 @@ public class FileHandler extends ApplicationController {
 
         return response.build();
     }
-
-    @Override
-    protected Response put(Request request){
-        return response.status(405).build();
-    }
-
-    @Override
-    protected Response post(Request request){
-        return response.status(405).build();
-    }
+//
+//    @Override
+//    protected Response put(Request request){
+//        return response.status(405).build();
+//    }
+//
+//    @Override
+//    protected Response post(Request request){
+//        return response.status(405).build();
+//    }
 
     @Override
     protected Response patch(Request request) throws IOException {
         response.status(204);
-        Files.write(new File(Settings.getRootDirectory() + request.getPath()).toPath(), request.getBody().getBytes());
+        Files.write(new File(Settings.PUBLIC_DIR + request.getPath()).toPath(), request.getBody().getBytes());
         return response.build();
     }
 }

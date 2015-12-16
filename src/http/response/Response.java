@@ -1,6 +1,4 @@
-package http.builders;
-
-import http.registry.ResponseCodes;
+package http.response;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

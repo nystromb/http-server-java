@@ -1,6 +1,6 @@
 package test.builders;
 
-import http.builders.RequestReader;
+import http.request.RequestReader;
 import org.junit.Test;
 
 import java.io.BufferedReader;

@@ -1,6 +1,6 @@
 package test.builders;
 
-import http.builders.Response;
+import http.response.Response;
 import org.junit.Before;
 import org.junit.Test;
 

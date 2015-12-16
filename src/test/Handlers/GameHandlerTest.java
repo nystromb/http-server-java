@@ -1,10 +1,9 @@
 package test.handlers;
 
-import http.ApplicationController;
-import http.builders.Request;
-import http.builders.Response;
+import http.handlers.ApplicationController;
+import http.request.Request;
+import http.response.Response;
 import http.GameHandler;
-import http.RequestHandler;
 import main.Boards.Board;
 import main.Boards.ThreeByThreeBoard;
 import main.Models.GameModel;

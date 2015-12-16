@@ -1,4 +1,4 @@
-package http.registry;
+package http.response;
 
 import java.util.HashMap;
 

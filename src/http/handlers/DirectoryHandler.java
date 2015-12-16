@@ -1,7 +1,7 @@
-package http;
+package http.handlers;
 
-import http.builders.Request;
-import http.builders.Response;
+import http.request.Request;
+import http.response.Response;
 import http.configuration.Settings;
 
 import java.io.File;
@@ -12,7 +12,7 @@ public class DirectoryHandler extends ApplicationController {
     @Override
     protected Response get(Request request) throws IOException {
         String contents = "<!DOCTYPE html><html><head></head><body><ul>";
-        for(String file : new File(Settings.getRootDirectory(), request.getPath()).list()){
+        for(String file : new File(Settings.PUBLIC_DIR, request.getPath()).list()){
             contents += "<li><a href=\"/" + file +"\">" + file + "</a></li>";
         }
         contents += "</ul></body>";

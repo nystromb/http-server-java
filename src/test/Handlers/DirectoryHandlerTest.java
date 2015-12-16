@@ -1,8 +1,8 @@
 package test.handlers;
 
-import http.builders.Request;
-import http.builders.Response;
-import http.DirectoryHandler;
+import http.request.Request;
+import http.response.Response;
+import http.handlers.DirectoryHandler;
 import org.junit.Before;
 import org.junit.Test;
 

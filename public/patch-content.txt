@@ -1,1 +1,1 @@
-default content
+patched content

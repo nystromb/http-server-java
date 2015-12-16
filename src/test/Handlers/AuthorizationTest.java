@@ -1,8 +1,8 @@
 package test.handlers;
 
-import http.Authorization;
-import http.builders.Request;
-import http.builders.Response;
+import http.handlers.Authorization;
+import http.request.Request;
+import http.response.Response;
 import org.junit.Before;
 import org.junit.Test;
 import test.mocks.MockController;

@@ -1,7 +1,8 @@
-package http;
+package http.myhandlers;
 
-import http.builders.Request;
-import http.builders.Response;
+import http.handlers.ApplicationController;
+import http.request.Request;
+import http.response.Response;
 
 public class Resource extends ApplicationController {
     private Response.Builder response = new Response.Builder();

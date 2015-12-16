@@ -1,6 +1,6 @@
 package test.mocks;
 
-import http.builders.Request;
+import http.request.Request;
 import http.views.Renderer;
 import main.Models.GameModel;
 

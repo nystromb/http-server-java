@@ -1,9 +1,9 @@
 package test;
 
-import http.ApplicationController;
-import http.builders.Request;
-import http.builders.Response;
-import http.FileHandler;
+import http.handlers.ApplicationController;
+import http.request.Request;
+import http.response.Response;
+import http.handlers.FileHandler;
 import org.junit.Before;
 import org.junit.Test;
 

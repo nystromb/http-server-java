@@ -1,7 +1,8 @@
 package http;
 
-import http.builders.Request;
-import http.builders.Response;
+import http.handlers.ApplicationController;
+import http.request.Request;
+import http.response.Response;
 import http.views.Renderer;
 import main.Models.GameModel;
 import main.Players.RandomPlayer;

@@ -1,6 +1,6 @@
 package test;
 
-import http.builders.Request;
+import http.request.Request;
 import http.views.BoardRenderer;
 import http.views.Renderer;
 import main.Boards.ThreeByThreeBoard;

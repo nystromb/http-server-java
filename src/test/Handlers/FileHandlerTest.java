@@ -1,8 +1,8 @@
 package test.handlers;
 
-import http.builders.Request;
-import http.builders.Response;
-import http.FileHandler;
+import http.request.Request;
+import http.response.Response;
+import http.handlers.FileHandler;
 import org.junit.Test;
 
 import java.io.IOException;

@@ -1,7 +1,7 @@
-package http;
+package http.handlers;
 
-import http.builders.Request;
-import http.builders.Response;
+import http.request.Request;
+import http.response.Response;
 
 import java.io.IOException;
 import java.util.Base64;
