@@ -1,19 +1,15 @@
-package http.Handlers;
+package http;
 
-import http.Builders.Request;
-import http.Builders.Response;
-import http.Router.AbstractRouter;
-import http.Views.Renderer;
+import http.builders.Request;
+import http.builders.Response;
+import http.views.Renderer;
 import main.Models.GameModel;
 import main.Players.RandomPlayer;
 import main.Players.UnbeatablePlayer;
 
 import java.io.IOException;
 
-/**
- * Created by nystrom on 12/8/15.
- */
-public class GameHandler extends AbstractRouter {
+public class GameHandler extends ApplicationController {
     GameModel model;
     Renderer renderer;
 
@@ -23,7 +19,7 @@ public class GameHandler extends AbstractRouter {
     }
 
     @Override
-    public Response handle(Request request) throws IOException {
+    public Response get(Request request) throws IOException {
         if(request.getMethod().equals("GET")){
             if(request.getQuery().length() > 0){
                 String[] params = request.getQuery().split(" ");

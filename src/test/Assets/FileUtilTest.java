@@ -1,7 +1,7 @@
-package test.Assets;
+package test.assets;
 
-import http.Assets.FileUtil;
-import http.Configuration.Settings;
+import http.assets.FileUtil;
+import http.configuration.Settings;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,14 +10,11 @@ import java.io.IOException;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by nystrom on 11/10/15.
- */
 public class FileUtilTest {
 
     @Before
     public void setUp() throws Exception {
-        Settings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
+//        Settings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
     }
 
     @Test

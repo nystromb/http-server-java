@@ -1,9 +1,8 @@
-package test.Handlers;
+package test.handlers;
 
-import http.Handlers.DirectoryHandler;
-import http.Builders.Request;
-import http.Builders.Response;
-import http.Configuration.Settings;
+import http.builders.Request;
+import http.builders.Response;
+import http.DirectoryHandler;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,18 +10,14 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
-/**
- * Created by nystrom on 12/3/15.
- */
 public class DirectoryHandlerTest {
-    DirectoryHandler handler;
+    DirectoryHandler handler = new DirectoryHandler();
 
     @Before
     public void setUp(){
-        Settings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
-        handler = new DirectoryHandler();
+//        Settings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
     }
 
     @Test

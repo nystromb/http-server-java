@@ -1,15 +1,11 @@
-package http.Handlers;
+package http;
 
-import http.Builders.Request;
-import http.Builders.Response;
-import http.Router.AbstractRouter;
+import http.builders.Request;
+import http.builders.Response;
 
 import java.io.IOException;
 
-/**
- * Created by nystrom on 12/4/15.
- */
-public class RedirectHandler extends AbstractRouter {
+public class RedirectHandler extends ApplicationController {
     Response.Builder response = new Response.Builder(302);
     String redirectPath = "/";
 

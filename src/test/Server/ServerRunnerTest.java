@@ -1,13 +1,11 @@
-package test.Server;
+package test.server;
 
-import http.Builders.Request;
-import http.Configuration.Settings;
-import http.Registry.Routes;
-import http.Server.ServerRunner;
-import org.junit.After;
+import http.builders.Request;
+import http.registry.Routes;
+import http.server.ServerRunner;
 import org.junit.Before;
 import org.junit.Test;
-import test.Mocks.MockSocket;
+import test.mocks.MockSocket;
 
 import java.io.*;
 import java.net.URI;
@@ -15,9 +13,6 @@ import java.net.URISyntaxException;
 
 import static org.junit.Assert.assertTrue;
 
-/**
- * Created by nystrom on 12/1/15.
- */
 public class ServerRunnerTest {
     Routes routes = new Routes();
     InputStream input;
@@ -26,16 +21,9 @@ public class ServerRunnerTest {
 
     @Before
     public void setUp() throws IOException {
-        Settings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
-
         output = new ByteArrayOutputStream();
         input = new ByteArrayInputStream("".getBytes());
         client = new MockSocket(input, output);
-    }
-
-    @After
-    public void shutDown(){
-
     }
 
     @Test
@@ -186,6 +174,16 @@ public class ServerRunnerTest {
         thread.run();
 
         assertTrue(output.toString().contains("200 OK"));
+    }
+
+    @Test
+    public void testPostsFile2NotAllowed() throws URISyntaxException {
+        Request request = new Request("POST", new URI("/file1"), "HTTP/1.1");
+
+        ServerRunner thread = new ServerRunner(client, request, this.routes);
+        thread.run();
+
+        assertTrue(output.toString().contains("405 Method Not Allowed"));
     }
 
     @Test

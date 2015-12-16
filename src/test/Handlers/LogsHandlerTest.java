@@ -1,10 +1,8 @@
-package test.Handlers;
+package test.handlers;
 
-import http.Builders.Request;
-import http.Builders.Response;
-import http.Configuration.Settings;
-import http.Handlers.LogsHandler;
-import org.junit.Before;
+import http.builders.Request;
+import http.builders.Response;
+import http.LogsHandler;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -13,17 +11,10 @@ import java.net.URISyntaxException;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by nystrom on 12/10/15.
- */
 public class LogsHandlerTest {
-    @Before
-    public void setUp(){
-        Settings.parse(new String[]{ "-d", "/Users/nystrom/Documents/cob_spec/public/"});
-    }
 
     @Test
-    public void test() throws IOException, URISyntaxException {
+    public void testLogsHandler() throws IOException, URISyntaxException {
         LogsHandler handler = new LogsHandler();
         Request request = new Request("GET", new URI("/logs"), "HTTP/1.1");
         request.addHeader("Authorization", "Basic YWRtaW46aHVudGVyMg==");

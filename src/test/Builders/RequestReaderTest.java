@@ -1,6 +1,6 @@
-package test.Builders;
+package test.builders;
 
-import http.Builders.RequestReader;
+import http.builders.RequestReader;
 import org.junit.Test;
 
 import java.io.BufferedReader;
@@ -10,9 +10,6 @@ import java.io.InputStreamReader;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by nystrom on 11/11/15.
- */
 public class RequestReaderTest {
 
     @Test

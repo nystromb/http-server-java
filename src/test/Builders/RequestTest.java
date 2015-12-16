@@ -1,8 +1,8 @@
-package test.Builders;
+package test.builders;
 
 import static org.junit.Assert.*;
 
-import http.Builders.Request;
+import http.builders.Request;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

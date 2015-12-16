@@ -1,12 +1,13 @@
-package test.Builders;
+package test.builders;
 
-import static org.junit.Assert.*;
-
-import http.Builders.Request;
-import http.Builders.RequestParser;
+import http.builders.Request;
+import http.builders.RequestParser;
 import org.junit.Test;
 
 import java.net.URISyntaxException;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class RequestParserTest {
     Request request;
@@ -42,13 +43,6 @@ public class RequestParserTest {
         request = RequestParser.process("GET / HTTP/1.1\r\nExample-Header: someValue\r\nUser-Agent: HttpClient\r\nContent-Length: 9\r\n\r\nsome=data");
 
         assertEquals("some=data", request.getBody());
-    }
-
-    @Test
-    public void testDoesNotProcessBodyDataIfHasContentLengthHeader() throws URISyntaxException{
-        request = RequestParser.process("GET / HTTP/1.1\r\nExample-Header: someValue\r\nUser-Agent: HttpClient\r\n\r\nsome=data");
-
-        assertEquals("", request.getBody());
     }
 
     @Test

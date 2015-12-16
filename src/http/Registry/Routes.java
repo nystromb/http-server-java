@@ -1,20 +1,17 @@
-package http.Registry;
+package http.registry;
 
 
-import http.Builders.Route;
-import http.Handlers.*;
+import http.*;
+import http.builders.Route;
+import http.views.BoardRenderer;
 import main.Boards.ThreeByThreeBoard;
 import main.Models.GameModel;
 import main.Players.GameToken;
 import main.Players.Human;
-import http.Views.BoardRenderer;
 import main.Players.UnbeatablePlayer;
 
 import java.util.HashMap;
 
-/**
- * Created by nystrom on 12/8/15.
- */
 public class Routes extends HashMap<String, Route> {
     public Routes () {
         this.put("/", new Route(
@@ -44,8 +41,9 @@ public class Routes extends HashMap<String, Route> {
         this.put("/patch-content.txt", new Route(
                 new FileHandler()));
 
-        this.put("/logs", new Route(new LogsHandler())
-                .authenticate("admin", "hunter2", "Challenge"));
+        this.put("/logs", new Route(
+                new Authorization("admin", "hunter2", "secret",
+                    new LogsHandler())));
 
         this.put("/form", new Route(
                 new Resource()));

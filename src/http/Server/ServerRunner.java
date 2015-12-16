@@ -1,18 +1,18 @@
-package http.Server;
+package http.server;
 
-import http.Builders.Request;
-import http.Builders.Response;
-import http.Builders.Route;
-import http.Registry.Routes;
+import http.builders.Request;
+import http.builders.Response;
+import http.builders.Route;
+import http.registry.Routes;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- * Created by nystrom on 12/1/15.
- */
 public class ServerRunner implements Runnable {
+    private static Logger logger = Logger.getLogger( ServerRunner.class.getName() );
     private Routes routes;
     private Socket client;
     private Request request;
@@ -31,18 +31,14 @@ public class ServerRunner implements Runnable {
         ){
             if(routes.containsKey(request.getPath())){
                 Route route = routes.get(request.getPath());
-                if(route.isAuthenticated()){
-                    route.authentication.setNext(route.handler);
-                    response = route.authentication.handle(request);
-                }else{
-                    response = route.handler.handle(request);
-                }
+                response = route.handler.handle(request);
             }else{
                 response = new Response.Builder(404, "Not Found").build();
             }
+            logger.log(Level.INFO, response.statusLine);
             output.write(response.toByteArray());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Something went wrong");
         }
     }
 }

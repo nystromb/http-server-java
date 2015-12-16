@@ -1,8 +1,8 @@
-package test.Handlers;
+package test.handlers;
 
-import http.Handlers.RedirectHandler;
-import http.Builders.Request;
-import http.Builders.Response;
+import http.RedirectHandler;
+import http.builders.Request;
+import http.builders.Response;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,9 +12,6 @@ import java.net.URISyntaxException;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by nystrom on 12/4/15.
- */
 public class RedirectHandlerTest {
     @Before
     public void setUp(){
