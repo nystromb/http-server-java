@@ -3,7 +3,7 @@ package test.handlers;
 import http.handlers.ApplicationController;
 import http.request.Request;
 import http.response.Response;
-import http.GameHandler;
+import http.myhandlers.GameHandler;
 import main.Boards.Board;
 import main.Boards.ThreeByThreeBoard;
 import main.Models.GameModel;

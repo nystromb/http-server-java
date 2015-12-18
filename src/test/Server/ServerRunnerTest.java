@@ -1,10 +1,17 @@
 package test.server;
 
 import http.configuration.RouterConfig;
+import http.handlers.Authorization;
+import http.myhandlers.LogsHandler;
+import http.myhandlers.ParameterHandler;
+import http.myhandlers.RedirectHandler;
 import http.request.Request;
+import http.router.Route;
+import http.router.Router;
 import http.server.ServerRunner;
 import org.junit.Before;
 import org.junit.Test;
+import test.mocks.MockController;
 import test.mocks.MockSocket;
 
 import java.io.*;
@@ -50,7 +57,7 @@ public class ServerRunnerTest {
     public void testLogsReturns200IfHeadersAreSent() throws URISyntaxException {
         Request request = new Request("GET", new URI("/logs"), "HTTP/1.1");
         request.addHeader("Authorization", "Basic YWRtaW46aHVudGVyMg==");
-
+        Router.addRoute(new Route("/logs",new Authorization("admin", "hunter2", "secret", new LogsHandler())));
         ServerRunner thread = new ServerRunner(client, request);
         thread.run();
 
@@ -70,7 +77,7 @@ public class ServerRunnerTest {
     @Test
     public void testMethodOptions() throws URISyntaxException {
         Request request = new Request("GET", new URI("/method_options"), "HTTP/1.1");
-
+        Router.addRoute(new Route("/method_options", new MockController()));
         ServerRunner thread = new ServerRunner(client, request);
         thread.run();
 
@@ -80,7 +87,7 @@ public class ServerRunnerTest {
     @Test
     public void testParameters() throws URISyntaxException {
         Request request = new Request("GET", new URI("/parameters?variable_1=Operators%20%3C%2C%20%3E%2C%20%3D%2C%20!%3D%3B%20%2B%2C%20-%2C%20*%2C%20%26%2C%20%40%2C%20%23%2C%20%24%2C%20%5B%2C%20%5D%3A%20%22is%20that%20all%22%3F&variable_2=stuff"), "HTTP/1.1");
-
+        Router.addRoute(new Route("/parameters", new ParameterHandler()));
         ServerRunner thread = new ServerRunner(client, request);
         thread.run();
 
@@ -159,7 +166,7 @@ public class ServerRunnerTest {
     @Test
     public void testGetsRedirect302() throws URISyntaxException {
         Request request = new Request("GET", new URI("/redirect"), "HTTP/1.1");
-
+        Router.addRoute(new Route("/redirect", new RedirectHandler("/")));
         ServerRunner thread = new ServerRunner(client, request);
         thread.run();
 
@@ -199,7 +206,7 @@ public class ServerRunnerTest {
     @Test
     public void testForSuccess() throws URISyntaxException, IOException {
         Request request = new Request("GET", new URI("/tictactoe"), "HTTP/1.1");
-
+        Router.addRoute(new Route("/tictactoe", new MockController()));
         ServerRunner thread = new ServerRunner(client, request);
         thread.run();
 

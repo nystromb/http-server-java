@@ -23,12 +23,5 @@ public class RouterConfig {
                 Router.addRoute(new Route("/" + file.getName(), new FileHandler()));
             }
         }
-
-        for(File dir : list){
-            if(dir.isDirectory()){
-                Router.addRoute(new Route("/" + dir.getName(), new DirectoryHandler()));
-                recurseDirectory(dir);
-            }
-        }
     }
 }

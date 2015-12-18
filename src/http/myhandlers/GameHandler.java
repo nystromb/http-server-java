@@ -1,4 +1,4 @@
-package http;
+package http.myhandlers;
 
 import http.handlers.ApplicationController;
 import http.request.Request;
@@ -21,15 +21,15 @@ public class GameHandler extends ApplicationController {
 
     @Override
     public Response get(Request request) throws IOException {
-        if(request.getMethod().equals("GET")){
-            if(request.getQuery().length() > 0){
+        if (request.getMethod().equals("GET")) {
+            if (request.getQuery().length() > 0){
                 String[] params = request.getQuery().split(" ");
 
-                if(params[0].startsWith("move")){
+                if (params[0].startsWith("move")) {
                     int move = Integer.parseInt(params[params.length - 1]);
-                    if(!model.isOver()) {
+                    if (!model.isOver()) {
                         model.play(move);
-                        if(currentPlayerComptuer()){
+                        if (currentPlayerComputer()) {
                             move = model.currentPlayer.getMove(model);
                             model.play(move);
                         }
@@ -38,15 +38,13 @@ public class GameHandler extends ApplicationController {
                     model.board.clearAll();
                 }
             }
-
-            String boardHtml = renderer.render(request, model);
-            return new Response.Builder(200, boardHtml).build();
         }
 
-        return new Response.Builder(200, "Good stuff").build();
+        String boardHtml = renderer.render(request, model);
+        return new Response.Builder(200, boardHtml).build();
     }
 
-    private boolean currentPlayerComptuer() {
+    private boolean currentPlayerComputer() {
         return (model.currentPlayer instanceof UnbeatablePlayer) || (model.currentPlayer instanceof RandomPlayer);
     }
 }

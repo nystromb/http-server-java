@@ -9,10 +9,10 @@ public class Settings {
 
             switch (args[option]) {
                 case "-p":
-                    PUBLIC_DIR = args[++option];
+                    PORT = Integer.parseInt(args[++option]);
                     break;
                 case "-d":
-                    PORT = Integer.parseInt(args[++option]);
+                    PUBLIC_DIR = args[++option];
                     break;
             }
         }
@@ -20,9 +20,5 @@ public class Settings {
 
     public static void setUpLogger(){
         LoggerConfig.setUpLogger();
-    }
-
-    public static void createRoutes() {
-        RouterConfig.setUpRoutes();
     }
 }

@@ -2,10 +2,9 @@ package http;
 
 import http.configuration.Settings;
 import http.handlers.Authorization;
-import http.myhandlers.LogsHandler;
-import http.myhandlers.ParameterHandler;
-import http.myhandlers.RedirectHandler;
-import http.myhandlers.Resource;
+import http.handlers.DirectoryHandler;
+import http.handlers.FileHandler;
+import http.myhandlers.*;
 import http.router.Route;
 import http.router.Router;
 import http.server.HttpServer;
@@ -26,7 +25,6 @@ public class Main {
     public static void main(String[] args) {
         Settings.parse(args);
         Settings.setUpLogger();
-        Settings.createRoutes();
         addMyRoutes();
 
         try {
@@ -39,6 +37,24 @@ public class Main {
     }
 
     private static void addMyRoutes() {
+        Router.addRoute(new Route("/", new DirectoryHandler()));
+
+        Router.addRoute(new Route("/file1", new FileHandler()));
+
+        Router.addRoute(new Route("/file2", new FileHandler()));
+
+        Router.addRoute(new Route("/image.png", new FileHandler()));
+
+        Router.addRoute(new Route("/image.jpeg", new FileHandler()));
+
+        Router.addRoute(new Route("/image.gif", new FileHandler()));
+
+        Router.addRoute(new Route("/patch-content.txt", new FileHandler()));
+
+        Router.addRoute(new Route("/partial_content.txt", new FileHandler()));
+
+        Router.addRoute(new Route("/text-file.txt", new FileHandler()));
+
         Router.addRoute(new Route("/logs", new Authorization("admin", "hunter2", "secret", new LogsHandler())));
 
         Router.addRoute(new Route("/form", new Resource()));
