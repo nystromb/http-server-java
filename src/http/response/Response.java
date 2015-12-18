@@ -1,14 +1,10 @@
-package http.Builders;
-
-import http.Registry.ResponseCodes;
+package http.response;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map.Entry;
-/**
- * Created by nystrom on 11/23/15.
- */
+
 public class Response {
     private final String PROTOCOL = "HTTP/1.1";
     private HashMap<Integer, String> statusCodeMap = new ResponseCodes();

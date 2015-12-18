@@ -1,8 +1,9 @@
-package test.Handlers;
+package test.handlers;
 
-import http.Builders.Request;
-import http.Builders.Response;
-import http.Handlers.Resource;
+import http.handlers.ApplicationController;
+import http.request.Request;
+import http.response.Response;
+import http.myhandlers.Resource;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,7 +15,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class ResourceTest {
-    Resource handler = new Resource();;
+    ApplicationController handler = new Resource();;
 
     @Before
     public void setUp() throws Exception{

@@ -1,4 +1,4 @@
-package http.Builders;
+package http.request;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -15,9 +15,7 @@ public class RequestParser {
                 String [] heading = parseHeader(line);
                 request.addHeader(heading[0], heading[1]);
             }else{
-                if(request.hasHeader("Content-Length")){
-                    request.setBody(line);
-                }
+                request.setBody(line);
             }
         }
         return request;

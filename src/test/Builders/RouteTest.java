@@ -1,17 +1,18 @@
-package test.Builders;
+package test.builders;
 
-import http.Builders.Route;
-import http.Handlers.Resource;
+import http.request.Request;
+import http.router.Route;
 import org.junit.Before;
 import org.junit.Test;
+import test.mocks.MockController;
+
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 
-/**
- * Created by nystrom on 12/7/15.
- */
 public class RouteTest {
     @Before
     public void setUp(){
@@ -19,29 +20,29 @@ public class RouteTest {
     }
 
     @Test
-    public void testIsAuthenticated(){
-        Route route = new Route(new Resource());
+    public void testDoesMatch() throws URISyntaxException {
+        Route route = new Route("/", new MockController());
 
-        assertFalse(route.isAuthenticated());
+        Request request = new Request("GET", new URI("/"), "HTTP/1.1");
+
+        assertTrue(route.match(request.getPath()));
     }
 
     @Test
-    public void testNotAuthenticated(){
-        Route route = new Route(new Resource()).authenticate("user", "password", "secret");
+    public void testDoesNotMatch() throws URISyntaxException {
+        Route route = new Route("/file1", new MockController());
 
-        assertTrue(route.isAuthenticated());
-        assertFalse(route.isRedirected());
+        Request request = new Request("GET", new URI("/file1/something"), "HTTP/1.1");
+
+        assertFalse(route.match(request.getPath()));
     }
 
-    @Test
-    public void testAcceptParams(){
-        Route route1 = new Route(new Resource());;
-        assertFalse(route1.supportsEncoding());
-
-        Route route2 = new Route(new Resource());;
-        route2.supportEncoding();
-
-        assertTrue(route2.supportsEncoding());
-    }
-
+//    @Test
+//    public void testDoesMatchCustomPattern() throws URISyntaxException {
+//        Route route = new Route("/myroute/[\\w/\\w]", new MockController());
+//
+//        Request request = new Request("GET", new URI("/myroute/some/params"), "HTTP/1.1");
+//
+//        assertTrue(route.match(request.getPath()));
+//    }
 }

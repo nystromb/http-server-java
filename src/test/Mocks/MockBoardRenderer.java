@@ -1,7 +1,7 @@
-package test.Mocks;
+package test.mocks;
 
-import http.Builders.Request;
-import http.Views.Renderer;
+import http.request.Request;
+import http.views.Renderer;
 import main.Models.GameModel;
 
 public class MockBoardRenderer implements Renderer {

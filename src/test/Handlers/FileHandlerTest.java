@@ -1,10 +1,8 @@
-package test.Handlers;
+package test.handlers;
 
-import http.Handlers.FileHandler;
-import http.Builders.Request;
-import http.Builders.Response;
-import http.Configuration.Settings;
-import org.junit.Before;
+import http.request.Request;
+import http.response.Response;
+import http.handlers.FileHandler;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -13,17 +11,8 @@ import java.net.URISyntaxException;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by nystrom on 12/3/15.
- */
 public class FileHandlerTest {
-    FileHandler handler;
-
-    @Before
-    public void setUp() throws IOException {
-        Settings.parse(new String[]{"-d", "/Users/nystrom/Documents/cob_spec/public/"});
-        handler = new FileHandler();
-    }
+    FileHandler handler = new FileHandler();
 
     @Test
     public void testReturns200OK() throws URISyntaxException, IOException {

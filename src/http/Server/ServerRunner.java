@@ -1,48 +1,40 @@
-package http.Server;
+package http.server;
 
-import http.Builders.Request;
-import http.Builders.Response;
-import http.Builders.Route;
-import http.Registry.Routes;
+import http.router.Router;
+import http.request.Request;
+import http.response.Response;
+import http.router.Route;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- * Created by nystrom on 12/1/15.
- */
 public class ServerRunner implements Runnable {
-    private Routes routes;
+    private static final Logger logger = Logger.getLogger("http.log");
     private Socket client;
     private Request request;
     private Response response;
 
-    public ServerRunner(Socket client, Request request, Routes routes) {
+    public ServerRunner(Socket client, Request request) {
         this.client = client;
         this.request = request;
-        this.routes = routes;
     }
 
     @Override
     public void run() {
-        try (
-                OutputStream output = client.getOutputStream()
-        ){
-            if(routes.containsKey(request.getPath())){
-                Route route = routes.get(request.getPath());
-                if(route.isAuthenticated()){
-                    route.authentication.setNext(route.handler);
-                    response = route.authentication.handle(request);
-                }else{
-                    response = route.handler.handle(request);
-                }
+        try (OutputStream output = client.getOutputStream()){
+            Route route = Router.getRoute(request.getPath());
+            if(route != null){
+                response = route.handle(request);
             }else{
                 response = new Response.Builder(404, "Not Found").build();
             }
+            logger.log(Level.INFO,  new String(response.toByteArray()));
             output.write(response.toByteArray());
         } catch (IOException e) {
-            e.printStackTrace();
+
         }
     }
 }

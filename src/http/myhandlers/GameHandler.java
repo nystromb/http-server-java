@@ -1,19 +1,16 @@
-package http.Handlers;
+package http.myhandlers;
 
-import http.Builders.Request;
-import http.Builders.Response;
-import http.Router.AbstractRouter;
-import http.Views.Renderer;
+import http.handlers.ApplicationController;
+import http.request.Request;
+import http.response.Response;
+import http.views.Renderer;
 import main.Models.GameModel;
 import main.Players.RandomPlayer;
 import main.Players.UnbeatablePlayer;
 
 import java.io.IOException;
 
-/**
- * Created by nystrom on 12/8/15.
- */
-public class GameHandler extends AbstractRouter {
+public class GameHandler extends ApplicationController {
     GameModel model;
     Renderer renderer;
 
@@ -23,16 +20,16 @@ public class GameHandler extends AbstractRouter {
     }
 
     @Override
-    public Response handle(Request request) throws IOException {
-        if(request.getMethod().equals("GET")){
-            if(request.getQuery().length() > 0){
+    public Response get(Request request) throws IOException {
+        if (request.getMethod().equals("GET")) {
+            if (request.getQuery().length() > 0){
                 String[] params = request.getQuery().split(" ");
 
-                if(params[0].startsWith("move")){
+                if (params[0].startsWith("move")) {
                     int move = Integer.parseInt(params[params.length - 1]);
-                    if(!model.isOver()) {
+                    if (!model.isOver()) {
                         model.play(move);
-                        if(currentPlayerComptuer()){
+                        if (currentPlayerComputer()) {
                             move = model.currentPlayer.getMove(model);
                             model.play(move);
                         }
@@ -41,15 +38,13 @@ public class GameHandler extends AbstractRouter {
                     model.board.clearAll();
                 }
             }
-
-            String boardHtml = renderer.render(request, model);
-            return new Response.Builder(200, boardHtml).build();
         }
 
-        return new Response.Builder(200, "Good stuff").build();
+        String boardHtml = renderer.render(request, model);
+        return new Response.Builder(200, boardHtml).build();
     }
 
-    private boolean currentPlayerComptuer() {
+    private boolean currentPlayerComputer() {
         return (model.currentPlayer instanceof UnbeatablePlayer) || (model.currentPlayer instanceof RandomPlayer);
     }
 }

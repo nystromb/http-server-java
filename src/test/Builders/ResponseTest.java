@@ -1,6 +1,6 @@
-package test.Builders;
+package test.builders;
 
-import http.Builders.Response;
+import http.response.Response;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,9 +8,6 @@ import java.io.IOException;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by nystrom on 12/2/15.
- */
 public class ResponseTest {
     @Before
     public void setUp(){

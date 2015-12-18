@@ -1,28 +1,26 @@
-package http.Handlers;
+package http.handlers;
 
-import http.Builders.Request;
-import http.Builders.Response;
-import http.Router.AbstractRouter;
+import http.request.Request;
+import http.response.Response;
 
 import java.io.IOException;
 import java.util.Base64;
 
-/**
- * Created by nystrom on 11/24/15.
- */
-public class AuthHandler extends AbstractRouter {
+public class Authorization implements RequestHandler {
+    private RequestHandler handler;
     private String challenge = "Default";
     private byte[] authorization;
 
-    public AuthHandler(String user, String password, String challenge) {
+    public Authorization(String user, String password, String challenge, RequestHandler handler) {
         this.authorization = Base64.getEncoder().encode((user + ":" + password).getBytes());
         this.challenge = challenge;
+        this.handler = handler;
     }
 
     public Response handle(Request request) throws IOException {
         String authHeader = "Basic " + new String(this.authorization);
         if(authHeader.equals(request.getHeader("Authorization"))) {
-            return nextRouter.handle(request);
+            return handler.handle(request);
         }
 
         return new Response.Builder(401, "Authentication required")

@@ -1,10 +1,7 @@
-package http.Registry;
+package http.response;
 
 import java.util.HashMap;
 
-/**
- * Created by nystrom on 12/6/15.
- */
 public class ResponseCodes extends HashMap<Integer, String> {
     public ResponseCodes(){
         this.put(200, "OK");

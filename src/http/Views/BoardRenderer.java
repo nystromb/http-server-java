@@ -1,6 +1,6 @@
-package http.Views;
+package http.views;
 
-import http.Builders.Request;
+import http.request.Request;
 import main.Models.GameModel;
 import main.Players.GameToken;
 

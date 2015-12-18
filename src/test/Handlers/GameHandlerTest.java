@@ -1,9 +1,9 @@
-package test.Handlers;
+package test.handlers;
 
-import http.Builders.Request;
-import http.Builders.Response;
-import http.Handlers.GameHandler;
-import http.Router.AbstractRouter;
+import http.handlers.ApplicationController;
+import http.request.Request;
+import http.response.Response;
+import http.myhandlers.GameHandler;
 import main.Boards.Board;
 import main.Boards.ThreeByThreeBoard;
 import main.Models.GameModel;
@@ -12,7 +12,7 @@ import main.Players.Human;
 import main.Players.UnbeatablePlayer;
 import org.junit.Before;
 import org.junit.Test;
-import test.Mocks.MockBoardRenderer;
+import test.mocks.MockBoardRenderer;
 
 import java.io.IOException;
 import java.net.URI;
@@ -20,20 +20,9 @@ import java.net.URISyntaxException;
 
 import static org.junit.Assert.assertEquals;
 
-//public class RealBoardRenderer implements Renderer {
-//
-//    public String render(Board board){
-//
-//        return board.toString();
-//    }
-//}
-
-/**
- * Created by nystrom on 12/9/15.
- */
 public class GameHandlerTest {
     Board board = new ThreeByThreeBoard();
-    AbstractRouter handler;
+    ApplicationController handler;
     @Before
     public void setUp(){
         handler = new GameHandler(new GameModel(board, new Human(GameToken.X), new Human(GameToken.O)), new MockBoardRenderer());

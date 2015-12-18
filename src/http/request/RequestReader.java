@@ -1,4 +1,4 @@
-package http.Builders;
+package http.request;
 
 import java.io.*;
 

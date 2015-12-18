@@ -1,12 +1,9 @@
-package test.Mocks;
+package test.mocks;
 
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
-/**
- * Created by nystrom on 12/1/15.
- */
 public class MockSocket extends Socket {
     InputStream input;
     OutputStream output;

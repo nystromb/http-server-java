@@ -1,8 +1,8 @@
-package test.Views;
+package test;
 
-import http.Builders.Request;
-import http.Views.BoardRenderer;
-import http.Views.Renderer;
+import http.request.Request;
+import http.views.BoardRenderer;
+import http.views.Renderer;
 import main.Boards.ThreeByThreeBoard;
 import main.Models.GameModel;
 import main.Players.GameToken;
